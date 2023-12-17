@@ -50,7 +50,7 @@
   - "Monica\_C Munoz-Torres"
   publisher: Nucleic Acids Research
   date: '2023-11-24'
-  link: https://doi.org/10.1093/nar/gkad1082
+  link: https://doi.org/gs6kmr
   orcid: 0000-0002-4655-3773
   plugin: orcid.py
   file: orcid.yaml
@@ -66,7 +66,7 @@
   - Ran Blekhman
   publisher: Cold Spring Harbor Laboratory
   date: '2023-10-11'
-  link: https://doi.org/10.1101/2023.10.11.560955
+  link: https://doi.org/gsvf5z
   orcid: 0000-0002-4655-3773
   plugin: orcid.py
   file: orcid.yaml
@@ -152,7 +152,7 @@
   - Janani Ravi
   publisher: Cold Spring Harbor Laboratory
   date: '2022-02-22'
-  link: https://doi.org/10.1101/2022.02.18.461833
+  link: https://doi.org/gstx7j
   orcid: 0000-0002-4655-3773
   plugin: orcid.py
   file: orcid.yaml
