@@ -11,6 +11,7 @@ $wrap: 800px;
   background: var(--background);
   overflow: hidden;
   box-shadow: var(--shadow);
+  border: 1px solid var(--light-gray);
 }
 
 .citation-image {
@@ -25,7 +26,7 @@ $wrap: 800px;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .citation-text {
@@ -40,6 +41,7 @@ $wrap: 800px;
   text-align: left;
   overflow-wrap: break-word;
   z-index: 0;
+  text-align: justify;
 }
 
 .citation-title,

@@ -1,23 +1,36 @@
-- id: doi:10.1371/journal.pcbi.1007128
+- id: doi:10.48550/arXiv.2311.08118
+  date: '2023-11-14'
   type: paper
-  description: Lorem ipsum _dolor_ **sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  date: 2020-12-4
-  image: https://journals.plos.org/ploscompbiol/article/figure/image?size=inline&id=info:doi/10.1371/journal.pcbi.1007128.g001&rev=2
-  buttons:
-    - type: manubot
-      link: https://greenelab.github.io/meta-review/
-    - type: source
-      text: Manuscript Source
-      link: https://github.com/greenelab/meta-review
-    - type: website
-      link: http://manubot.org/
+  image: images/sa.png
+  authors:
+  - Oscar Llorente Gonzalez
+  - "P\xE9ter Vaderna"
+  - "S\xE1ndor Laki"
+  - "Roland Kotrocz\xF3"
+  - Rita Csoma
+  - "J\xE1nos M\xE1rk Szalai-Gindl"
+  description: Explainability in Graph Neural Networks (GNNs) is a new field growing in the last few years. In this publication we address the problem of determining how important is each neighbor for the GNN when classifying a node and how to measure the performance for this specific task. To do this, various known explainability methods are reformulated to get the neighbor importance and four new metrics are presented. Our results show that there is almost no difference between the explanations provided by gradient-based techniques in the GNN domain. In addition, many explainability techniques failed to identify important neighbors when GNNs without self-loops are used.
   tags:
-    - open science
-    - collaboration
-  repo: greenelab/meta-review
+  - GAI Lab
+  - Ericsson GAIA
+  - Ericsson Research
+  buttons:
+  - type: paper
+    text: Manuscript
+    link: https://arxiv.org/abs/2311.08118
+  - type: github
+    text: Source Code
+    link: EricssonResearch/gnn-neighbors-xai
 
-- id: doi:10.1016/j.csbj.2020.05.017
-  image: https://ars.els-cdn.com/content/image/1-s2.0-S2001037020302804-gr1.jpg
-
-- id: doi:10.7554/eLife.32822
-  image: https://iiif.elifesciences.org/lax:32822%2Felife-32822-fig8-v3.tif/full/863,/0/default.webp
+- id: doi:10.48550/arXiv.2310.19573
+  date: '2023-10-30'
+  type: paper
+  # image: images/sa.png
+  authors:
+  - Sharath M Shankaranarayana
+  description: Supervised machine learning relies on the availability of good labelled data for model training. Labelled data is acquired by human annotation, which is a cumbersome and costly process, often requiring subject matter experts. Active learning is a sub-field of machine learning which helps in obtaining the labelled data efficiently by selecting the most valuable data instances for model training and querying the labels only for those instances from the human annotator. Recently, a lot of research has been done in the field of active learning, especially for deep neural network based models. Although deep learning shines when dealing with image\textual\multimodal data, gradient boosting methods still tend to achieve much better results on tabular data. In this work, we explore active learning for tabular data using boosted trees. Uncertainty based sampling in active learning is the most commonly used querying strategy, wherein the labels of those instances are sequentially queried for which the current model prediction is maximally uncertain. Entropy is often the choice for measuring uncertainty. However, entropy is not exactly a measure of model uncertainty. Although there has been a lot of work in deep learning for measuring model uncertainty and employing it in active learning, it is yet to be explored for non-neural network models. To this end, we explore the effectiveness of boosted trees based model uncertainty methods in active learning. Leveraging this model uncertainty, we propose an uncertainty based sampling in active learning for regression tasks on tabular data. Additionally, we also propose a novel cost-effective active learning method for regression tasks along with an improved cost-effective active learning method for classification tasks.
+  buttons:
+  - type: paper
+    text: Manuscript
+    link: https://arxiv.org/abs/2310.19573
+  

@@ -20,7 +20,7 @@ def main(entry):
 
     # query api
     @log_cache
-    @cache.memoize(name=__file__, expire=1 * (60 * 60 * 24))
+    @cache.memoize(name=__file__, expire=1 * (60 * 60 * 24)) #expire=1 * (60 * 60 * 24)
     def query(_id):
         url = endpoint.replace("$ORCID", _id)
         request = Request(url=url, headers=headers)
