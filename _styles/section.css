@@ -29,7 +29,7 @@ main > section:nth-of-type(odd) {
 }
 
 main > section:nth-of-type(even) {
-  background: var(--background-alt);
+  background: var(--background);
 }
 
 /*# sourceMappingURL=section.css.map */

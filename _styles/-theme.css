@@ -38,8 +38,8 @@
   --semi-bold: 500;
   --bold: 600;
   --spacing: 2;
-  --rounded: 3px;
-  --shadow: 0 0 10px 0 var(--overlay);
+  --rounded: 8px;
+  --shadow: 0 0 0px 0 var(--overlay);
 }
 
 /*# sourceMappingURL=-theme.css.map */
