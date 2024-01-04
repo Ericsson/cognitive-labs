@@ -1,7 +1,7 @@
 ---
 name: Jane Smith
 image: images/photo.jpg
-role: pi
+role: undergrad
 aliases:
   - J. Smith
   - J Smith

@@ -91,7 +91,7 @@ github:
   link: https://github.com/$VALUE
 
 twitter:
-  icon: fa-brands fa-twitter
+  icon: fa-brands fa-x-twitter
   text: Twitter
   tooltip: Twitter
   link: https://twitter.com/$VALUE

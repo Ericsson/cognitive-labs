@@ -1,15 +1,14 @@
 ---
-title: Research
+title: Publications
 nav:
   order: 1
   tooltip: Published works
 ---
 
-# {% include icon.html icon="fa-solid fa-microscope" %}Research
+# {% include icon.html icon="fa-solid fa-scroll" %}Publications
 
 In this web page all the publications from Ericsson Cognitive Software are listed
 
-{% include section.html %}
 
 ## Highlighted
 

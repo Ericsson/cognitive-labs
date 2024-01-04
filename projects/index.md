@@ -1,22 +1,17 @@
 ---
-title: Projects
+title: Labs
 nav:
   order: 2
   tooltip: Software, datasets, and more
 ---
 
-# {% include icon.html icon="fa-solid fa-wrench" %}Projects
+# {% include icon.html icon="fa-solid  fa-graduation-cap" %} Research Labs
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Our Research activity is structured in three different labs divided by topics. Each of these Labs is independent and 
 
-{% include tags.html tags="publication, resource, website" %}
 
-{% include search-info.html %}
 
-{% include section.html %}
-
-## Featured
+<!-- ## Featured -->
 
 {% include list.html component="card" data="projects" filters="group: featured" %}
 

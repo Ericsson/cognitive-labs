@@ -1,32 +1,29 @@
-- title: Cool Dataset
-  subtitle: a subtitle
+- title: GAI Lab
+  subtitle: Geometric Artficial Intelligence
   group: featured
-  image: images/photo.jpg
+  image: images/sa.png
   link: https://github.com/
-  description: Lorem ipsum _dolor sit amet_, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  repo: greenelab/lab-website-template
+  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs
   tags:
-    - resource
+    - GAI Lab
 
-- title: Cool Package
-  subtitle: a subtitle
+- title: MLR Lab
+  subtitle: Machine Learning and Reasoning
   group: featured
-  image: images/photo.jpg
+  image: images/mlr_icon.png
   link: https://github.com/
-  description: Lorem ipsum _dolor sit amet_, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  repo: greenelab/lab-website-template
+  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs
   tags:
-    - resource
+    - MLR Lab
 
-- title: Cool Tutorial
-  subtitle: a subtitle
-  image: images/photo.jpg
+- title: FAI Lab
+  subtitle: Foundational Artficial Intelligence
+  group: featured
+  image: images/fai_icon.png
   link: https://github.com/
-  description: Lorem ipsum _dolor sit amet_, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  repo: greenelab/lab-website-template
+  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs
   tags:
-    - resource
-    - publication
+    - FAI Lab
 
 - title: Cool Web App
   subtitle: a subtitle
