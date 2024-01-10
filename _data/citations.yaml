@@ -11,7 +11,7 @@
   - "J\xE1nos M\xE1rk Szalai-Gindl"
   publisher: arXiv
   date: '2023-11-14'
-  link: https://doi.org/10.48550/arxiv.2311.08118
+  link: https://doi.org/gs9w7h
   type: paper
   image: images/sa.png
   description: Explainability in Graph Neural Networks (GNNs) is a new field growing
@@ -42,7 +42,7 @@
   - Sharath M Shankaranarayana
   publisher: arXiv
   date: '2023-10-30'
-  link: https://doi.org/10.48550/arxiv.2310.19573
+  link: https://doi.org/gs9w7j
   type: paper
   description: Supervised machine learning relies on the availability of good labelled
     data for model training. Labelled data is acquired by human annotation, which
