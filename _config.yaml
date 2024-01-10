@@ -1,5 +1,7 @@
 # site properties and page defaults
-title: Ericsson Cognitive Software
+title: Ericsson CNS
+title_intro: Ericsson Cognitive Network Solutions 
+title_short: CNS
 subtitle: 
 description: An engaging 1-3 sentence description of your lab.
 header: images/ericsson_background.jpg

@@ -7,7 +7,7 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-scroll" %}Publications
 
-In this web page all the publications from Ericsson Cognitive Software are listed
+In this web page from Ericsson Cognitive Software are listed
 
 
 ## Highlighted

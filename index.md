@@ -1,9 +1,13 @@
 ---
 ---
 
-# Ericsson Cognitive Software
+<h1 style="text-align: center;">Ready to create the future?</h1>
 
 This is the official web page where all the Open-Source Reserach from Ericsson Cognitive Software is being published.
+
+<!-- ## _Some men see things as they are and ask why, I see things that never were and ask, why nothing_ -->
+
+
 
 {% include section.html %}
 
