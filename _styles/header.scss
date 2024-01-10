@@ -7,10 +7,14 @@ $big-padding: 100px;
 $collapse: 700px;
 $sticky: true;
 
-@font-face {
-  font-family: "ericsson hilda";
-  src: url("https://github.com/Verten/umi_design/blob/master/src/assets/font/hilda/ericsson-hilda-bold.ttf");
-}
+// @font-face {
+//   font-family: "ericsson hilda";
+//   src: url('../fonts/ericsson-hilda-bold.eot?#iefix') format('embedded-opentype'), 
+//     url('../fonts/ericsson-hilda-bold.woff') format('woff'),
+//     url('../fonts/ericsson-hilda-bold.woff2') format('woff2'), 
+//     url('../fonts/ericsson-hilda-bold.ttf.ttf')  format('truetype'),
+//     url('../fonts/ericsson-hilda-bold.svg#EricssonHilda-Bold') format('svg');
+// }
 
 header {
   display: flex;
@@ -41,6 +45,7 @@ header a {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
+  padding-left: 20px;
 }
 
 .logo {
@@ -159,6 +164,7 @@ header[data-big] {
   .home {
     flex-direction: column;
     flex-grow: 0;
+    padding-left: 0px;
   }
 
   .logo {
