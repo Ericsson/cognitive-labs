@@ -3,7 +3,7 @@
   group: featured
   image: images/sa.png
   link: https://github.com/
-  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs
+  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs.
   tags:
     - GAI Lab
 
@@ -12,7 +12,7 @@
   group: featured
   image: images/mlr_icon.png
   link: https://github.com/
-  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs
+  description: Research Lab focused on Optimization, Reinforcement Learning, Distributed Learning, Catastrophic Fogetting and Active Learning.
   tags:
     - MLR Lab
 
@@ -21,7 +21,7 @@
   group: featured
   image: images/fai_icon.png
   link: https://github.com/
-  description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs
+  description: Research Lab focused on Generative Artificial Intelligence, Catatrophic Forgetting and Long-term Forecasting with Temporal Model.
   tags:
     - FAI Lab
 
