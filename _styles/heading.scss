@@ -44,5 +44,6 @@ h4 {
 
 :where(h1, h2, h3, h4) > .icon {
   margin-right: 1em;
-  color: var(--light-gray);
+  // color: var(--light-gray);
+  color: rgba(1, 1, 56, 0.884);
 }

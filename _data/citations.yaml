@@ -13,7 +13,7 @@
   date: '2023-11-14'
   link: https://doi.org/10.48550/arxiv.2311.08118
   type: paper
-  image: images/sa.png
+  image: images/light.jpg
   description: Explainability in Graph Neural Networks (GNNs) is a new field growing
     in the last few years. In this publication we address the problem of determining
     how important is each neighbor for the GNN when classifying a node and how to
@@ -44,6 +44,7 @@
   date: '2023-10-30'
   link: https://doi.org/10.48550/arxiv.2310.19573
   type: paper
+  image: images/night.jpg
   description: Supervised machine learning relies on the availability of good labelled
     data for model training. Labelled data is acquired by human annotation, which
     is a cumbersome and costly process, often requiring subject matter experts. Active
