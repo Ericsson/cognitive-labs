@@ -9,7 +9,7 @@ This is the official web page of Ericsson Cognitive Labs. This is an initiative 
 
 ## Who we are?
 
-Ericsson Cognitive Labs is an initiative powered by a department inside Cognitive Network Solutions (which is within the Business Area Cloud Software and Services - BCSS), called Cognitive Software Engineering. In this department, we are focused on the optimization of cellular networks using AI. If you are interested in our products please check this web page, and if what drives you here is our publications, check our publications page or our Labs and the initiatives they are pursuing.
+Ericsson Cognitive Labs is an initiative powered by a department inside Cognitive Network Solutions (which is within the Business Area Cloud Software and Services - BCSS), called Cognitive Software Engineering. In this department, we are focused on the optimization of cellular networks using AI. If you are interested in our products please check this [web page](https://www.ericsson.com/en/portfolio/cloud-software-and-services/cognitive-network--solutions/cognitive-software), and if what drives you here is our publications, check our publications page or our Labs and the initiatives they are pursuing.
 
 
 
