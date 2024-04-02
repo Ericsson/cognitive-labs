@@ -18,13 +18,21 @@ undergrad:
   icon: fa-solid fa-user-graduate
   description: Undergraduate Student
 
-programmer:
-  icon: fa-solid fa-code
-  description: Programmer
-
 mascot:
   icon: fa-solid fa-dog
   description: Mascot
+
+scientist:
+  icon: fa-solid fa-dna
+  description: Data Scientist
+
+software:
+  icon: fa-solid fa-code
+  description: Software Engineer
+
+ndo:
+  icon: fa-solid fa-satellite-dish
+  description: NDO Expert
 
 # general
 

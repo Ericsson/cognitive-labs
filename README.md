@@ -1,5 +1,5 @@
 
-# osllogon's Website
+# Ericsson Cognitive Network Solutions
 
 Visit **[ericssonresearch.github.io/cognitive-software](https://ericssonresearch.github.io/cognitive-software)** 🚀
 

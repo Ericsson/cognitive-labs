@@ -5,9 +5,9 @@ nav:
   tooltip: Published works
 ---
 
-# {% include icon.html icon="fa-solid fa-scroll" %}Publications
+# {% include icon.html icon="fa-solid fa-scroll" %} Publications
 
-In this page all the publications from Ericsson Cognitive Network Solutions are listed, with links to the manuscript and the code to ensure reproducibility. We have also provided tags, so you can check our collaborators for each publication. 
+On this page, all the publications from Ericsson Cognitive Network Solutions are listed, with links to the manuscript and the code to ensure reproducibility. We have also provided tags, so you can check our collaborators for each publication.
 
 
 ## Highlighted
