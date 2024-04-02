@@ -5,9 +5,9 @@ nav:
   tooltip: Software, datasets, and more
 ---
 
-# {% include icon.html icon="fa-solid  fa-graduation-cap" %} Research Labs
+# {% include icon.html icon="fa-solid  fa-graduation-cap" %} Labs
 
-Our Research activity is structured in three different labs divided by topics. Each of these labs is independent but all of them follow the same guidlines to provide a high quality level in our publications, which can be found in the publications page.
+Our Research activity is structured in three different Labs divided by topics. Each of these Labs is independent but all of them follow the same guidelines to provide a high-quality level in our publications, which can be found on the publications page.
 
 
 
