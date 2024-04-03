@@ -1,1 +1,1 @@
-Sitemap: /cognitive-network-solutions/sitemap.xml
+Sitemap: /cognitive-labs/sitemap.xml
