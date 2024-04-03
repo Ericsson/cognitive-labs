@@ -65,7 +65,7 @@ jobs:
       - name: Set vars for personalization
         run: |
           user="${{ github.repository_owner }}"
-          description="An engaging 1-3 sentence description of your lab."
+          description="Ericsson Cognitive Labs, opening our AI Research to the world"
           echo "USER=${user}" >> $GITHUB_ENV
           echo "DESCRIPTION=${description}" >> $GITHUB_ENV
 
