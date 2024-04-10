@@ -11,6 +11,4 @@ links:
 
 # Rana Fawzy
 
-Senior Data Scientist with over five years of expertise in leveraging machine learning, deep learning and statistical 
-modeling to address complex business challenges. Proficient in transforming data into strategic opportunities for 
-actionable insights.
+Data scientist with over five years of experience, focusing on developing and applying machine learning and deep learning algorithms, along with statistical modeling and data analysis, specifically in the telecom industry. I’m always on the lookout for the newest and most cutting-edge algorithms to keep our work at the forefront of technology.
