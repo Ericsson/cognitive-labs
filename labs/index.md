@@ -2,7 +2,7 @@
 title: Labs
 nav:
   order: 2
-  tooltip: Software, datasets, and more
+  tooltip: Our research organization
 ---
 
 # {% include icon.html icon="fa-solid  fa-graduation-cap" %} Labs

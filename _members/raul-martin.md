@@ -5,6 +5,7 @@ role: phd
 description: AI Lead
 lab: leaders
 links:
+  linkedin: raul-martín-cuerdo-b6a53913
   email: raul.martin@ericsson.com
 ---
 
