@@ -39,8 +39,6 @@
     link: EricssonResearch/gnn-neighbors-xai
   plugin: sources.py
   file: sources.yaml
-
-
 - id: doi:10.48550/arXiv.2310.19573
   title: Model Uncertainty based Active Learning on Tabular Data using Boosted Trees
   authors:
@@ -65,18 +63,18 @@
     link: https://arxiv.org/abs/2310.19573
   plugin: sources.py
   file: sources.yaml
-
-
-- id: doi.org/10.48550/arXiv.2309.12913
-  title: "A matter of attitude: Focusing on positive and active gradients to boost saliency maps"
-  date: '2023-09-22'
-  type: paper
-  image: images/space.jpg
+- id: doi:10.48550/arXiv.2309.12913
+  title: 'A matter of attitude: Focusing on positive and active gradients to boost
+    saliency maps'
   authors:
   - Oscar Llorente Gonzalez
   - Jaime Boal
   - "Eugenio F. S\xE1nchez-\xDAbeda"
   publisher: arXiv
+  date: '2023-09-22'
+  link: https://doi.org/10.48550/arxiv.2309.12913
+  type: paper
+  image: images/space.jpg
   description: ESaliency maps have become one of the most widely used interpretability
     techniques for convolutional neural networks (CNN) due to their simplicity and
     the quality of the insights they provide. However, there are still some doubts
