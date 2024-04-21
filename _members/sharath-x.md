@@ -3,9 +3,13 @@ name: Sharath X
 image: images/members/mlr-lab/sharath.png
 role: scientist
 description: Head of MLR Lab
-lab: mlr-lab, gai-lab, fai-lab, board
+lab: mlr-lab, fai-lab, board
 links:
+  linkedin: sharath-m-s
+  github: sharath-sms
+  google-scholar: https://scholar.google.com/citations?hl=en&user=HMQHVhoAAAAJ&view_op=list_works&sortby=pubdate
   email: sharath.x@ericsson.com
+  orcid: 0000-0003-3482-4887
 ---
 
 # Sharath X

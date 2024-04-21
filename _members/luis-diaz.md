@@ -3,12 +3,14 @@ name: Luis Diaz
 image: images/members/gai-lab/luis.png
 role: scientist
 description: Head of FAI Lab
-lab: gai-lab, fai-lab, board
+lab: fai-lab, board
 links:
   linkedin: luis-felipe-diaz-9831a239
   github: luisfelipe2105
   email: luis.diaz@ericsson.com
 ---
+
+# Luis Diaz
 
 With over 10 years of experience in the telecommunications industry, I am a passionate data scientist who thrives on solving complex problems and creating innovative solutions. Currently, I work as a Data Scientist R&D at Ericsson, where I actively research and develop advanced machine learning models for the optimization of Radio Access Networks (RAN).
 

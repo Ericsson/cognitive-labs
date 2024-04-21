@@ -9,4 +9,6 @@ links:
   email: judit.badics@ericsson.com
 ---
 
+# Judit Badics
+
 A data scientist with a strong mathematical and game theoretic background who uses a multidisciplinary way of thinking to understand how ML/DL algorithms work.

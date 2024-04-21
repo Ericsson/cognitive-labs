@@ -5,7 +5,8 @@ role: phd
 description: Head of Research
 lab: leaders
 links:
-  email: raul.martin@ericsson.com
+  linkedin: philipp-frank-b557263b
+  email: philipp.frank@ericsson.com
 ---
 
-The best one when it comes to the connection between Radio and AI.
+# Philippp Frank

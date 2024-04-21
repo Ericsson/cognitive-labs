@@ -5,8 +5,11 @@ role: phd
 description: AI Research Manager
 lab: leaders
 links:
-  email: raul.martin@ericsson.com
+  linkedin: juan-ramiro
+  email: juan.ramiro@ericsson.com
 ---
+
+# Juan Ramiro
 
 Juan Ramiro is the AI Research Manager within Ericsson Cognitive Software Engineering, where he leads R&D activities with mid and long-term horizon, involving exploration of new technologies, forward-looking concepts and disruptive network optimization methodologies.
 With over 15 years of experience in the telecom industry, he has held positions related to R&D, strategy, marketing and technical sales.

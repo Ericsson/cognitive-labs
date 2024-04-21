@@ -4,8 +4,6 @@ image: images/members/gai-lab/oscar.jpeg
 role: scientist
 description: Head of GAI Lab
 lab: gai-lab, board
-aliases:
-  - Oscar Llorente Gonzalez
 links:
   linkedin: osllogon
   github: osllogon
