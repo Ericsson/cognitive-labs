@@ -71,6 +71,7 @@
   - Yak Ng-Molina
   - Juan Ramiro-Moreno
   description: This paper presents a method for optimizing wireless networks by adjusting cell parameters that affect both the performance of the cell being optimized and the surrounding cells. The method uses multiple reinforcement learning agents that share a common policy and take into account information from neighboring cells to determine the state and reward. In order to avoid impairing network performance during the initial stages of learning, agents are pre-trained in an earlier phase of offline learning. During this phase, an initial policy is obtained using feedback from a static network simulator and considering a wide variety of scenarios. Finally, agents can intelligently tune the cell parameters of a test network by suggesting small incremental changes, slowly guiding the network toward an optimal configuration. The agents propose optimal changes using the experience gained with the simulator in the pre-training phase, but they can also continue to learn from current network readings after each change. The results show how the proposed approach significantly improves the performance gains already provided by expert system-based methods when applied to remote antenna tilt optimization. The significant gains of this approach have truly been observed when compared with a similar method in which the state and reward do not incorporate information from neighboring cells.
+  publisher: IAENG-IJCS
   buttons:
   - type: paper
     text: Manuscript
