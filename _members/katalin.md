@@ -2,7 +2,7 @@
 name: Katalin Hajdú-Szücs
 image: images/members/gai-lab/katalin.jpg
 role: scientist
-lab: gai-lab
+lab: gai-lab, board
 links:
   linkedin: katalin-hajdu-szucs
   github: HSzKatalin
