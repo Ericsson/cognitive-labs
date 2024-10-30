@@ -2,7 +2,7 @@
 name: Oscar Llorente Gonzalez
 image: images/members/gai-lab/oscar.jpeg
 role: scientist
-description: Head of GAI Lab
+description: Senior Data Scientist
 lab: gai-lab, board
 links:
   linkedin: osllogon

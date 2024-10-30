@@ -2,6 +2,7 @@
 name: Rana Fawzy
 image: images/members/gai-lab/rana.png
 role: scientist
+description: Senior Data Scientist
 lab: gai-lab
 links:
   linkedin: ranafawzy

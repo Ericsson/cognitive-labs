@@ -2,7 +2,7 @@
 name: Anubhab Samal
 image: images/members/gai-lab/anubhab.png
 role: scientist
-lab: gai-lab, fai-lab
+lab: gai-lab, board
 links:
   linkedin: anubhab-samal-0a5075183
   github: samalanubhab
