@@ -2,7 +2,7 @@
 name: Michal Horemuz
 image: images/members/gai-lab/michal.jpg
 role: scientist
-description: Data Scientist
+description: Senior Data Scientist
 lab: gai-lab
 aliases:
   - Michal Horemuz

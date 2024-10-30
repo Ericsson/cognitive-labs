@@ -2,6 +2,7 @@
 name: Abdelrahman El Antably
 image: images/members/gai-lab/abdelrahman.png
 role: scientist
+description: Data Scientist II
 lab: gai-lab
 links:
   linkedin: abdelrahman-el-antably

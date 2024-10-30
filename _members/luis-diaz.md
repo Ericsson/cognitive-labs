@@ -2,7 +2,6 @@
 name: Luis Diaz
 image: images/members/gai-lab/luis.png
 role: scientist
-description: Head of FAI Lab
 lab: fai-lab, board
 links:
   linkedin: luis-felipe-diaz-9831a239

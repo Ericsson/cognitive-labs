@@ -2,7 +2,7 @@
 name: Mayar Hefny
 image: images/members/mlr-lab/mayar.jpeg
 role: scientist
-description: Head of MLR Lab
+description: Senior Data Scientist
 lab: mlr-lab, board
 links:
   linkedin: mayar-hefny

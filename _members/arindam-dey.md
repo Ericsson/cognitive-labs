@@ -2,7 +2,7 @@
 name: Arimdam Dey
 image: images/members/fai-lab/arindam.jpg
 role: scientist
-description: Head of FAI Lab
+description: Senior Data Scientist
 lab: fai-lab, board 
 links:
   linkedin: arindam-dey-576309158

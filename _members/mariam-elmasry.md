@@ -3,6 +3,7 @@ name: Mariam Elmasry
 image: images/members/gai-lab/mariam.jpeg
 role: scientist
 lab: gai-lab
+description: Senior Data Scientist
 links:
   linkedin: mariam-elmasry-
   github: mhelmasr
