@@ -1,5 +1,5 @@
 ---
-name: Dani Bazo
+name: Daniel Bazo
 image: images/members/gai-lab/dani.jpeg
 role: scientist
 description: Data Scientist
@@ -10,6 +10,7 @@ links:
   email: dani.bazo@ericsson.com
 ---
 
-# Dani Bazo
+# Daniel Bazo
 
 
+Daniel is a Data Scientist working on the classification of interference patterns in the Uplink of 4G and 5G networks. He previously worked at the Communications Engineering department of the University of Malaga in collaboration with Ericsson applying computer vision and image processing solutions.
