@@ -2,7 +2,7 @@
 name: Daniel Bazo
 image: images/members/gai-lab/dani.jpeg
 role: scientist
-description: Data Scientist
+description: Experienced Data Scientist
 lab: gai-lab
 links:
   linkedin: danibcorr
