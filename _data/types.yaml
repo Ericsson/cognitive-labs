@@ -128,6 +128,12 @@ linkedin:
   tooltip: LinkedIn
   link: https://www.linkedin.com/in/$VALUE
 
+linkedin_company:
+  icon: fa-brands fa-linkedin
+  text: LinkedIn
+  tooltip: LinkedIn
+  link: https://www.linkedin.com/company/$VALUE
+
 # alerts
 
 tip:
