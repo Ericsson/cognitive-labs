@@ -12,7 +12,7 @@ On this page, all the publications from Ericsson Cognitive Labs are listed, with
 
 ## Highlighted
 
-{% include citation.html lookup="Evaluating Neighbor Explainability for Graph Neural Networks" style="rich" %}
+{% include citation.html lookup="doi:10.1007/978-3-031-63787-2_20" style="rich" %}
 
 {% include section.html %}
 

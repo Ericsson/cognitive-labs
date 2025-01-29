@@ -1,7 +1,7 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
-- id: doi:10.48550/arXiv.2311.08118
-  title: Evaluating Neighbor Explainability for Graph Neural Networks
+- id: doi:10.1007/978-3-031-63787-2_20
+  title: "Evaluating Neighbor Explainability for\_Graph Neural Networks"
   authors:
   - Oscar Llorente Gonzalez
   - Rana Fawzy
@@ -12,9 +12,9 @@
   - "Roland Kotrocz\xF3"
   - Rita Csoma
   - "J\xE1nos M\xE1rk Szalai-Gindl"
-  publisher: arXiv
-  date: '2023-11-14'
-  link: https://doi.org/10.48550/arxiv.2311.08118
+  publisher: xAI
+  date: '2024-07-10'
+  link: https://doi.org/10.1007/978-3-031-63787-2_20
   type: paper
   image: images/light.jpg
   description: Explainability in Graph Neural Networks (GNNs) is a new field growing
@@ -33,7 +33,7 @@
   buttons:
   - type: paper
     text: Manuscript
-    link: https://arxiv.org/abs/2311.08118
+    link: https://link.springer.com/chapter/10.1007/978-3-031-63787-2_20
   - type: github
     text: Source Code
     link: EricssonResearch/gnn-neighbors-xai

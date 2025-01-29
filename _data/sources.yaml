@@ -1,5 +1,5 @@
-- id: doi:10.48550/arXiv.2311.08118
-  date: '2023-11-14'
+- id: doi:10.1007/978-3-031-63787-2_20
+  date: '2024-07-10'
   type: paper
   image: images/light.jpg
   authors:
@@ -13,6 +13,7 @@
   - Rita Csoma
   - "J\xE1nos M\xE1rk Szalai-Gindl"
   description: Explainability in Graph Neural Networks (GNNs) is a new field growing in the last few years. In this publication we address the problem of determining how important is each neighbor for the GNN when classifying a node and how to measure the performance for this specific task. To do this, various known explainability methods are reformulated to get the neighbor importance and four new metrics are presented. Our results show that there is almost no difference between the explanations provided by gradient-based techniques in the GNN domain. In addition, many explainability techniques failed to identify important neighbors when GNNs without self-loops are used.
+  publisher: xAI
   tags:
   - GAI Lab
   - Ericsson GAIA
@@ -20,7 +21,7 @@
   buttons:
   - type: paper
     text: Manuscript
-    link: https://arxiv.org/abs/2311.08118
+    link: https://link.springer.com/chapter/10.1007/978-3-031-63787-2_20
   - type: github
     text: Source Code
     link: EricssonResearch/gnn-neighbors-xai
