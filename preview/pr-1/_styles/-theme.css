@@ -1,0 +1,45 @@
+[data-dark=false] {
+  --primary: #0ea5e9;
+  --secondary: #7dd3fc;
+  --text: #000000;
+  --background: #ffffff;
+  --background-alt: #fafafa;
+  --light-gray: #e0e0e0;
+  --gray: #808080;
+  --overlay: #00000020;
+}
+
+[data-dark=true] {
+  --primary: #0ea5e9;
+  --secondary: #075985;
+  --text: #ffffff;
+  --background: #181818;
+  --background-alt: #1c1c1c;
+  --light-gray: #404040;
+  --gray: #808080;
+  --overlay: #ffffff10;
+}
+
+@font-face {
+  font-family: "ericsson hilda";
+  src: url("../fonts/ericsson-hilda-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ericsson-hilda-regular.woff") format("woff"), url("../fonts/ericsson-hilda-regular.woff2") format("woff2"), url("../fonts/ericsson-hilda-regular.ttf.ttf") format("truetype"), url("../fonts/ericsson-hilda-regular.svg#EricssonHilda-Regular") format("svg");
+}
+:root {
+  --title: "ericsson", ericsson hilda;
+  --heading: "ericsson", ericsson hilda;
+  --body: "ericsson", ericsson hilda;
+  --code: "Roboto Mono", monospace;
+  --medium: 1rem;
+  --large: 2.5rem;
+  --xl: 1.4rem;
+  --xxl: 1.6rem;
+  --thin: 200;
+  --regular: 400;
+  --semi-bold: 500;
+  --bold: 600;
+  --spacing: 2;
+  --rounded: 8px;
+  --shadow: 0 0 0px 0 var(--overlay);
+}
+
+/*# sourceMappingURL=-theme.css.map */
