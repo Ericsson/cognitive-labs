@@ -22,7 +22,7 @@ We firmly believe in open-source and contributing to the community and the world
 
 {%
   include button.html
-  link="research"
+  link="publications"
   text="See our publications"
   icon="fa-solid fa-arrow-right"
   flip=true
@@ -34,7 +34,7 @@ We firmly believe in open-source and contributing to the community and the world
 {%
   include feature.html
   image="images/light.jpg"
-  link="research"
+  link="publications"
   title="Our Research"
   text=text
 %}
@@ -45,7 +45,7 @@ As a commitment to the Open-Source community, we have created three different La
 
 {%
   include button.html
-  link="projects"
+  link="labs"
   text="Browse our Labs"
   icon="fa-solid fa-arrow-right"
   flip=true
@@ -57,7 +57,7 @@ As a commitment to the Open-Source community, we have created three different La
 {%
   include feature.html
   image="images/night.jpg"
-  link="projects"
+  link="labs"
   title="Our Labs"
   flip=true
   style="bare"
