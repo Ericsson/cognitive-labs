@@ -55,7 +55,7 @@ jobs:
 
       - name: Check if citations changed
         id: changed
-        uses: step-security/changed-files@v13
+        uses: step-security/changed-files@v45
         with:
           files: |
             _data/citations.yaml
