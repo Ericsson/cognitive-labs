@@ -53,7 +53,7 @@ jobs:
 
       - name: Check if readme changed
         id: changed
-        uses: step-security/verify-changed-files@v18
+        uses: step-security/changed-files@v13
         with:
           files: |
             README.md
