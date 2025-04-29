@@ -1,7 +1,7 @@
 - id: doi:10.1007/978-3-031-63787-2_20
   date: '2024-07-10'
   type: paper
-  image: images/light.jpg
+  image: images/papers/light.jpg
   authors:
   - Oscar Llorente Gonzalez
   - Rana Fawzy
@@ -29,7 +29,7 @@
 - id: doi:10.48550/arXiv.2310.19573
   date: '2023-10-30'
   type: paper
-  image: images/night.jpg
+  image: images/papers/night.jpg
   authors:
   - Sharath M Shankaranarayana
   description: Supervised machine learning relies on the availability of good labelled data for model training. Labelled data is acquired by human annotation, which is a cumbersome and costly process, often requiring subject matter experts. Active learning is a sub-field of machine learning which helps in obtaining the labelled data efficiently by selecting the most valuable data instances for model training and querying the labels only for those instances from the human annotator. Recently, a lot of research has been done in the field of active learning, especially for deep neural network based models. Although deep learning shines when dealing with image\textual\multimodal data, gradient boosting methods...
@@ -43,7 +43,7 @@
 
   date: '2023-09-22'
   type: paper
-  image: images/space.jpg
+  image: images/papers/space.jpg
   authors:
   - Oscar Llorente Gonzalez
   - Jaime Boal
@@ -65,7 +65,7 @@
 
   date: '2023-05-24'
   type: paper
-  image: images/cloud_city.jpg
+  image: images/papers/cloud_city.jpg
   authors:
   - Adriano Mendo
   - Jose Outes-Carnero
