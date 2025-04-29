@@ -1,14 +1,13 @@
 ---
 title: Blog
-# nav:
-#   order: 4
-#   tooltip: Musings and miscellany
+nav:
+  order: 4
+  tooltip: Our insights
 ---
 
-# {% include icon.html icon="fa-solid fa-feather-pointed" %}Blog2
+# {% include icon.html icon="fa-solid fa-feather-pointed" %}Blog
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Stay informed with our blog, where our team shares exciting insights into the ever-evolving world of artificial intelligence and telecommunications. We’re eager to explore this dynamic landscape together!
 
 {% include section.html %}
 

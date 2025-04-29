@@ -12,4 +12,4 @@ links:
 
 # Lucia Ferrer
 
-
+Lucía is a Data Scientist working on the analysis of cell patterns for 4G and 5G networks. She realized the internship for Computer Science on Ericsson, and since then has been analysing cell patterns with computer vision and forecasting methods. 
