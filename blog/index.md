@@ -5,7 +5,7 @@ nav:
   tooltip: Our insights
 ---
 
-# {% include icon.html icon="fa-solid fa-feather-pointed" %}Blog
+# {% include icon.html icon="fa-solid fa-pen-nib" %}Blog
 
 Stay informed with our blog, where our team shares exciting insights into the ever-evolving world of artificial intelligence and telecommunications. We’re eager to explore this dynamic landscape together!
 

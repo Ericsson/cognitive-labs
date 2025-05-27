@@ -56,7 +56,7 @@ As a commitment to the Open-Source community, we have created three different La
 
 {%
   include feature.html
-  image="images/horizon-launch.jpg"
+  image="images/home_pages/lab.jpg"
   link="labs"
   title="Our Labs"
   flip=true
@@ -81,7 +81,7 @@ We have a world-class team of Data Scientists and Engineers working together to 
 
 {%
   include feature.html
-  image="images/team.png"
+  image="images/home_pages/team.jpg"
   link="team"
   title="Our Team"
   text=text
@@ -103,7 +103,7 @@ Keep up with the trend through our insights on our blog.
 
 {%
   include feature.html
-  image="images/industry_vision.jpg"
+  image="images/home_pages/blog.jpg"
   link="blog"
   title="Our Insights"
   text=text
