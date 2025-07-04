@@ -3,8 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  gap: 10px;
+  padding: 10px;
   box-shadow: var(--shadow);
   position: sticky !important;
   top: 0;

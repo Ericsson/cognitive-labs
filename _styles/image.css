@@ -3,4 +3,9 @@ img {
   max-height: 100%;
 }
 
+img[src*="#center"] {
+  display: block;
+  margin: auto;
+}
+
 /*# sourceMappingURL=image.css.map */
