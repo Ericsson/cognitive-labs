@@ -5,7 +5,7 @@ nav:
   tooltip: About our team
 ---
 
-# {% include icon.html icon="fa-solid fa-users" %} Team
+# {% include icon.html icon="fa-solid fa-users" %}Team
 
 On this page we list the members of our amazing research team, listing the members of each one of the labs. Click on their profile to see how lucky we are to have them!
 
@@ -14,7 +14,7 @@ On this page we list the members of our amazing research team, listing the membe
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filters="lab: leaders" %}
+{% include list.html data="members" component="portrait" filter='lab.include?("leaders")' %}
 
 {% capture content %}
 
@@ -24,7 +24,7 @@ On this page we list the members of our amazing research team, listing the membe
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filters="lab: board" %}
+{% include list.html data="members" component="portrait" filter='lab.include?("board")' %}
 
 {% capture content %}
 
@@ -34,7 +34,7 @@ On this page we list the members of our amazing research team, listing the membe
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filters="lab: gai-lab" %}
+{% include list.html data="members" component="portrait" filter='lab.include?("gai-lab")' %}
 
 {% capture content %}
 
@@ -44,7 +44,7 @@ On this page we list the members of our amazing research team, listing the membe
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filters="lab: mlr-lab" %}
+{% include list.html data="members" component="portrait" filter='lab.include?("mlr-lab")' %}
 
 {% capture content %}
 
@@ -54,10 +54,9 @@ On this page we list the members of our amazing research team, listing the membe
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filters="lab: fai-lab" %}
+{% include list.html data="members" component="portrait" filter='lab.include?("fai-lab")' %}
 
 {% capture content %}
-
 
 <!-- {% include figure.html image="images/photo.jpg" %}
 {% include figure.html image="images/photo.jpg" %}

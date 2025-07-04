@@ -3,7 +3,8 @@ name: Antonio Jesus Diaz Cano
 image: images/members/gai-lab/antonio.jpg
 role: scientist
 description: Experienced Data Scientist
-lab: gai-lab
+lab: 
+  - gai-lab
 aliases:
   - Antonio Jesus Diaz Cano
 links:

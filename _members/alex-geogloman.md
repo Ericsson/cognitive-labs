@@ -3,7 +3,8 @@ name: Alex Geogloman
 image: images/members/leaders/alex.png
 role: phd
 description: Data Architecture Manager
-lab: leaders
+lab: 
+  - leaders
 links:
   linkedin: alexandru-geogloman
   email: alexandru.geogloman@ericsson.com

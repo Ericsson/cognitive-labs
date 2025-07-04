@@ -4,10 +4,12 @@ author: lucia-ferrer
 tags:
   - deep-learning libraries
   - framework-agnostic support
-excerpt: The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy. As these technologies become increasingly integral to business operations, their complexity expands, leading to an unprecedented fragmentation in tools and frameworks — and thus to the necessity of framework-agnostic development.
+excerpt: The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy. As these technologies become increasingly integral to business operations, their complexity expands, leading to an unprecedented fragmentation in tools and frameworks, thus to the necessity of framework-agnostic development.
 ---
 The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy[^1]. With this economic force and promising results, deep learning has exploded in capability and complexity, leading to an unstandardized development of tools and frameworks.
 Machine learning engineers today face a proliferation of frameworks – from TensorFlow and PyTorch to JAX, MXNet, and beyond. Each framework comes with its own APIs, execution paradigms, and ecosystem of tools. This variety has sparked "framework wars", where teams struggle to choose the right tool for each project without even knowing how it will develop.
+
+Nowadays to build a AI-driven software is a necessity, from top-leaders in almost whaever industry[^1], and when there is demand there is propduction. So as new products arises, new components emerge. The actual landscape of a deep-learning system has gradually evolve and grow complex more and more. And one of this fundament components, that has its own life, the frameworks in which the core is developed, and while you may argue that this is natural, and it happened in. 
 
 <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/g/11gd3905v1","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11bwp1s2k3","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/m/0h95mh8","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11t6my1_gw","geo":"","time":"2014-01-01 2025-04-29"}],"category":0,"property":""}, {"exploreQuery":"date=2014-01-01%202025-04-29&q=%2Fg%2F11gd3905v1,%2Fg%2F11bwp1s2k3,%2Fm%2F0h95mh8,%2Fg%2F11t6my1_gw&hl=en-GB","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
 
@@ -59,7 +61,7 @@ While the theoretical 'write-once, run-anywhere' paradigm for machine learning r
 [^5]: One recent paper on DL testing [Deep Learning Library Testing: Definition, Methods, and Challenges][3] Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic.
 [^6]: [Open-Source Ecosystem for Machine Learning by the Linux Foundation](https://lfai.landscape2.io/?group=companies-hosting-projects)
 
-[1]:(https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), 'Mckinsey: Global Survey on the State of AI, 2025'
+[1]:https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai 'Mckinsey: Global Survey on the State of AI, 2025'
 [2]:https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/tech-forward/open-source-in-the-age-of-ai
 [3]:https://dl.acm.org/doi/10.1145/3716497
 [4]:https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/

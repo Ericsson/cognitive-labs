@@ -1,4 +1,5 @@
 require 'liquid'
+require 'html-proofer'
 
 module Jekyll
   module MiscFilters
@@ -14,26 +15,57 @@ module Jekyll
       elsif object.is_a?(Array)
         return object
       end
-      return []
+      return object
     end
 
-    # filter a list of hashes by comma-sep'd field:value pairs
-    def data_filter(data, filters)
-      if not data.is_a?(Array) or not filters.is_a?(String)
+ 
+    def empty_binding
+      binding
+    end
+
+    # make arbitrary string into valid ruby variable name
+    def safe_var_name(name)
+      return name.to_s.gsub(/[^a-z]+/i, "_").gsub(/^_|_$/, "")
+    end
+
+    # filter a list of hashes
+    def data_filter(data, filter)
+      if not filter.is_a?(String)
         return data
       end
-      data = data.clone
-      for filter in array_filter(filters.split(","))
-        key, value = array_filter(filter.split(":"))
-        # find unspecified fields
-        if value == nil
-          data.select!{|d| d[key] == nil}
-        # find fields that match regex
-        elsif value.is_a?(String)
-          data.select!{|d| d[key].to_s =~ /#{value}/m}
+
+      # filter data
+      return data.clone.select{
+        |item|
+        # if jekyll doc collection, get hash of doc data
+        if item.is_a? Jekyll::Document
+          item = item.data
         end
-      end
-      return data
+        # start with empty context of local variables
+        b = empty_binding
+        # add item as local variable
+        b.local_variable_set("item", item)
+        # also set each item field as local variable when evaluating filter
+        item.each do |var, val|
+          b.local_variable_set(safe_var_name(var), val)
+        end
+        # whether to keep item
+        keep = true
+        begin
+          keep = !!eval(filter, b)
+        rescue NameError => e
+          b.local_variable_set(safe_var_name(e.name), nil)
+          retry
+        rescue => e
+          puts "[data_filter] ERROR: #{e.class} — #{e.message}"
+          puts "Filter: #{filter}"
+          puts "Item: #{item.inspect}"
+          keep = false
+        end
+
+        # keep/discard item
+        keep
+      }
     end
 
     # from css text, find font family definitions and construct google font url
@@ -52,6 +84,42 @@ module Jekyll
         url.delete_suffix!(";")
       end
       return url
+    end
+  end
+
+  # based on https://github.com/episource/jekyll-html-proofer
+  module HtmlProofer
+    priority = Jekyll::Hooks::PRIORITY_MAP[:high] + 1000
+
+    Jekyll::Hooks.register(:site, :post_write, priority: priority) do |site|
+      if not site.config["proofer"] == false
+        options = {
+          allow_missing_href: true,
+          enforce_https: false,
+          ignore_files: [/.*testbed.html/],
+          ignore_urls: [
+            /fonts\.gstatic\.com/,
+            /localhost:/,
+            /0\.0\.0\.0:/,
+            /dl\.acm\.org/,  # all this reject non-human requests
+            /github\.com/,
+            /twitter\.com/,
+            /linkedin\.com/,
+            /facebook\.com/,
+            /instagram\.com/,
+            /x\.com/, # for Twitter/X rebranding
+            /research/, # internal generated links
+            /ericsson\.com/,
+          ],
+        }
+
+        begin
+          HTMLProofer.check_directory(site.dest, options).run
+        rescue Exception => error
+          STDERR.puts error
+          # raise error
+        end
+      end
     end
   end
 end

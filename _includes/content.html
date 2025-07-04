@@ -8,20 +8,21 @@
 
 {% assign content = include.content %}
 
-{% assign content = content
-  | regex_replace: "<table>(.*?)</table>",
-    "<div class='table-wrapper'><table>\1</table></div>"
-%}
-
 {% assign sections = content | split: "<!-- section break -->" | array_filter %}
 
 {% for section in sections %}
-  {% assign dark = section | regex_scan: "dark: (.*);" | default: "" %}
-  {% assign background = section
-    | regex_scan: "background: (.*);"
+  {% assign dark = section
+    | regex_scan: "<dark>(.*?)</dark>"
+    | default: ""
+  %}
+  {% assign image = section
+    | regex_scan: "<background>(.*?)</background>"
     | default: nil
   %}
-  {% assign size = section | regex_scan: "size: (.*);" | default: "page" %}
+  {% assign size = section
+    | regex_scan: "<size>(.*?)</size>"
+    | default: "page"
+  %}
 
   <section
     class="background"
@@ -29,8 +30,8 @@
     {% if dark == "true" or dark == "false" %}
       data-dark="{{ dark }}"
     {% endif %}
-    {% if background %}
-      style="--image: url('{{ background | relative_url }}')"
+    {% if image %}
+      style="--image: url('{{ image | relative_url | uri_escape }}')"
     {% endif %}
   >
     {{ section }}

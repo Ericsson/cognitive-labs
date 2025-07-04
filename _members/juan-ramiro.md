@@ -3,7 +3,8 @@ name: Juan Ramiro
 image: images/members/leaders/juan.jpg
 role: phd
 description: AI Research Manager
-lab: leaders
+lab: 
+  - leaders
 links:
   linkedin: juan-ramiro
   email: juan.ramiro@ericsson.com
