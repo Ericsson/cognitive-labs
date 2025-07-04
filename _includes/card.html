@@ -2,27 +2,32 @@
 <div class="card" data-style="{{ include.style }}">
   <a
     {% if include.link %}
-      href="{{ include.link | relative_url }}"
+      href="{{ include.link | relative_url | uri_escape }}"
     {% endif %}
-    aria-label="{{ include.title | default: "card link" }}"
+    aria-label="{{ include.title | default: "card link" | regex_strip }}"
     class="card-image"
   >
-    <img
-      src="{{ include.image | relative_url }}"
-      alt="{{ include.title | default: "card image" }}"
-      loading="lazy"
-      {% include fallback.html %}
-    >
+  <img
+    src="{{ include.image | relative_url | uri_escape }}"
+    data-image-light="{{ include.image | relative_url | uri_escape }}"
+    {% if include.image_black %}
+      data-image-dark="{{ include.image_black | relative_url | uri_escape }}"
+    {% endif %}
+    alt="{{ include.title | default: 'card image' | regex_strip }}"
+    loading="lazy"
+    class="card-image"
+    {% include fallback.html %}
+  />
   </a>
 
   <div class="card-text">
     {% if include.title %}
       <a
         {% if include.link %}
-          href="{{ include.link | relative_url }}"
+          href="{{ include.link | relative_url | uri_escape }}"
         {% endif %}
         {% if include.tooltip %}
-          data-tooltip="{{ include.tooltip }}"
+          data-tooltip="{{ include.tooltip | xml_escape }}"
         {% endif %}
         class="card-title"
       >
@@ -35,7 +40,9 @@
     {% endif %}
 
     {% if include.description %}
-      {{ include.description | markdownify }}
+      <p>
+        {{ include.description | markdownify | remove: "<p>" | remove: "</p>" }}
+      </p>
     {% endif %}
 
     {% if include.tags or include.repo %}

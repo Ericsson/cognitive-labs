@@ -16,20 +16,19 @@ button {
   gap: 10px;
   max-width: calc(100% - 5px - 5px);
   margin: 5px;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border: none;
   border-radius: var(--rounded);
   background: var(--primary);
   color: var(--background);
   text-align: center;
+  font: inherit;
   font-family: var(--heading);
   font-weight: var(--semi-bold);
-  line-height: 1;
   text-decoration: none;
   vertical-align: middle;
-  -webkit-appearance: none;
   appearance: none;
-  transition-property: background, color;
+  transition: background var(--transition), color var(--transition);
 }
 
 .button:hover {

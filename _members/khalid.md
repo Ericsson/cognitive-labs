@@ -2,7 +2,8 @@
 name: Khalid M Kahloot
 image: images/members/gai-lab/khalid.jpeg
 role: scientist
-lab: gai-lab
+lab: 
+  - gai-lab
 links:
   github: kkahloots
   google-scholar: https://scholar.google.com/citations?user=dLpcPHQAAAAJ&hl=en

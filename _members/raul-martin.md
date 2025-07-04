@@ -3,7 +3,8 @@ name: Raul Martin
 image: images/members/leaders/raul.jpeg
 role: phd
 description: AI Lead
-lab: leaders
+lab: 
+  - leaders
 links:
   linkedin: raul-martín-cuerdo-b6a53913
   email: raul.martin@ericsson.com

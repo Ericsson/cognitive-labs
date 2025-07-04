@@ -1,9 +1,9 @@
-{% assign image = page.footer | default: site.footer | relative_url %}
+{% assign image = page.footer | default: site.footer %}
 {% assign dark = page.footer-dark | is_nil: site.footer-dark | is_nil: true %}
 
 <footer
   class="background"
-  style="--image: url('{{ image }}')"
+  style="--image: url('{{ image | relative_url | uri_escape }}')"
   {% if dark == true or dark == false %}
     data-dark="{{ dark }}"
   {% endif %}
@@ -24,7 +24,19 @@
   </div>
 
   <div>
-    &copy; Telefonaktiebolaget LM Ericsson 1994-{{ site.time | date: "%Y" }}
+    &copy; Telefonaktiebolaget LM Ericsson 1994-{{ site.time | date: "%Y" }} | 
+    {{ site.title }}
+    <!-- &nbsp; | &nbsp; Built with
+    <a href="https://github.com/greenelab/lab-website-template">
+      Lab Website Template
+    </a> -->
   </div>
 
+  <input
+    type="checkbox"
+    class="dark-toggle"
+    data-tooltip="Dark mode"
+    aria-label="toggle dark mode"
+    oninput="onDarkToggleChange(event)"
+  >
 </footer>

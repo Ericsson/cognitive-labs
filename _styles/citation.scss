@@ -1,39 +1,47 @@
 ---
 ---
 
-$thumb-size: 250px;
+$thumb-size: 180px;
 $wrap: 800px;
+
+.citation-container {
+  container-type: inline-size;
+}
 
 .citation {
   display: flex;
-  margin: 15px 0;
+  margin: 20px 0;
   border-radius: var(--rounded);
   background: var(--background);
   overflow: hidden;
   box-shadow: var(--shadow);
-  border: 1px solid var(--light-gray);
+  // border: 1px solid var(--light-gray);
 }
 
 .citation-image {
-  position: relative;
+  // position: relative;
   width: $thumb-size;
-  flex-shrink: 0;
+  flex-shrink: 0; 
+  display: flex;
+  height: auto;    
   // box-shadow: var(--shadow);
 }
 
 .citation-image img {
-  position: absolute;
-  inset: 0;
+  // position: absolute;
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  inset: 0;
+
 }
 
 .citation-text {
   position: relative;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   max-width: 100%;
   height: min-content;
   padding: 20px;
@@ -41,7 +49,7 @@ $wrap: 800px;
   text-align: left;
   overflow-wrap: break-word;
   z-index: 0;
-  text-align: justify;
+  // text-align: justify;
 }
 
 .citation-title,
@@ -49,7 +57,7 @@ $wrap: 800px;
 .citation-details,
 .citation-description {
   width: 100%;
-  line-height: calc(var(--spacing) - 0.4);
+  // line-height: calc(var(--spacing) - 0.4);
 }
 
 .citation-title {
@@ -86,7 +94,7 @@ $wrap: 800px;
   margin: 0;
 }
 
-@media (max-width: $wrap) {
+@container (max-width: #{$wrap}) {
   .citation {
     flex-direction: column;
   }

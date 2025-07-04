@@ -2,7 +2,8 @@
 name: Judit Badics
 image: images/members/gai-lab/judit.jpg
 role: scientist
-lab: gai-lab
+lab: 
+  - gai-lab
 links:
   linkedin: judit-badics-19267540
   github: judit-b

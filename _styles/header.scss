@@ -1,8 +1,8 @@
 ---
 ---
 
-$logo-big: 180px;
-$logo: 80px;
+$logo-big: 150px;
+$logo: 40px;
 $big-padding: 100px;
 $collapse: 700px;
 $sticky: true;
@@ -21,10 +21,9 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
+  gap: 20px;
+  padding: 20px;
   box-shadow: var(--shadow);
-
   @if $sticky {
     position: sticky !important;
     top: 0;
@@ -45,7 +44,6 @@ header a {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
-  padding-left: 20px;
 }
 
 .logo {
@@ -53,30 +51,28 @@ header a {
 }
 
 .logo > * {
+  width: unset;
   height: 100%;
 }
 
-.title {
+.title-text {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 20px;
   min-width: 0;
   font-family: "ericsson hilda";
   text-align: left;
-  padding: 20px;
 }
 
-// main title
-.title > *:first-child {
+.title {
   font-size: var(--large);
 }
 
-// subtitle
-.title > *:last-child {
-  opacity: 1;
-  font-weight: var(--large);
+.subtitle {
+  opacity: 0.65;
+  font-weight: var(--thin);
 }
 
 .nav-toggle {
@@ -86,10 +82,8 @@ header a {
   height: 30px;
   margin: 0;
   color: var(--text);
-  -webkit-appearance: none;
   appearance: none;
-  transition-property: background;
-  // background-color: black;
+  transition: background var(--transition);
 }
 
 .nav-toggle:after {
@@ -99,10 +93,10 @@ header a {
   top: 50%;
   color: var(--text);
   font-size: 15px;
-  font-family: "ericsson";
+  font-family: "Font Awesome 6 Free"; 
+  // This font is for fab-bars in the nav small (for mobile)
   font-weight: 900;
   transform: translate(-50%, -50%);
-  // background-color: black;
 }
 
 .nav-toggle:checked:after {
@@ -116,14 +110,12 @@ nav {
   flex-wrap: wrap;
   gap: 10px;
   font-family: var(--heading);
-  text-transform: uppercase;
-  background-color: black;
-  padding: 0px;
-  width: 100%;
+  text-transform: uppercase;  
 }
 
 nav > a {
-  padding: 15px;
+  padding: 5px;
+  padding: 10px;
 }
 
 nav > a:hover {
@@ -131,7 +123,6 @@ nav > a:hover {
 }
 
 header:not([data-big]) {
-  padding: 30px 0px 0px 0px;
   @media (max-width: $collapse) {
     justify-content: flex-end;
 
@@ -147,6 +138,7 @@ header:not([data-big]) {
       align-items: flex-end;
       flex-direction: column;
       width: 100%;
+      background-color: none;
     }
   }
 }
@@ -156,7 +148,12 @@ header[data-big] {
   align-items: center;
   flex-direction: column;
   padding: $big-padding 0px 0px 0px;
-
+  
+  nav {
+    background-color: black;
+    width: 100%;
+  }
+  
   @if $sticky {
     top: unset;
   }
@@ -164,24 +161,24 @@ header[data-big] {
   .home {
     flex-direction: column;
     flex-grow: 0;
-    padding-left: 0px;
   }
 
   .logo {
     height: $logo-big;
+    flex-shrink: 0;
   }
 
-  .title {
+  .title-text {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .title > *:first-child {
+  .title {
     font-size: var(--xxl);
   }
 
-  .title > *:last-child {
+  .subtitle {
     font-size: var(--large);
   }
 }

@@ -16,19 +16,19 @@ RUN VERSION=$(grep -A 1 'BUNDLED WITH' Gemfile.lock | tail -n 1 | xargs); \
 # install Python and venv tools
 RUN apt update && apt install -y python3 python3-venv python3-pip
 
-# create and activate venv, then install requirements (easier package management)
 RUN python3 -m venv /opt/venv && \
     /opt/venv/bin/pip install --upgrade pip && \
-    /opt/venv/bin/pip install --no-cache-dir --requirement ./requirements.txt
+    /opt/venv/bin/pip install --no-cache-dir --requirement ./requirements.txt && \
+    /opt/venv/bin/pip install watchdog
+
 
 # set the virtual env as default
 ENV PATH="/opt/venv/bin:$PATH"
 RUN apt update && apt install -y python3 python3-pip
 
-# install python package for listening for file changes
-RUN pip install "watchdog[watchmedo]==3.0.0"
+# install python
+RUN apt update && apt install -y python3 python3-pip
 
-# ports used by jekyll
 EXPOSE 4000
 EXPOSE 35729
 
