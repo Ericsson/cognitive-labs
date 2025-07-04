@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/cognitive-labs/preview/pr-2/feed.xml" rel="self" type="application/atom+xml" /><link href="/cognitive-labs/preview/pr-2/" rel="alternate" type="text/html" /><updated>2025-07-04T19:23:44+00:00</updated><id>/cognitive-labs/preview/pr-2/feed.xml</id><title type="html">Cognitive Labs - Ericsson</title><subtitle>Ericsson Cognitive Labs, opening our AI Research to the world</subtitle><entry><title type="html">Framework-Agnostic Libraries are needed</title><link href="/cognitive-labs/preview/pr-2/2025/06/12/framework-agnostic-blogy.html" rel="alternate" type="text/html" title="Framework-Agnostic Libraries are needed" /><published>2025-06-12T00:00:00+00:00</published><updated>2025-07-04T19:22:20+00:00</updated><id>/cognitive-labs/preview/pr-2/2025/06/12/framework-agnostic-blogy</id><content type="html" xml:base="/cognitive-labs/preview/pr-2/2025/06/12/framework-agnostic-blogy.html"><![CDATA[<p>Deep learning has grown fast, <em>really fast</em>. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full of TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.</p>
+
+<p>For machine learning engineers, it’s like walking through a forest where every path leads to a different framework, and no one’s really sure which one will still exist in five years.</p>
+
+<h2 id="so-whats-the-issue">So, what’s the issue?</h2>
+
+<p>These days, building AI-powered products isn’t optional — it’s expected. And as demand grows, so do the tools. The result? A tangled mess of components, many of which depend heavily on the framework they’re built in. There is no fault to be foun as it’s natural when a field moves fast, but it’s messy and unpractical.</p>
+
+<p>You might think, “Well, that’s just how it goes,” but here’s the thing: frameworks have a life of their own. And if you’ve ever been stuck with a deprecated tool or spent weeks porting models between frameworks, you know how painful that can get.</p>
+
+<p>(Here’s a quick reminder of how these trends have changed over time)</p>
+
+<!-- Google Trends embed remains here -->
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"></script>
+<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/g/11gd3905v1","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11bwp1s2k3","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/m/0h95mh8","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11t6my1_gw","geo":"","time":"2014-01-01 2025-04-29"}],"category":0,"property":""}, {"exploreQuery":"date=2014-01-01%202025-04-29&q=%2Fg%2F11gd3905v1,%2Fg%2F11bwp1s2k3,%2Fm%2F0h95mh8,%2Fg%2F11t6my1_gw&hl=en-GB","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+
+<h2 id="the-ever-shifting-framework-landscape">The Ever-Shifting Framework Landscape</h2>
+
+<p>Frameworks aren’t static. Some evolve (like TensorFlow 2), others fade away (remember Theano?), and new ones (like JAX) pop up with killer features. Each has its own execution style, APIs, and toolchains — and that means a steep learning curve every time you switch.</p>
+
+<p>This complexity is a real blocker. In fact, over 90% of companies plan to ramp up their AI investments, but only 1% think their AI capabilities are where they should be. One major reason? Fragmentation at the foundation — right at the framework level.</p>
+
+<p>Different teams want different things. Researchers love PyTorch for fast prototyping. JAX shines in large-scale parallel computing. TensorFlow dominates in production and mobile deployments. And if you’re trying to blend open-source models into production systems, it gets even trickier. You end up mixing and matching frameworks — sometimes within the same product.</p>
+
+<h2 id="why-this-hurts-more-than-you-think">Why This Hurts (More Than You Think)</h2>
+
+<p>When your tech stack is tied tightly to one framework, you run into problems:</p>
+
+<ul>
+  <li>
+    <p><strong>Lock-in is real.</strong> If a library loses support (like Theano) or shifts direction (like TensorFlow 1 to 2), your whole system might be at risk. Building on top of multi-backend tools gives you some insurance.</p>
+  </li>
+  <li>
+    <p><strong>Best tool for the job? Not always easy.</strong> Some frameworks do things better than others — physics simulations, distributed training, edge deployments. A rigid stack limits your options.</p>
+  </li>
+  <li>
+    <p><strong>Reproducibility gets tricky.</strong> Even porting models between major libraries — PyTorch to ONNX, TF to JAX — can be a pain. Things like random seeds, execution modes, tensor shapes, or custom gradients often break silently.</p>
+  </li>
+  <li>
+    <p><strong>Deploying models is harder than it should be.</strong> AI models don’t live in one place. They train in the cloud, run on edge devices, serve millions in real-time. Framework-agnostic formats like ONNX or SavedModel make this easier — but only if you design for it.</p>
+  </li>
+</ul>
+
+<h2 id="whats-the-fix-framework-agnostic--multi-framework-approaches">What’s the Fix? Framework-Agnostic &amp; Multi-Framework Approaches</h2>
+
+<p>Instead of betting on a single framework, more teams are designing tools and workflows that work across multiple. That’s the move: <em>framework-agnostic development</em>. Here’s what that looks like:</p>
+
+<ul>
+  <li><strong>Use high-level libraries that support multiple backends.</strong> Think: Keras 3.0 — one model definition, works on TensorFlow, JAX, or PyTorch.</li>
+  <li><strong>Model formats like ONNX.</strong> Export once, run it wherever.</li>
+  <li><strong>Testing frameworks that compare behavior across libraries.</strong> Think: differential testing to catch subtle differences.</li>
+  <li><strong>Interop-focused projects.</strong> OpenXLA is a good example — it’s a shared compiler backend supported by Google that works across TF, JAX, and now PyTorch (via Torch XLA).</li>
+</ul>
+
+<p>This shift is happening gradually. PyTorch and TensorFlow are even borrowing ideas from each other. TF2 got eager execution from PyTorch, and PyTorch 2.0 added <code class="language-plaintext highlighter-rouge">torch.compile</code> — similar to how XLA optimizes graphs in TF or JAX. These aren’t just nice features — they’re steps toward a shared ecosystem.</p>
+
+<h2 id="examples-in-the-wild">Examples in the Wild</h2>
+
+<ul>
+  <li><a href="https://keras.io/keras_3/">Keras 3.0</a>: Write code once, run on TF, JAX, or PyTorch.</li>
+  <li><strong>ONNX Runtime</strong>: Load and run models on anything from CPUs to mobile to cloud GPUs.</li>
+  <li><strong>Hugging Face Diffusers</strong>: Train or use generative models with either PyTorch or TensorFlow.</li>
+  <li><strong>Flower</strong>: A federated learning framework that abstracts backend differences.</li>
+</ul>
+
+<!-- Landscape embed view -->
+<iframe src="https://landscape.lfaidata.foundation/embed/embed.html?base-path=&amp;classify=category&amp;key=deep-learning&amp;headers=true&amp;category-header=true&amp;category-in-subcategory=false&amp;title-uppercase=false&amp;title-alignment=left&amp;title-font-family=sans-serif&amp;title-font-size=13&amp;style=shadowed&amp;bg-color=%2319006d&amp;fg-color=%23ffffff&amp;item-modal=false&amp;item-name=false&amp;size=md&amp;items-alignment=left" style="width:100%;height:600px;display:block;border:none;"></iframe>
+
+<p><em>Snapshot of the growing deep learning ecosystem</em></p>
+
+<h2 id="but-its-not-easy">But… It’s Not Easy</h2>
+
+<p>As great as framework-agnostic sounds, making it work is tough.</p>
+
+<ul>
+  <li>Different frameworks handle things like tensor ops, devices, or gradients in <em>very</em> different ways.</li>
+  <li>PyTorch is dynamic, JAX is functional and stateless, and TF… well, depends on the version.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>PyTorch</th>
+      <th>TensorFlow</th>
+      <th>JAX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default shape format</td>
+      <td>NCHW</td>
+      <td>NHWC</td>
+      <td>NHWC</td>
+    </tr>
+    <tr>
+      <td>Device placement</td>
+      <td>Explicit (<code class="language-plaintext highlighter-rouge">.to(device)</code>)</td>
+      <td>Implicit (Graph or <code class="language-plaintext highlighter-rouge">.device</code>)</td>
+      <td>Functional (<code class="language-plaintext highlighter-rouge">jax.device_put</code>)</td>
+    </tr>
+    <tr>
+      <td>Requires gradient?</td>
+      <td><code class="language-plaintext highlighter-rouge">requires_grad=True</code></td>
+      <td><code class="language-plaintext highlighter-rouge">tf.GradientTape()</code> context</td>
+      <td><code class="language-plaintext highlighter-rouge">jax.grad()</code> functional API</td>
+    </tr>
+    <tr>
+      <td>Mutability</td>
+      <td>Mutable tensors</td>
+      <td>Usually mutable</td>
+      <td>Immutable (<code class="language-plaintext highlighter-rouge">pure functions</code>)</td>
+    </tr>
+    <tr>
+      <td>Randomness</td>
+      <td>Global RNG</td>
+      <td>Graph seed / local seed</td>
+      <td>Explicit PRNGKey</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Writing one model that works across all three? Possible, but fragile.</li>
+</ul>
+
+<!-- Include this once in your base layout (if not already present) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+<!-- Three-column comparison layout -->
+<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; margin-top: 2rem;">
+
+  <!-- PyTorch -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>PyTorch</h5>
+    <pre><code class="language-python">
+import torch.nn as nn
+
+class TorchModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(32, 10)
+
+    def forward(self, x):
+        return self.fc(x)
+    </code></pre>
+  </div>
+
+  <!-- JAX -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>JAX (Flax)</h5>
+    <pre><code class="language-python">
+import flax.linen as nn
+
+class JAXModel(nn.Module):
+    @nn.compact
+    def __call__(self, x):
+        return nn.Dense(10)(x)
+    </code></pre>
+  </div>
+
+  <!-- Agnostic -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>Framework-Agnostic</h5>
+    <pre><code class="language-python">
+def linear(x, w, b):
+    return x @ w + b
+    </code></pre>
+  </div>
+
+</div>
+
+<p>So, multi-backend support is often the compromise. You write backend-specific code, sometimes in parallel — but now you’re maintaining N versions of the same functionality. That’s a recipe for bugs. Automated testing and good abstractions are a must here.</p>
+
+<p>Luckily, tool support is growing. There’s active research into model verification, bug detection, and better conversion tools. As the community embraces this direction, the ecosystem becomes more robust.</p>
+
+<h2 id="where-were-headed">Where We’re Headed</h2>
+
+<p>The ideal? A world where ML engineers can <em>write once, run anywhere</em> — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We’re not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer.</p>
+
+<p>If your team is building anything meant to last more than a couple years, thinking about framework-agnostic design early on can save you a lot of pain later.</p>
+
+<hr />
+
+<p>Let’s build for the long term — even if the frameworks keep changing under our feet.</p>]]></content><author><name>lucia-ferrer</name></author><category term="deep-learning libraries" /><category term="framework-agnostic support" /><summary type="html"><![CDATA[Deep learning has grown fast, really fast. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full of TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.]]></summary></entry><entry><title type="html">The Case for Framework-Agnostic Development in ML/DL Software Systems</title><link href="/cognitive-labs/preview/pr-2/2025/04/24/multi-backend-post.html" rel="alternate" type="text/html" title="The Case for Framework-Agnostic Development in ML/DL Software Systems" /><published>2025-04-24T00:00:00+00:00</published><updated>2025-07-04T19:22:20+00:00</updated><id>/cognitive-labs/preview/pr-2/2025/04/24/multi-backend-post</id><content type="html" xml:base="/cognitive-labs/preview/pr-2/2025/04/24/multi-backend-post.html"><![CDATA[<p>The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. With this economic force and promising results, deep learning has exploded in capability and complexity, leading to an unstandardized development of tools and frameworks.
+Machine learning engineers today face a proliferation of frameworks – from TensorFlow and PyTorch to JAX, MXNet, and beyond. Each framework comes with its own APIs, execution paradigms, and ecosystem of tools. This variety has sparked “framework wars”, where teams struggle to choose the right tool for each project without even knowing how it will develop.</p>
+
+<p>Nowadays to build a AI-driven software is a necessity, from top-leaders in almost whaever industry<sup id="fnref:1:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, and when there is demand there is propduction. So as new products arises, new components emerge. The actual landscape of a deep-learning system has gradually evolve and grow complex more and more. And one of this fundament components, that has its own life, the frameworks in which the core is developed, and while you may argue that this is natural, and it happened in.</p>
+
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"></script>
+<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/g/11gd3905v1","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11bwp1s2k3","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/m/0h95mh8","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11t6my1_gw","geo":"","time":"2014-01-01 2025-04-29"}],"category":0,"property":""}, {"exploreQuery":"date=2014-01-01%202025-04-29&q=%2Fg%2F11gd3905v1,%2Fg%2F11bwp1s2k3,%2Fm%2F0h95mh8,%2Fg%2F11t6my1_gw&hl=en-GB","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+
+<p>The landscape shifts quickly as the frameworks coexist, emerge and disappear over time, each with distinct faults, development patterns, and learning curves. And the image is further complicated by the physical backend dependencies of machine learning pipelines, as seen in the well-known landscape of deep learning hidden debt paper from 2015 in NeurIPS, Figure 1. An bringing it to more recent days with growing tooling maturity to cover some sections, recent studies still highlight technical debt even at the framework level — including design, compatibility, and algorithmic debt across major deep learning libraries<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>.</p>
+
+<p><img src="/images/posts/hidden_debt.svg#center" alt="Hidden Technical Debt, NIPS’15" /></p>
+
+<p>These realities contribute to a broader organizational gap: although over 90% of companies plan to increase AI investments in the next three years, only 1% currently feel they have fully mature AI capabilities; one major factor -  fragmentation and instability at the foundational level of machine learning infrastructure.</p>
+
+<p>In today’s actual picture, different stakeholders gravitate towards different frameworks: researchers frequently prototype in PyTorch for flexibility, the industry favours JAX for high-performance scaling due to large-scale model/data parallelism, and deployment is often executed on Tensorflow or ONNX  prioritizing cross-platform compatibility across CPUs, GPUs, and mobile devices. Integrating open-source models into enterprise solutions<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup> further complicates the ecosystem, as developers frequently blend external and proprietary components into their AI portfolios.</p>
+
+<p>Adding up all these preferences, open-sourced serialized models, and common practices lead to bottlenecks and impact three critical dimensions: reproducibility, portability, and future maintainability for all stages from research to product.</p>
+
+<p>Framework-agnostic and multi-framework support approaches are emerging as important strategies, paired with better toolchains, to address the challenges of reproducibility, deployment flexibility, and evolving infrastructure demands. Interoperability efforts also enable teams to leverage the best tool for each specific task more easily, reducing the impact of framework-specific limitations over time.</p>
+
+<ul>
+  <li>
+    <p><strong>avoiding lock-in</strong>  - Avoids complete dependency on the community of that library, best example: Theano or TensorFlow v1.X. Using high-level libraries that support multiple backends ensures the stability of the project through years and new structural changes on big libraries, by loss of community, change direction or external introduction of breaking changes.</p>
+  </li>
+  <li>
+    <p><strong>leveraging best-of-breed tools</strong> - Each framework historically had its strengths, which has been the main reason for the fragmented ecosystem, and while PyTorch is closing the gap, there are still performance improvements on other libraries more specific to use cases, such as physics simulations or serving infrastructures, allowing interoperability without or with minimal code changing.</p>
+  </li>
+  <li>
+    <p><strong>reproducibility across labs and infrastructure</strong> - Moving models between frameworks today — even from TensorFlow to JAX or PyTorch to ONNX — requires careful handling of graph execution modes, random number generators (PRNGs), custom gradient logic, tensor shapes, and XLA compilation behaviours. Framework-agnostic systems reduce these friction points, facilitating faster collaboration across research groups, product teams, and deployment environments.</p>
+  </li>
+  <li>
+    <p><strong>deployment flexibility</strong> - In modern enterprises, models often traverse diverse infrastructures, training on cloud GPUs, optimizing for mobile inference, serving at the edge, or scaling across distributed clusters. Framework-agnostic development, supported by common serialization formats like ONNX or SavedModel, allows seamless transitions and broadens deployment options.</p>
+  </li>
+</ul>
+
+<p>Without an intentional move toward agnosticism, organizations risk accumulating technical debt that could bottleneck their innovation, scaling, and maintenance efforts for years.</p>
+
+<p>In the present, the boundary between frameworks is not as rigid as before. PyTorch and TensorFlow have influenced each other: TensorFlow 2 adopted PyTorch-like eager execution, and PyTorch 2.0 introduced an optionally compiled mode (torch.compile) to optimize models much like XLA does for TensorFlow/JAX. Google’s OpenXLA project (open-sourcing the XLA compiler and encouraging community contribution) creates a shared compiler backend for JAX, TensorFlow, and PyTorch (via Torch XLA). If successful, these frameworks could eventually rely on the same lower-level compiler for graphs, leading to more consistent performance and easier cross-framework equivalence. Similarly, there is collaboration on defining standard op sets (e.g., TensorFlow and PyTorch teams working with ONNX to ensure new ops can round-trip). All of this industry effort is gradually moving us toward a world where the choice of framework is more about user preference and less about fundamental capability gaps.</p>
+
+<p>On the other hand, high-level libraries continue to emerge — often tied tightly to specific backends<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>. These high-level libraries, being open source, are inherently subject to issues — both within their own codebases and through their dependencies on backend-specific functionality. The main direction of these libraries should transition towards multi-backend support. The best well-known early adopter of high-level APIs is <a href="https://keras.io/keras_3/">Keras 3.0</a>, which reimagined itself as a truly backend-agnostic API, able to run the exact model code on TensorFlow, JAX, and or PyTorch. ONNX Runtime offers flexible execution of exported models across CPU, GPU, and specialized accelerators; Hugging Face Diffusers now supports model training and inference across PyTorch and TensorFlow; or Flower enables federated learning across heterogeneous clients, abstracting backend differences.</p>
+
+<!-- Landscape embed view -->
+<iframe src="https://landscape.lfaidata.foundation/embed/embed.html?base-path=&amp;classify=category&amp;key=deep-learning&amp;headers=true&amp;category-header=true&amp;category-in-subcategory=false&amp;title-uppercase=false&amp;title-alignment=left&amp;title-font-family=sans-serif&amp;title-font-size=13&amp;style=shadowed&amp;bg-color=%2319006d&amp;fg-color=%23ffffff&amp;item-modal=false&amp;item-name=false&amp;size=md&amp;items-alignment=left" style="width:100%;height:600px;display:block;border:none;"></iframe>
+
+<p><em>Landscape of frameworks, tools and hosting spaces for DL</em><sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">5</a></sup></p>
+
+<p>Yet, achieving true framework-agnostic capabilities introduces significant technical complexity despite the trends of the practical engineering solution already being adopted. Abstracting backend operations—such as tensor manipulations, device allocation, and automatic differentiation— without performance penalties or semantic inconsistencies is challenging due to fundamental differences in each framework’s underlying architecture. Deep incompatibilities persist in dynamic graph frameworks (e.g., PyTorch) versus static graph frameworks (e.g., early TensorFlow) or, more impactful nowadays, the functional purity assumptions in JAX in contrast with stateful behaviours in PyTorch and TensorFlow.</p>
+
+<p>As abstraction is not yet a well-adopted solution, multi-backend support is the alternative solution. However, it still carries previous challenges and imposes more effort on researchers and developers as there is a need to implement n times the same functionality (being n the number of backends supported). With pseudo-code duplication and incompatibilities, there is a high risk of impactful bugs being present. Hence, rigorous, automated testing is critical to ensure correctness and reliability in single and multi-framework environments<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>.</p>
+
+<p>Despite these complexities, the ecosystem of tools for model conversion and verification (such as differential testers that compare outputs from two frameworks for the same model) is also developing, pushed by the momentum towards framework-agnostic across the machine learning community. Standardizing functionalities, rigorous testing practices, and robust abstraction layers are increasingly seen as key enablers for sustainable innovation and scalable operationalization of AI technologies in industry and academia.
+While the theoretical ‘write-once, run-anywhere’ paradigm for machine learning remains an aspirational goal, ongoing collaboration among framework developers, hardware vendors, and users suggests meaningful progress is already underway.</p>
+
+<hr />
+
+<!-- [^2]: [ACM Transactions on SE and Methodology 2021](https://doi.org/10.1145/3453478) implies that this accelerating rate contributes directly to hidden technical debt, making consistent maintenance, integration and deployment challenging. -->
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>According to <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" title="Mckinsey: Global Survey on the State of AI, 2025">Mckinsey global survey</a> on the corporation view of AI, deep learning and artificial intelligence are integrated into at least one business function by 78% of respondents. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2">
+      <p>The paper <a href="https://arxiv.org/pdf/2409.11826">A Taxonomy of Self-Admitted Technical Debt in Deep Learning Systems</a> found that i) there is a significant number of technical debt in all the studied deep learning frameworks. ii) there is design debt, defect debt, documentation debt, test debt, requirement debt, compatibility debt, and algorithm debt in deep learning frameworks. iii) the majority of the technical debt in deep learning framework is design debt (24.07% - 65.27%), followed by requirement debt (7.09% - 31.48%) and algorithm debt (5.62% - 20.67%). In some projects, compatibility debt accounts for more than 10%. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>As noted by McKinsey’s<a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/tech-forward/open-source-in-the-age-of-ai">Open Source in the Age of AI (2023)</a>, around 92% of companies reported that they use open-source software in at least one of their AI initiatives. The survey also highlights that open-source components are increasingly critical not just for research prototyping, but also for production deployments in enterprise settings. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Examples include: i) The ecosystem built over PyTorch: PyTorch Geometric, TorchText, TorchAudio, and third-party libraries like Pyro and Stable Baselines 3 (SB3). ii) The TensorFlow ecosystem: APIs like TensorFlow Lite, TFX, TensorFlow.js, and extensions such as TensorFlow Probability, TensorFlow GNN, and TensorFlow Quantum (plus projects like Sonnet). iii) Other frameworks: Stable Baselines (SB3) is building SBX for reinforcement learning with JAX or <a href="https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/">Google DeepMind’s libraries</a> including dm-haiku (neural networks), MCTX (Monte Carlo tree search), Jraph (graph neural networks), and physics simulators like JAX MD. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p><a href="https://lfai.landscape2.io/?group=companies-hosting-projects">Open-Source Ecosystem for Machine Learning by the Linux Foundation</a> <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>One recent paper on DL testing <a href="https://dl.acm.org/doi/10.1145/3716497">Deep Learning Library Testing: Definition, Methods, and Challenges</a> Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>lucia-ferrer</name></author><category term="deep-learning libraries" /><category term="framework-agnostic support" /><summary type="html"><![CDATA[The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy. As these technologies become increasingly integral to business operations, their complexity expands, leading to an unprecedented fragmentation in tools and frameworks, thus to the necessity of framework-agnostic development.]]></summary></entry></feed>
