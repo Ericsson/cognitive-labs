@@ -410,12 +410,6 @@
       
     
       
-        <a href="/cognitive-labs/blog/" data-tooltip="Our insights">
-          Blog
-        </a>
-      
-    
-      
         <a href="/cognitive-labs/contact/" data-tooltip="Email, address, and location">
           Contact
         </a>
@@ -445,10 +439,11 @@
   
 
   <section class="background" data-size="page">
-    <h1 id="blog">
-<i class="icon fa-solid fa-pen-nib"></i>Blog</h1>
+    <h1 id="blog2">
+<i class="icon fa-solid fa-feather-pointed"></i>Blog2</h1>
 
-<p>Stay informed with our blog, where our team shares exciting insights into the ever-evolving world of artificial intelligence and telecommunications. We’re eager to explore this dynamic landscape together!</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </section>
 
   
@@ -471,53 +466,37 @@
 
 <div class="tags" data-link="/cognitive-labs/blog/">
     
-      <a href='/cognitive-labs/blog/?search="tag:%20deep-learning%20libraries"' class="tag" data-tooltip='Show items with the tag "deep-learning libraries"'>
-        deep-learning libraries
+      <a href="/cognitive-labs/blog/?search=%22tag:%20biology%22" class="tag" data-tooltip='Show items with the tag "biology"'>
+        biology
       </a>
     
-      <a href='/cognitive-labs/blog/?search="tag:%20framework-agnostic%20support"' class="tag" data-tooltip='Show items with the tag "framework-agnostic support"'>
-        framework-agnostic support
+      <a href="/cognitive-labs/blog/?search=%22tag:%20medicine%22" class="tag" data-tooltip='Show items with the tag "medicine"'>
+        medicine
+      </a>
+    
+      <a href="/cognitive-labs/blog/?search=%22tag:%20big%20data%22" class="tag" data-tooltip='Show items with the tag "big data"'>
+        big data
       </a>
     
   </div>
 
 <div class="search-info"></div>
 
+<h3 id="2023">2023</h3>
+
 <div class="post-excerpt">
   
   
-  <a href="/cognitive-labs/2025/04/24/multi-backend-post.html">The Case for Framework-Agnostic Development in ML/DL Software Systems</a>
+  <a href="/cognitive-labs/2023/02/23/example-post-3.html">Example post 3</a>
 
   <div class="post-info">
   
     
     
-      
-
-<div class="portrait-wrapper">
-  <a href="/cognitive-labs/members/lucia-ferrer.html" class="portrait" data-style="tiny" aria-label="Lucia Ferrer">
-    <img src="/cognitive-labs/images/members/gai-lab/lucia.jpg" class="portrait-image" alt="member portrait" loading="lazy" onerror="this.src = '/cognitive-labs/images/fallback.svg'; this.onerror = null;">
-
-    
-      <span class="portrait-text">
-        
-          <span class="portrait-name">
-            Lucia Ferrer
-          </span>
-        
-
-        
-          <span class="portrait-role">
-            
-            <i class="icon fa-solid fa-dna"></i>
-            <span>Experienced Data Scientist</span>
-          </span>
-        
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>john-doe</span>
       </span>
-    
-  </a>
-</div>
-
     
   
 
@@ -527,7 +506,7 @@
   
     <span data-tooltip="Originally published on">
       <i class="icon fa-regular fa-calendar"></i>
-      <span>April 24, 2025</span>
+      <span>February 23, 2023</span>
     </span>
   
 
@@ -545,12 +524,12 @@
 
   <div class="tags" data-link="/cognitive-labs/blog">
     
-      <a href='/cognitive-labs/blog?search="tag:%20deep-learning%20libraries"' class="tag" data-tooltip='Show items with the tag "deep-learning libraries"'>
-        deep-learning libraries
+      <a href="/cognitive-labs/blog?search=%22tag:%20biology%22" class="tag" data-tooltip='Show items with the tag "biology"'>
+        biology
       </a>
     
-      <a href='/cognitive-labs/blog?search="tag:%20framework-agnostic%20support"' class="tag" data-tooltip='Show items with the tag "framework-agnostic support"'>
-        framework-agnostic support
+      <a href="/cognitive-labs/blog?search=%22tag:%20medicine%22" class="tag" data-tooltip='Show items with the tag "medicine"'>
+        medicine
       </a>
     
   </div>
@@ -561,8 +540,129 @@
 
   
   
-  <p data-search="The exponential growth of deep learning has positioned AI driven software systems at the forefront of corporate strategy1  With this economic force and promising results  deep learning has exploded in capability and complexity  leading to an unstandardized development of tools and frameworks Machine learning engineers today face a proliferation of frameworks   from TensorFlow and PyTorch to JAX  MXNet  and beyond  Each framework comes with its own APIs  execution paradigms  and ecosystem of tools  This variety has sparked  framework wars   where teams struggle to choose the right tool for each project without even knowing how it will develop The landscape shifts quickly as the frameworks coexist  emerge and disappear over time  each with distinct faults  development patterns  and learning curves  And the image is further complicated by the physical backend dependencies of machine learning pipelines  as seen in the well known landscape of deep learning hidden debt paper from 2015 in NeurIPS  Figure 1  An bringing it to more recent days with growing tooling maturity to cover some sections  recent studies still highlight technical debt even at the framework level   including design  compatibility  and algorithmic debt across major deep learning libraries2 These realities contribute to a broader organizational gap  although over 90  of companies plan to increase AI investments in the next three years  only 1  currently feel they have fully mature AI capabilities  one major factor    fragmentation and instability at the foundational level of machine learning infrastructure In today s actual picture  different stakeholders gravitate towards different frameworks  researchers frequently prototype in PyTorch for flexibility  the industry favours JAX for high performance scaling due to large scale model data parallelism  and deployment is often executed on Tensorflow or ONNX  prioritizing cross platform compatibility across CPUs  GPUs  and mobile devices  Integrating open source models into enterprise solutions3 further complicates the ecosystem  as developers frequently blend external and proprietary components into their AI portfolios Adding up all these preferences  open sourced serialized models  and common practices lead to bottlenecks and impact three critical dimensions  reproducibility  portability  and future maintainability for all stages from research to product Framework agnostic and multi framework support approaches are emerging as important strategies  paired with better toolchains  to address the challenges of reproducibility  deployment flexibility  and evolving infrastructure demands  Interoperability efforts also enable teams to leverage the best tool for each specific task more easily  reducing the impact of framework specific limitations over time       avoiding lock in    Avoids complete dependency on the community of that library  best example  Theano or TensorFlow v1 X  Using high level libraries that support multiple backends ensures the stability of the project through years and new structural changes on big libraries  by loss of community  change direction or external introduction of breaking changes         leveraging best of breed tools   Each framework historically had its strengths  which has been the main reason for the fragmented ecosystem  and while PyTorch is closing the gap  there are still performance improvements on other libraries more specific to use cases  such as physics simulations or serving infrastructures  allowing interoperability without or with minimal code changing         reproducibility across labs and infrastructure   Moving models between frameworks today   even from TensorFlow to JAX or PyTorch to ONNX   requires careful handling of graph execution modes  random number generators  PRNGs   custom gradient logic  tensor shapes  and XLA compilation behaviours  Framework agnostic systems reduce these friction points  facilitating faster collaboration across research groups  product teams  and deployment environments         deployment flexibility   In modern enterprises  models often traverse diverse infrastructures  training on cloud GPUs  optimizing for mobile inference  serving at the edge  or scaling across distributed clusters  Framework agnostic development  supported by common serialization formats like ONNX or SavedModel  allows seamless transitions and broadens deployment options   Without an intentional move toward agnosticism  organizations risk accumulating technical debt that could bottleneck their innovation  scaling  and maintenance efforts for years In the present  the boundary between frameworks is not as rigid as before  PyTorch and TensorFlow have influenced each other  TensorFlow 2 adopted PyTorch like eager execution  and PyTorch 2 0 introduced an optionally compiled mode  torch compile  to optimize models much like XLA does for TensorFlow JAX  Google s OpenXLA project  open sourcing the XLA compiler and encouraging community contribution  creates a shared compiler backend for JAX  TensorFlow  and PyTorch  via Torch XLA   If successful  these frameworks could eventually rely on the same lower level compiler for graphs  leading to more consistent performance and easier cross framework equivalence  Similarly  there is collaboration on defining standard op sets  e g   TensorFlow and PyTorch teams working with ONNX to ensure new ops can round trip   All of this industry effort is gradually moving us toward a world where the choice of framework is more about user preference and less about fundamental capability gaps On the other hand  high level libraries continue to emerge   often tied tightly to specific backends4  These high level libraries  being open source  are inherently subject to issues   both within their own codebases and through their dependencies on backend specific functionality  The main direction of these libraries should transition towards multi backend support  The best well known early adopter of high level APIs is Keras 3 0  which reimagined itself as a truly backend agnostic API  able to run the exact model code on TensorFlow  JAX  and or PyTorch  ONNX Runtime offers flexible execution of exported models across CPU  GPU  and specialized accelerators  Hugging Face Diffusers now supports model training and inference across PyTorch and TensorFlow  or Flower enables federated learning across heterogeneous clients  abstracting backend differences Landscape of frameworks  tools and hosting spaces for DL5Yet  achieving true framework agnostic capabilities introduces significant technical complexity despite the trends of the practical engineering solution already being adopted  Abstracting backend operations such as tensor manipulations  device allocation  and automatic differentiation  without performance penalties or semantic inconsistencies is challenging due to fundamental differences in each framework s underlying architecture  Deep incompatibilities persist in dynamic graph frameworks  e g   PyTorch  versus static graph frameworks  e g   early TensorFlow  or  more impactful nowadays  the functional purity assumptions in JAX in contrast with stateful behaviours in PyTorch and TensorFlow As abstraction is not yet a well adopted solution  multi backend support is the alternative solution  However  it still carries previous challenges and imposes more effort on researchers and developers as there is a need to implement n times the same functionality  being n the number of backends supported   With pseudo code duplication and incompatibilities  there is a high risk of impactful bugs being present  Hence  rigorous  automated testing is critical to ensure correctness and reliability in single and multi framework environments6 Despite these complexities  the ecosystem of tools for model conversion and verification  such as differential testers that compare outputs from two frameworks for the same model  is also developing  pushed by the momentum towards framework agnostic across the machine learning community  Standardizing functionalities  rigorous testing practices  and robust abstraction layers are increasingly seen as key enablers for sustainable innovation and scalable operationalization of AI technologies in industry and academia While the theoretical  write once  run anywhere  paradigm for machine learning remains an aspirational goal  ongoing collaboration among framework developers  hardware vendors  and users suggests meaningful progress is already underway             According to Mckinsey global survey on the corporation view of AI  deep learning and artificial intelligence are integrated into at least one business function by 78  of respondents    8617               The paper A Taxonomy of Self Admitted Technical Debt in Deep Learning Systems found that i  there is a significant number of technical debt in all the studied deep learning frameworks  ii  there is design debt  defect debt  documentation debt  test debt  requirement debt  compatibility debt  and algorithm debt in deep learning frameworks  iii  the majority of the technical debt in deep learning framework is design debt  24 07    65 27    followed by requirement debt  7 09    31 48   and algorithm debt  5 62    20 67    In some projects  compatibility debt accounts for more than 10     8617               As noted by McKinsey sOpen Source in the Age of AI  2023   around 92  of companies reported that they use open source software in at least one of their AI initiatives  The survey also highlights that open source components are increasingly critical not just for research prototyping  but also for production deployments in enterprise settings    8617               Examples include  i  The ecosystem built over PyTorch  PyTorch Geometric  TorchText  TorchAudio  and third party libraries like Pyro and Stable Baselines 3  SB3   ii  The TensorFlow ecosystem  APIs like TensorFlow Lite  TFX  TensorFlow js  and extensions such as TensorFlow Probability  TensorFlow GNN  and TensorFlow Quantum  plus projects like Sonnet   iii  Other frameworks  Stable Baselines  SB3  is building SBX for reinforcement learning with JAX or Google DeepMind s libraries including dm haiku  neural networks   MCTX  Monte Carlo tree search   Jraph  graph neural networks   and physics simulators like JAX MD    8617               Open Source Ecosystem for Machine Learning by the Linux Foundation   8617               One recent paper on DL testing Deep Learning Library Testing  Definition  Methods  and Challenges Survey with 93 papers collected from the literature  where 69 are related to DL framework testing  12 to DL compiler testing and 13 to DL hardware library testing  There exists a recent trend with more papers on this topic    8617       ">
-    The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy. As these technologies become increasingly integral to business operations, their complexity expands, leading to an unprecedented fragmentation in tools and frameworks — and thus to the necessity of framework-agnostic development.
+  <p data-search="Lorem ipsum dolor sit amet  consectetur adipiscing elit  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  </p>
+</div>
+
+<h3 id="2021">2021</h3>
+
+<div class="post-excerpt">
+  
+  
+  <a href="/cognitive-labs/2021/09/30/example-post-2.html">Example post 2</a>
+
+  <div class="post-info">
+  
+    
+    
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>jane-smith</span>
+      </span>
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>September 30, 2021</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>July 04, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+
+
+
+
+  
+  
+  <p data-search="Lorem ipsum dolor sit amet  consectetur adipiscing elit  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  </p>
+</div>
+
+<h3 id="2019">2019</h3>
+
+<div class="post-excerpt">
+  
+  
+  <a href="/cognitive-labs/2019/01/07/example-post-1.html">Example post 1</a>
+
+  <div class="post-info">
+  
+    
+    
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>sarah-johnson</span>
+      </span>
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>January 07, 2019</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>July 04, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags" data-link="/cognitive-labs/blog">
+    
+      <a href="/cognitive-labs/blog?search=%22tag:%20biology%22" class="tag" data-tooltip='Show items with the tag "biology"'>
+        biology
+      </a>
+    
+      <a href="/cognitive-labs/blog?search=%22tag:%20medicine%22" class="tag" data-tooltip='Show items with the tag "medicine"'>
+        medicine
+      </a>
+    
+      <a href="/cognitive-labs/blog?search=%22tag:%20big%20data%22" class="tag" data-tooltip='Show items with the tag "big data"'>
+        big data
+      </a>
+    
+  </div>
+
+
+
+
+
+  
+  
+  <p data-search="Lorem ipsum dolor sit amet  consectetur adipiscing elit  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
   </p>
 </div>
   </section>
