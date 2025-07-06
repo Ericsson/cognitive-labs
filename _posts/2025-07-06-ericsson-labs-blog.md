@@ -2,7 +2,7 @@
 title: The Cognitive Labs Blog
 author: oscar-llorente-gonzalez, lucia-ferrer, antonio-diaz, dani-bazo, alvaro
 tags:
-  - strategy
+  - community
 excerpt: To continue our effort to contribute to the open-source community we would like to present the Cognitive Labs Blog, our new channel to communicate about the research we are doing, trying to bring closer our technology to the public.
 ---
 
@@ -10,7 +10,7 @@ It is not new the idea of making a blog so, why now? What does it mean? And most
 
 Six months ago, we released our new initiative to contribute to the open-source community by creating the Ericsson Cognitive Labs. We believed that since we are working in cutting-edge technology, such as Graph Neural Networks or Explainability, our research can benefit the community, having the possibility of applying it in fields such as medicine, autonomous driving, or drug discovery. The idea was bringing these ideas closer to the community and contributing to the open-source ecosystem to give back to the community. However, we have noted that sometimes academic papers, even if they bring an implementation with them, only reach a small audience.
 
-To solve that, we have decided to bring a new idea to the table and make a technical blog. Many of you will know for sure the [Ericsson Blog](https://www.ericsson.com/en/blog), where Ericsson projects are announced and discussed, but here our objective is completely different. As a result, our goal is to make our research more readily available, reaching a larger audience than a paper alone, and creating articles about specific implementations (sometimes with significant efficiency savings) that might not be appropriate for a journal or conference. 
+To solve that, we have decided to bring a new idea to the table and make a technical blog. Many of you will know for sure the [Ericsson Blog](https://www.ericsson.com/en/blog), where Ericsson projects are announced and discussed, but here our objective is completely different. As a result, our goal is to make our research more readily available, reaching a larger audience than a paper alone, and creating articles about specific implementations (sometimes with significant efficiency savings) that might not be appropriate for a journal or conference.
 
 More specifically, we plan to add content in the following areas:
 
@@ -22,7 +22,6 @@ More specifically, we plan to add content in the following areas:
 
 What we have explained is not new, and we have been inspired by amazing companies such as [Google DeepMind][1], [Meta FAIR][2] or [Modular][3], and we want to take this idea one level further. Therefore, this will be not only to talk briefly about our projects or new trends but also a new channel to be able to share parts of our research that do not fit into more classic channels, such as conferences or journals. We are happy to share and contribute to this amazing industry. Stay tuned for more!
 
-
 [1]:https://deepmind.google/
 [2]:https://ai.meta.com/research/
-[3]:https://www.modular.com/blog
+[3]:https://www.modular.com/blog/
