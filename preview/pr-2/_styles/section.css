@@ -24,12 +24,4 @@ main > section:last-of-type {
   flex-grow: 1;
 }
 
-main > section:nth-of-type(odd) {
-  background: var(--background);
-}
-
-main > section:nth-of-type(even) {
-  background: var(--background-alt);
-}
-
 /*# sourceMappingURL=section.css.map */
