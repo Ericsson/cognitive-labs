@@ -2,8 +2,7 @@
 title: Framework-Agnostic Libraries are needed
 author: lucia-ferrer
 tags:
-  - deep-learning libraries
-  - framework-agnostic support
+  - Software
 excerpt: The explosion of deep learning has made AI software more than a research endeavor. It's now a business-critical asset. As AI goes from prototype to product, the underlying infrastructure grows with it. The tools? Diverse. The choices? Fragmented. The frameworks? A bit of a mess. And that mess? It’s increasingly a blocker.
 ---
 

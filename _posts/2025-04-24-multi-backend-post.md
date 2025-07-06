@@ -2,8 +2,7 @@
 title: The Case for Framework-Agnostic Development in ML/DL Software Systems
 author: lucia-ferrer
 tags:
-  - deep-learning libraries
-  - framework-agnostic support
+  - software
 excerpt: The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy. As these technologies become increasingly integral to business operations, their complexity expands, leading to an unprecedented fragmentation in tools and frameworks, thus to the necessity of framework-agnostic development.
 ---
 The exponential growth of deep learning has positioned AI-driven software systems at the forefront of corporate strategy[^1]. With this economic force and promising results, deep learning has exploded in capability and complexity, leading to an unstandardized development of tools and frameworks.
