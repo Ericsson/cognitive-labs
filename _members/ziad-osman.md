@@ -2,7 +2,7 @@
 name: Ziad Osman
 image: images/members/mlr-lab/ziad.jpg
 role: scientist
-description: Master Data Scientist
+description: Staff Data Scientist
 lab: 
   - mlr-lab
   - board

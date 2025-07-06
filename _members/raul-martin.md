@@ -2,7 +2,7 @@
 name: Raul Martin
 image: images/members/leaders/raul.jpeg
 role: phd
-description: AI Lead
+description: AI Prototyping Lead
 lab: 
   - leaders
 links:
