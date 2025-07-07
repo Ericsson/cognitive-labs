@@ -1,5 +1,6 @@
 .icon {
   font-size: 1em;
+  color: var(--text);
 }
 
 span.icon {

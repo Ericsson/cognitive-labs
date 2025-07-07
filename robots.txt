@@ -1,1 +1,1 @@
-Sitemap: /cognitive-labs/sitemap.xml
+Sitemap: https://ericsson.github.io/cognitive-labs/sitemap.xml

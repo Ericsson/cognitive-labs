@@ -24,36 +24,35 @@ header a {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
-  padding-left: 20px;
 }
 
 .logo {
-  height: 80px;
+  height: 40px;
 }
 
 .logo > * {
+  width: unset;
   height: 100%;
 }
 
-.title {
+.title-text {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 20px;
   min-width: 0;
   font-family: "ericsson hilda";
   text-align: left;
-  padding: 20px;
 }
 
-.title > *:first-child {
+.title {
   font-size: var(--large);
 }
 
-.title > *:last-child {
-  opacity: 1;
-  font-weight: var(--large);
+.subtitle {
+  opacity: 0.65;
+  font-weight: var(--thin);
 }
 
 .nav-toggle {
@@ -63,9 +62,8 @@ header a {
   height: 30px;
   margin: 0;
   color: var(--text);
-  -webkit-appearance: none;
   appearance: none;
-  transition-property: background;
+  transition: background var(--transition);
 }
 
 .nav-toggle:after {
@@ -75,7 +73,7 @@ header a {
   top: 50%;
   color: var(--text);
   font-size: 15px;
-  font-family: "ericsson";
+  font-family: "Font Awesome 6 Free";
   font-weight: 900;
   transform: translate(-50%, -50%);
 }
@@ -92,22 +90,17 @@ nav {
   gap: 10px;
   font-family: var(--heading);
   text-transform: uppercase;
-  background-color: black;
-  padding: 0px;
-  width: 100%;
 }
 
 nav > a {
-  padding: 15px;
+  padding: 5px;
+  padding: 10px;
 }
 
 nav > a:hover {
   color: var(--primary);
 }
 
-header:not([data-big]) {
-  padding: 30px 0px 0px 0px;
-}
 @media (max-width: 700px) {
   header:not([data-big]) {
     justify-content: flex-end;
@@ -122,6 +115,7 @@ header:not([data-big]) {
     align-items: flex-end;
     flex-direction: column;
     width: 100%;
+    background-color: none;
   }
 }
 
@@ -132,23 +126,27 @@ header[data-big] {
   padding: 100px 0px 0px 0px;
   top: unset;
 }
+header[data-big] nav {
+  background-color: black;
+  width: 100%;
+}
 header[data-big] .home {
   flex-direction: column;
   flex-grow: 0;
-  padding-left: 0px;
 }
 header[data-big] .logo {
-  height: 180px;
+  height: 150px;
+  flex-shrink: 0;
 }
-header[data-big] .title {
+header[data-big] .title-text {
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-header[data-big] .title > *:first-child {
+header[data-big] .title {
   font-size: var(--xxl);
 }
-header[data-big] .title > *:last-child {
+header[data-big] .subtitle {
   font-size: var(--large);
 }
 
