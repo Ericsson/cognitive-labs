@@ -33,7 +33,7 @@ We firmly believe in open-source and contributing to the community and the world
 
 {%
   include feature.html
-  image="images/light.jpg"
+  image="images/papers/light.jpg"
   link="publications"
   title="Our Research"
   text=text
@@ -56,7 +56,7 @@ As a commitment to the Open-Source community, we have created three different La
 
 {%
   include feature.html
-  image="images/night.jpg"
+  image="images/home_pages/lab.jpg"
   link="labs"
   title="Our Labs"
   flip=true
@@ -81,8 +81,31 @@ We have a world-class team of Data Scientists and Engineers working together to 
 
 {%
   include feature.html
-  image="images/team.png"
+  image="images/home_pages/team.jpg"
   link="team"
   title="Our Team"
   text=text
+%}
+
+{% capture text %}
+
+Keep up with the trend through our insights on our blog. 
+{%
+  include button.html
+  link="blog"
+  text="Read our blog posts"
+  icon="fa-solid fa-arrow-right"
+  flip=true
+  style="bare"
+%}
+
+{% endcapture %}
+
+{%
+  include feature.html
+  image="images/home_pages/blog.jpg"
+  link="blog"
+  title="Our Insights"
+  text=text
+  flip=true
 %}

@@ -2,8 +2,10 @@
 name: Ziad Osman
 image: images/members/mlr-lab/ziad.jpg
 role: scientist
-description: Master Data Scientist
-lab: mlr-lab, board
+description: Staff Data Scientist
+lab: 
+  - mlr-lab
+  - board
 links:
   linkedin: ziad-osman-77920398
   email: ziad.osman@ericsson.com

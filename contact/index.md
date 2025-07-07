@@ -30,6 +30,6 @@ On this page, we list several ways of contacting our team, through email, phone 
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filters="name: Oscar Llorente Gonzalez" %}
+{% include list.html data="members" component="portrait" filter="name == 'Oscar Llorente Gonzalez'" %}
 
-{% include list.html data="members" component="portrait" filters="name: Raul Martin" %}
+{% include list.html data="members" component="portrait" filter="name == 'Raul Martin'" %}

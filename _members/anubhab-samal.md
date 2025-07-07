@@ -1,9 +1,11 @@
 ---
 name: Anubhab Samal
-image: images/members/gai-lab/anubhab.png
+image: images/members/fai-lab/anubhab.png
 role: scientist
 description: Senior Data Scientist
-lab: gai-lab, board
+lab: 
+  - fai-lab
+  - board
 links:
   linkedin: anubhab-samal-0a5075183
   github: samalanubhab

@@ -1,5 +1,5 @@
 # site properties and page defaults
-title: Cognitive Labs - Ericsson
+title: Ericsson Cognitive Labs
 title_intro: Ericsson Cognitive Labs
 title_short: Ericsson Cognitive Labs
 subtitle: 
@@ -71,3 +71,4 @@ exclude:
   - README.md
   - LICENSE.md
   - CITATION.cff
+  - .venv

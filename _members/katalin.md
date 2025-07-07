@@ -1,8 +1,11 @@
 ---
 name: Katalin Hajdú-Szücs
 image: images/members/gai-lab/katalin.jpg
-role: Senior scientist
-lab: gai-lab, board
+role: scientist
+description: Senior Data Scientist
+lab: 
+  - gai-lab
+  - board
 links:
   linkedin: katalin-hajdu-szucs
   github: HSzKatalin

@@ -13,41 +13,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # for debugging
-      - name: Print contexts
-        uses: crazy-max/ghaction-dump-context@v1
+      - name: Debug dump
+        uses: crazy-max/ghaction-dump-context@v2
 
       - name: Create Pages branch
-        uses: peterjgrainger/action-create-branch@v2.4.0
+        uses: peterjgrainger/action-create-branch@v3.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: "gh-pages"
 
       - name: Checkout Pages branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
 
+      - name: SSH debug
+        if: runner.debug == '1'
+        uses: mxschmitt/action-tmate@v3
+
       # clean slate, as if starting from orphan branch
       - name: Clear Pages branch
-        run: rm -rf * .github .docker .gitignore
+        run: rm -rf ./* .github .docker .gitignore
 
       # prevent GitHub from running Jekyll a second time after build
       - name: Make .nojekyll file
         run: touch .nojekyll
 
       - name: Make placeholder homepage
-        run: echo "Placeholder homepage" > index.html
+        run: printf "Placeholder homepage" > index.html
 
       - name: Commit changes to Pages branch
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: gh-pages
           commit_message: "Clear branch"
 
       - name: Checkout main branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Remove files user doesn't need
         run: |
@@ -55,32 +58,37 @@ jobs:
             CHANGELOG.md \
             testbed.md \
             .github/ISSUE_TEMPLATE \
+            .github/DISCUSSION_TEMPLATE \
             .github/workflows/versioning.yaml \
             .github/pull_request_template.md \
-      
+
       - name: Rename files
         run: |
-          mv .github/user_pull_request_template.md .github/pull_request_template.md
+          mv -f .github/user_pull_request_template.md .github/pull_request_template.md
 
       - name: Set vars for personalization
         run: |
           user="${{ github.repository_owner }}"
           description="Ericsson Cognitive Labs, opening our AI Research to the world"
-          echo "USER=${user}" >> $GITHUB_ENV
-          echo "DESCRIPTION=${description}" >> $GITHUB_ENV
+          printf "\nUSER=%s" "$user" >> "$GITHUB_ENV"
+          printf "\nDESCRIPTION=%s" "$description" >> "$GITHUB_ENV"
 
       - name: Personalize readme for user
         run: |
-          echo "
-          # ${{ env.USER }}'s Website
+          printf "
+            ![on-push](../../actions/workflows/on-push.yaml/badge.svg)
+            ![on-pull-request](../../actions/workflows/on-pull-request.yaml/badge.svg)
+            ![on-schedule](../../actions/workflows/on-schedule.yaml/badge.svg)
 
-          Visit **[website url](#)** 🚀
+            # %s's Website
 
-          _Built with [Lab Website Template](https://greene-lab.gitbook.io/lab-website-template-docs)_
-          " > README.md
+            Visit **[website url](#)** 🚀
+
+            _Built with [Lab Website Template](https://greene-lab.gitbook.io/lab-website-template-docs)_
+          " "${{ env.USER }}" > README.md 
 
       - name: Personalize Jekyll config for user
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const { readFileSync, writeFileSync } = require("fs");
@@ -97,7 +105,7 @@ jobs:
             writeFileSync(file, contents);
 
       - name: Personalize homepage for user
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const { readFileSync, writeFileSync } = require("fs");
@@ -109,6 +117,6 @@ jobs:
             writeFileSync(file, contents);
 
       - name: Commit changed files
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Setup repo"
+          commit_message: "Set up repo"
