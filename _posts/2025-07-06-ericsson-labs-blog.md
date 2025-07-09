@@ -1,6 +1,6 @@
 ---
 title: The Cognitive Labs Blog
-author: oscar-llorente-gonzalez, lucia-ferrer, antonio-diaz, dani-bazo, alvaro
+author: oscar-llorente-gonzalez, lucia-ferrer, antonio-diaz, dani-bazo, alvaro, sangam
 tags:
   - community
 excerpt: To continue our effort to contribute to the open-source community we would like to present the Cognitive Labs Blog, our new channel to communicate about the research we are doing, trying to bring closer our technology to the public.
