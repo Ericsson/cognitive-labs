@@ -1,9 +1,9 @@
 - title: GAI Lab
   subtitle: Geometric Artficial Intelligence
   group: featured
-  image: images/labs_icons/GAI_black.svg #gai_lab.png
-  image_black: images/labs_icons/GAI_white_lines_text.svg #gai_lab.png
-  link: https://ericsson.github.io/cognitive-labs/publications/
+  image: images/labs_icons/GAI_black.svg
+  image_black: images/labs_icons/GAI_white_lines_text.svg
+  link: /publications/
   description: Research Lab focused on Geometric AI, specifically in GNNs, Explainability in Geometric ML, Graph Generation and Temporal GNNs.
   tags:
     - GAI Lab
@@ -11,9 +11,9 @@
 - title: MLR Lab
   subtitle: Machine Learning and Reasoning
   group: featured
-  image: images/labs_icons/MLR_padded_black.svg #mlr_lab.png
-  image_black: images/labs_icons/MLR_padded_white.svg #mlr_lab.png
-  link: https://ericsson.github.io/cognitive-labs/publications/
+  image: images/labs_icons/MLR_padded_black.svg
+  image_black: images/labs_icons/MLR_padded_white.svg
+  link: /publications/
   description: Research Lab focused on Optimization, Reinforcement Learning, Distributed Learning, Catastrophic Fogetting and Active Learning.
   tags:
     - MLR Lab
@@ -23,7 +23,7 @@
   group: featured
   image: images/labs_icons/FAI_black.svg
   image_black: images/labs_icons/FAI_white.svg
-  link: https://ericsson.github.io/cognitive-labs/publications/
+  link: /publications/
   description: Research Lab focused on Generative Artificial Intelligence, Catatrophic Forgetting and Long-term Forecasting with Temporal Model.
   tags:
     - FAI Lab
