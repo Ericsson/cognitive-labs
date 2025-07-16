@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Framework-Agnostic Libraries are needed | Ericsson Cognitive Labs</title>
+
+<link rel="icon" href="/cognitive-labs/preview/pr-2/images/logo_small.png">
+
+<meta name="title" content="Framework-Agnostic Libraries are needed">
+<meta name="description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+
+<meta property="og:title" content="Framework-Agnostic Libraries are needed">
+<meta property="og:site_title" content="Ericsson Cognitive Labs">
+<meta property="og:description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+<meta property="og:url" content="/cognitive-labs/preview/pr-2">
+<meta property="og:image" content="/cognitive-labs/preview/pr-2/images/logo_small.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Framework-Agnostic Libraries are needed">
+<meta property="twitter:description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+<meta property="twitter:url" content="/cognitive-labs/preview/pr-2">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/cognitive-labs/preview/pr-2/images/logo_small.png">
+
+
+  <meta name="author" content="lucia-ferrer">
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2025-07-16T13:06:40+00:00">
+  <meta property="article:published_time" content="2025-07-16T00:00:00+00:00">
+  <meta property="article:modified_time" content="2025-07-16T13:06:40+00:00">
+  <meta name="revised" content="2025-07-16T13:06:40+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "Framework-Agnostic Libraries are needed" },
+      "datePublished": "2025-07-16T00:00:00+00:00",
+      "dateModified": "2025-07-16T13:06:40+00:00",
+    
+    "name": "Framework-Agnostic Libraries are needed",
+    "description": "Ericsson Cognitive Labs, opening our AI Research to the world",
+    "headline": "Framework-Agnostic Libraries are needed",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/cognitive-labs/preview/pr-2/images/logo_small.png" }
+    },
+    "url": "/cognitive-labs/preview/pr-2"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/cognitive-labs/preview/pr-2/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=ericsson:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-2/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/anchors.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/dark-mode.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/dark-toggle-img.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/fetch-tags.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/search.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/site-search.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/table-wrap.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-2/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/cognitive-labs/preview/pr-2/images/ericsson_background.jpg')" data-dark="true">
+  <a href="/cognitive-labs/preview/pr-2/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FAFAFA;}
+</style>
+<g>
+	<path class="st0" d="M692,53.1c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,143c-35.6,11.9-51.6,26.5-60.6,44.6
+		c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7l404.3-134.8c35.6-11.8,51.6-26.5,60.6-44.6
+		C696.8,95.3,698.9,73.8,692,53.1z"></path>
+	<path class="st0" d="M692,302.6c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,392.5
+		c-35.6,11.9-51.6,26.5-60.6,44.6c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7l404.3-134.7
+		c35.6-11.9,51.6-26.5,60.6-44.7C696.8,344.8,698.9,323.3,692,302.6z"></path>
+	<path class="st0" d="M692,552.2c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,642.1
+		c-35.6,11.9-51.6,26.5-60.6,44.6c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7L627.1,657
+		c35.6-11.8,51.6-26.5,60.6-44.6C696.8,594.4,698.9,572.9,692,552.2z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">Ericsson Cognitive Labs</span>
+        
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/cognitive-labs/preview/pr-2/publications/" data-tooltip="Published works">
+          Publications
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-2/labs/" data-tooltip="Our research organization">
+          Labs
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-2/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-2/blog/" data-tooltip="Our insights">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-2/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - wrap each table in div to allow for scrolling
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">Framework-Agnostic Libraries are needed</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        
+
+
+
+<div class="portrait-wrapper">
+  <a href="/cognitive-labs/preview/pr-2/members/lucia-ferrer.html" class="portrait" data-style="tiny" aria-label="Lucia Ferrer">
+    
+      <i class="icon fa-solid fa-dna"></i>
+    
+
+    <img src="/cognitive-labs/preview/pr-2/images/members/gai-lab/lucia.jpg" class="portrait-image" alt="member portrait" loading="lazy" onerror="this.src = '/cognitive-labs/preview/pr-2/images/fallback.svg'; this.onerror = null;">
+
+    
+      <span class="portrait-name">
+        Lucia Ferrer
+      </span>
+    
+
+    
+      <span class="portrait-description">
+        Experienced Data Scientist
+      </span>
+    
+
+    
+  </a>
+</div>
+
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>July 16, 2025</span>
+    </span>
+  
+
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/cognitive-labs/preview/pr-2/blog?search="tag:%20software"' class="tag" data-tooltip='Show items with the tag "software"'>
+        software
+      </a>
+    
+      <a href='/cognitive-labs/preview/pr-2/blog?search="tag:%20framework-agnostic"' class="tag" data-tooltip='Show items with the tag "framework-agnostic"'>
+        framework-agnostic
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<p>Deep learning has grown fast, <em>really fast</em>. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.</p>
+
+<p>For machine learning engineers, it’s like walking through a forest where every path leads to a different framework, and no one’s really sure which one will still exist in five years.</p>
+
+<h2 id="so-whats-the-issue">So, what’s the issue?</h2>
+
+<p>These days, building AI-powered products isn’t optional — it’s expected <sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. And as demand grows, so do the tools. The result? A tangled mess of components, many of which depend heavily on the framework they’re built in. There is no fault to be found as it’s natural when a field moves fast, but it’s messy and unpractical.</p>
+
+<p>You might think, “Well, that’s just how it goes,” but here’s the thing: frameworks have a life of their own. And if you’ve ever been stuck with a deprecated tool or spent weeks porting models between frameworks, you know how painful that can get.</p>
+
+<p>(Here’s a quick reminder of how these trends have changed over time)</p>
+
+<!-- Google Trends embed remains here -->
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"></script>
+<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/g/11gd3905v1","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11bwp1s2k3","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/m/0h95mh8","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11t6my1_gw","geo":"","time":"2014-01-01 2025-04-29"}],"category":0,"property":""}, {"exploreQuery":"date=2014-01-01%202025-04-29&q=%2Fg%2F11gd3905v1,%2Fg%2F11bwp1s2k3,%2Fm%2F0h95mh8,%2Fg%2F11t6my1_gw&hl=en-GB","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+
+<h2 id="the-ever-shifting-framework-landscape">The Ever-Shifting Framework Landscape</h2>
+
+<p>Frameworks aren’t static. Some evolve (like TensorFlow 2), others fade away (remember Theano?), and new ones (like JAX) pop up with killer features. Each has its own execution style, APIs, and toolchains; and that means a steep learning curve every time you switch.</p>
+
+<p>This complexity is a real blocker. In fact, over 90% of companies plan to ramp up their AI investments, but only 1% think their AI capabilities are where they should be. One possible reason? Fragmentation at the foundation, in other words, right at the framework level.</p>
+
+<p>Different teams want different things. Researchers love PyTorch for fast prototyping. JAX shines in large-scale parallel computing. TensorFlow dominates in production and mobile deployments. And if you’re trying to blend open-source models into production systems, it gets even trickier. You end up mixing and matching frameworks, and unfortunetly sometimes within the same product.</p>
+
+<h2 id="why-this-hurts-more-than-you-think">Why This Hurts (More Than You Think)</h2>
+
+<p>When your tech stack is tied tightly to one framework, you run into problems:</p>
+
+<ul>
+  <li>
+    <p><strong>Lock-in is real.</strong> If a library loses support (like Theano) or shifts direction (like TensorFlow 1 to 2), your whole system might be at risk. Building on top of multi-backend tools gives you some insurance.</p>
+  </li>
+  <li>
+    <p><strong>Best tool for the job? Not always easy.</strong> Some frameworks do things better than others: physics simulations, distributed training, edge deployments. A rigid stack limits your options.</p>
+  </li>
+  <li>
+    <p><strong>Reproducibility gets tricky.</strong> Even porting models between major libraries (PyTorch to ONNX, TF to JAX) can be a pain. Things like random seeds, execution modes, tensor shapes, or custom gradients often break silently.</p>
+  </li>
+  <li>
+    <p><strong>Deploying models is harder than it should be.</strong>  AI models don’t live in one place. They train in the cloud, run on edge devices, serve millions in real-time. Framework-agnostic formats like ONNX or SavedModel make this easier—but only if you design for it.</p>
+  </li>
+</ul>
+
+<h2 id="whats-the-fix-framework-agnostic--multi-framework-approaches">What’s the Fix? Framework-Agnostic &amp; Multi-Framework Approaches</h2>
+
+<p>Instead of betting on a single framework, more teams are designing tools and workflows that work across multiple. That’s the move: <em>framework-agnostic development</em>. Here’s what that looks like:</p>
+
+<ul>
+  <li>
+<strong>Use high-level libraries that support multiple backends.</strong> Think: Keras 3.0. One model definition, works on TensorFlow, JAX, or PyTorch.</li>
+  <li>
+<strong>Model formats like ONNX.</strong> Export once, run it wherever.</li>
+  <li>
+<strong>Testing frameworks that compare behavior across libraries.</strong> Think: differential testing to catch subtle differences.</li>
+  <li>
+<strong>Interop-focused projects.</strong> OpenXLA is a good example : it’s a shared compiler backend supported by Google that works across TF, JAX, and now PyTorch (via Torch XLA).</li>
+</ul>
+
+<p>This shift is happening gradually. PyTorch and TensorFlow are even borrowing ideas from each other. TF2 got eager execution from PyTorch, and PyTorch 2.0 added <code class="language-plaintext highlighter-rouge">torch.compile</code> (similar to how XLA optimizes graphs in TF or JAX). These aren’t just nice features, they’re steps toward a shared ecosystem.</p>
+
+<h2 id="examples-in-the-wild">Examples in the Wild</h2>
+
+<ul>
+  <li>
+<a href="https://keras.io/keras_3/">Keras 3.0</a>: Write code once, run on TF, JAX, or PyTorch.</li>
+  <li>
+<strong>ONNX Runtime</strong>: Load and run models on anything from CPUs to mobile to cloud GPUs.</li>
+  <li>
+<strong>Hugging Face Diffusers</strong>: Train or use generative models with either PyTorch or TensorFlow.</li>
+  <li>
+<strong>Flower</strong>: A federated learning framework that abstracts backend differences.</li>
+</ul>
+
+<!-- Landscape embed view -->
+<p>But this few examples, are still lacking in comparizon with how big the deep learning ecosystem is becoming, as it can be seen on the snapshot of the open-sourced deep learning ecosystem <sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.</p>
+<iframe src="https://landscape.lfaidata.foundation/embed/embed.html?base-path=&classify=category&key=deep-learning&headers=true&category-header=true&category-in-subcategory=false&title-uppercase=false&title-alignment=left&title-font-family=sans-serif&title-font-size=13&style=shadowed&bg-color=%2319006d&fg-color=%23ffffff&item-modal=false&item-name=false&size=md&items-alignment=left" style="width:100%;height:600px;display:block;border:none;"></iframe>
+
+<p><em>The snapshot has a big representation of what it is nowadays, but there are even more missing, as example go into one of the three main Frameworks, and look at their own high-level libraries<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup></em></p>
+
+<h2 id="but-its-not-easy">But… It’s Not Easy</h2>
+
+<p>As great as framework-agnostic sounds, making it work is tough.</p>
+
+<ul>
+  <li>Different frameworks handle things like tensor ops, devices, or gradients in <em>very</em> different ways.</li>
+  <li>PyTorch is dynamic, JAX is functional and stateless, and TF… well, depends on the version.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>PyTorch</th>
+      <th>TensorFlow</th>
+      <th>JAX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default shape format</td>
+      <td>NCHW</td>
+      <td>NHWC</td>
+      <td>NHWC</td>
+    </tr>
+    <tr>
+      <td>Device placement</td>
+      <td>Explicit (<code class="language-plaintext highlighter-rouge">.to(device)</code>)</td>
+      <td>Implicit (Graph or <code class="language-plaintext highlighter-rouge">.device</code>)</td>
+      <td>Functional (<code class="language-plaintext highlighter-rouge">jax.device_put</code>)</td>
+    </tr>
+    <tr>
+      <td>Requires gradient?</td>
+      <td><code class="language-plaintext highlighter-rouge">requires_grad=True</code></td>
+      <td>
+<code class="language-plaintext highlighter-rouge">tf.GradientTape()</code> context</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">jax.grad()</code> functional API</td>
+    </tr>
+    <tr>
+      <td>Mutability</td>
+      <td>Mutable tensors</td>
+      <td>Usually mutable</td>
+      <td>Immutable (<code class="language-plaintext highlighter-rouge">pure functions</code>)</td>
+    </tr>
+    <tr>
+      <td>Randomness</td>
+      <td>Global RNG</td>
+      <td>Graph seed / local seed</td>
+      <td>Explicit PRNGKey</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Writing one model that works across all three? Possible, but fragile, complex, and possible very restrictive.</li>
+</ul>
+
+<p>As it can be seen, the difference in coding structure is not only the library but also the abstraction of the objects.</p>
+
+<!-- Include this once in your base layout (if not already present) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+<!-- Three-column comparison layout -->
+<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; margin-top: 2rem;">
+
+  <!-- PyTorch -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>PyTorch</h5>
+    <pre><code class="language-python">
+import torch.nn as nn
+
+class TorchModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(32, 10)
+
+    def forward(self, x):
+        return self.fc(x)
+    </code></pre>
+  </div>
+
+  <!-- JAX -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>JAX (Flax)</h5>
+    <pre><code class="language-python">
+import flax.linen as nn
+
+class JAXModel(nn.Module):
+    @nn.compact
+    def __call__(self, x):
+        return nn.Dense(10)(x)
+    </code></pre>
+  </div>
+
+  <!-- Agnostic -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>Framework-Agnostic</h5>
+    <pre><code class="language-python">
+def linear(x, w, b):
+    return x @ w + b
+    </code></pre>
+  </div>
+
+</div>
+
+<p>So, multi-framework support is often the compromise. You used to write framework-specific code and sometimes even in parallel; but now you’re maintaining N versions of the same functionality, that’s a simulatenous development, testing and deployment needed for N codes. That’s a recipe for bugs. Automated testing and good abstractions are a must here, and that still requieres more effort.</p>
+
+<p>Luckily, tool support is growing<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. There’s active research into model verification, bug detection, and better conversion tools. As the community embraces this direction, the ecosystem becomes more robust.</p>
+
+<h2 id="where-were-headed">Where We’re Headed</h2>
+
+<p>The ideal? A world where ML engineers can <em>write once, run anywhere</em> — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We’re not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you  initial framework selection is a coming step.</p>
+
+<p>If your team is building anything meant to last more than a couple years, thinking about framework-agnostic design early on can save you a lot of pain later.</p>
+
+<p>Let’s build for the long term — even if the frameworks keep changing under our feet.</p>
+
+<hr>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>The well known landscape of dependencies for a ML System, <a href="https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html">Hidden Technical Debt in Machine Learning Systems</a>, is futher expanded with other papers such as <a href="https://arxiv.org/pdf/2409.11826">A Taxonomy of Self-Admitted Technical Debt in Deep Learning Systems</a> which found that i) there is a significant number of technical debt in all the studied deep learning frameworks. ii) there is design debt, defect debt, documentation debt, test debt, requirement debt, compatibility debt, and algorithm debt in deep learning frameworks. iii) the majority of the technical debt in deep learning framework is design debt (24.07% - 65.27%), followed by requirement debt (7.09% - 31.48%) and algorithm debt (5.62% - 20.67%). In some projects, compatibility debt accounts for more than 10%. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>According to <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" title="Mckinsey: Global Survey on the State of AI, 2025">Mckinsey global survey</a> on the corporation view of AI, deep learning and artificial intelligence are integrated into at least one business function by 78% of respondents. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p>As noted by McKinsey’s<a href="https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/">Open Source in the Age of AI (2023)</a>, around 92% of companies reported that they use open-source software in at least one of their AI initiatives. The survey also highlights that open-source components are increasingly critical not just for research prototyping, but also for production deployments in enterprise settings. The landscap of only deep learning open sourced by Linux Foundation, <a href="https://lfai.landscape2.io/">Open-Source Ecosystem for Machine Learning by the Linux Foundation</a>, but out there exists many more if you go to other libraries layers such as in backends / data / security / ethics / model / deployment … managers. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Examples include: i) The ecosystem built over PyTorch: PyTorch Geometric, TorchText, TorchAudio, and third-party libraries like Pyro and Stable Baselines 3 (SB3). ii) The TensorFlow ecosystem: APIs like TensorFlow Lite, TFX, TensorFlow.js, and extensions such as TensorFlow Probability, TensorFlow GNN, and TensorFlow Quantum (plus projects like Sonnet). iii) Other frameworks: Stable Baselines (SB3) is building SBX for reinforcement learning with JAX or <a href="https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/">Google DeepMind’s libraries</a> including dm-haiku (neural networks), MCTX (Monte Carlo tree search), Jraph (graph neural networks), and physics simulators like JAX MD. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:5">
+      <p>One recent paper on DL testing [Deep Learning Library Testing: Definition, Methods, and Challenges][3] Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/cognitive-labs/preview/pr-2/2025/07/06/ericsson-labs-blog.html">
+        The Cognitive Labs Blog
+      </a>
+    
+  </span>
+  <span>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/cognitive-labs/preview/pr-2/images/ericsson_background.jpg')" data-dark="true" data-size="wide">
+  <!--
+    <div>
+      Extra details like contact info or address
+    </div>
+  -->
+
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:oscar.llorente.gonzalez@ericsson.com" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://github.com/EricssonResearch" data-tooltip="GitHub" data-style="bare" aria-label="GitHub">
+      <i class="icon fa-brands fa-github"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://www.linkedin.com/company/ericsson" data-tooltip="LinkedIn" data-style="bare" aria-label="LinkedIn">
+      <i class="icon fa-brands fa-linkedin"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://youtube.com/user/ericsson" data-tooltip="YouTube" data-style="bare" aria-label="YouTube">
+      <i class="icon fa-brands fa-youtube"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://twitter.com/ericsson" data-tooltip="Twitter" data-style="bare" aria-label="Twitter">
+      <i class="icon fa-brands fa-x-twitter"></i>
+      
+    </a>
+  </div>
+
+
+    
+  </div>
+
+  <div>
+    © Telefonaktiebolaget LM Ericsson 1994-2025 | 
+    Ericsson Cognitive Labs
+    <!-- &nbsp; | &nbsp; Built with
+    <a href="https://github.com/greenelab/lab-website-template">
+      Lab Website Template
+    </a> -->
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
