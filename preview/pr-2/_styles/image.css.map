@@ -1,1 +1,0 @@
-{"version":3,"sourceRoot":"","sources":["image.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;;AAGF;EACI;EACA","sourcesContent":["img {\n  max-width: 100%;\n  max-height: 100%;\n}\n\nimg[src*='#center'] {\n    display: block;\n    margin: auto;\n}\n"],"file":"image.css"}
