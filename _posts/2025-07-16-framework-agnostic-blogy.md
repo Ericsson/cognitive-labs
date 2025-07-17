@@ -148,7 +148,7 @@ Luckily, tool support is growing[^5]. There’s active research into model verif
 
 The ideal? A world where ML engineers can *write once, run anywhere* — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We're not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you initial framework selection is a coming step.
 
-If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there. This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.
+If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there (and contribute if you feel so). This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.
 
 Let’s build for the long term — even if the frameworks keep changing under our feet.
 
