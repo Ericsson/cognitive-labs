@@ -22,7 +22,8 @@
 
   <div class="card-text">
     {% if include.title %}
-      <a
+    <!-- TODO: when the labs have their own page, include this link -->
+      <!-- <a
         {% if include.link %}
           href="{{ include.link | relative_url | uri_escape }}"
         {% endif %}
@@ -32,7 +33,7 @@
         class="card-title"
       >
         {{ include.title }}
-    </a>
+    </a> -->
     {% endif %}
 
     {% if include.subtitle %}
@@ -46,7 +47,7 @@
     {% endif %}
 
     {% if include.tags or include.repo %}
-      {% include tags.html tags=include.tags repo=include.repo %}
+      {% include tags.html tags=include.tags repo=include.repo link=include.link %}
     {% endif %}
   </div>
 </div>
