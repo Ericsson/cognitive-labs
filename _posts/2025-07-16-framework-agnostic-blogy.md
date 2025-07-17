@@ -2,8 +2,7 @@
 title: Framework-Agnostic Libraries are needed
 author: lucia-ferrer
 tags:
-  - Software
-  - Framework-agnostic
+  - Engineering
 excerpt: The explosion of deep learning has made AI software more than a research endeavor. It's now a business-critical asset. As AI goes from prototype to product, the underlying infrastructure grows with it. The tools? Diverse. The choices? Fragmented. The frameworks? A bit of a mess. And that mess? It’s increasingly a blocker.
 ---
 
@@ -78,13 +77,10 @@ As great as framework-agnostic sounds, making it work is tough.
 | Default shape format | NCHW                     | NHWC                          | NHWC                          |
 | Device placement     | Explicit (`.to(device)`) | Implicit (Graph or `.device`) | Functional (`jax.device_put`) |
 | Requires gradient?   | `requires_grad=True`     | `tf.GradientTape()` context   | `jax.grad()` functional API   |
-| Mutability           | Mutable tensors          | Usually mutable               | Immutable (`pure functions`)  |
+| Mutability           | Mutable tensors          | Sometimes mutable               | Immutable (`pure functions`)  |
 | Randomness           | Global RNG               | Graph seed / local seed       | Explicit PRNGKey              |
 
-
-* Writing one model that works across all three? Possible, but fragile, complex, and possible very restrictive. 
-
-As it can be seen, the difference in coding structure is not only the library but also the abstraction of the objects. 
+* Writing one model that works across all three? Possible, but fragile, complex, and possible very restrictive.
 
 <!-- Include this once in your base layout (if not already present) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
@@ -98,14 +94,30 @@ As it can be seen, the difference in coding structure is not only the library bu
   <div style="flex: 0.5; min-width: 100px;">
     <h5>PyTorch</h5>
     <pre><code class="language-python">
-import torch.nn as nn
+    import torch.nn as nn
 
-class TorchModel(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.fc = nn.Linear(32, 10)
+    class TorchModel(nn.Module):
+      def __init__(self):
+          super().__init__()
+          self.fc = nn.Linear(32, 10)
 
-    def forward(self, x):
+      def forward(self, x):
+          return self.fc(x)
+    </code></pre>
+  </div>
+
+  <!-- Tensorflow -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>Tensorflow</h5>
+    <pre><code class="language-python">
+    import tensorflow as tf
+    from tf.keras.layers import Dense
+
+    class Model(tf.keras.Model):
+      def __init__(self):
+        self.fc = Dense(32, 10)
+
+      def __call__(self, x):
         return self.fc(x)
     </code></pre>
   </div>
@@ -114,42 +126,35 @@ class TorchModel(nn.Module):
   <div style="flex: 0.5; min-width: 100px;">
     <h5>JAX (Flax)</h5>
     <pre><code class="language-python">
-import flax.linen as nn
+    from flax import nnx
 
-class JAXModel(nn.Module):
-    @nn.compact
-    def __call__(self, x):
-        return nn.Dense(10)(x)
-    </code></pre>
-  </div>
+    class Model(nnx.Module):
+      def __init__(self, rngs):
+        self.fc = nnx.Linear(
+          32, 10, rngs=rngs)
 
-  <!-- Agnostic -->
-  <div style="flex: 0.5; min-width: 100px;">
-    <h5>Framework-Agnostic</h5>
-    <pre><code class="language-python">
-def linear(x, w, b):
-    return x @ w + b
+      def __call__(self, x):
+        return self.fc(x)
     </code></pre>
-  </div>
+</div>
 
 </div>
 
-So, multi-framework support is often the compromise. You used to write framework-specific code and sometimes even in parallel; but now you’re maintaining N versions of the same functionality, that's a simulatenous development, testing and deployment needed for N codes. That’s a recipe for bugs. Automated testing and good abstractions are a must here, and that still requieres more effort.
+Teams may decide that they are going to support a multi-framework codebase. But now you’re maintaining N versions of the same functionality; that's simultaneous development, testing and deployment needed for N codes. That’s a recipe for bugs. Automated testing and good abstractions are a must here, and that still requires more effort.
 
 Luckily, tool support is growing[^5]. There’s active research into model verification, bug detection, and better conversion tools. As the community embraces this direction, the ecosystem becomes more robust.
 
 ## Where We're Headed
 
-The ideal? A world where ML engineers can *write once, run anywhere* — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We're not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you  initial framework selection is a coming step.
+The ideal? A world where ML engineers can *write once, run anywhere* — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We're not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you initial framework selection is a coming step.
 
-If your team is building anything meant to last more than a couple years, thinking about framework-agnostic design early on can save you a lot of pain later.
-
+If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there. This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.
 
 Let’s build for the long term — even if the frameworks keep changing under our feet.
 
+And if this catches your eye, stay tuned for what we'll be releasing in the Cognitive Labs!
 
 ---
-
 
 [^1]: The well known landscape of dependencies for a ML System, [Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html), is futher expanded with other papers such as [A Taxonomy of Self-Admitted Technical Debt in Deep Learning Systems](https://arxiv.org/pdf/2409.11826) which found that i) there is a significant number of technical debt in all the studied deep learning frameworks. ii) there is design debt, defect debt, documentation debt, test debt, requirement debt, compatibility debt, and algorithm debt in deep learning frameworks. iii) the majority of the technical debt in deep learning framework is design debt (24.07% - 65.27%), followed by requirement debt (7.09% - 31.48%) and algorithm debt (5.62% - 20.67%). In some projects, compatibility debt accounts for more than 10%.
 [^2]: According to [Mckinsey global survey][1] on the corporation view of AI, deep learning and artificial intelligence are integrated into at least one business function by 78% of respondents.
@@ -163,3 +168,4 @@ Let’s build for the long term — even if the frameworks keep changing under o
 
 [1]:https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai 'Mckinsey: Global Survey on the State of AI, 2025'
 [2]:https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/
+[3]:https://dl.acm.org/doi/10.1145/3716497
