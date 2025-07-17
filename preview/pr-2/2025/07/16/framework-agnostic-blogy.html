@@ -66,10 +66,10 @@
 
   <meta name="author" content="lucia-ferrer">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2025-07-16T13:08:11+00:00">
+  <meta property="og:updated_time" content="2025-07-17T13:34:28+00:00">
   <meta property="article:published_time" content="2025-07-16T00:00:00+00:00">
-  <meta property="article:modified_time" content="2025-07-16T13:08:11+00:00">
-  <meta name="revised" content="2025-07-16T13:08:11+00:00">
+  <meta property="article:modified_time" content="2025-07-17T13:34:28+00:00">
+  <meta name="revised" content="2025-07-17T13:34:28+00:00">
 
 
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "Framework-Agnostic Libraries are needed" },
       "datePublished": "2025-07-16T00:00:00+00:00",
-      "dateModified": "2025-07-16T13:08:11+00:00",
+      "dateModified": "2025-07-17T13:34:28+00:00",
     
     "name": "Framework-Agnostic Libraries are needed",
     "description": "Ericsson Cognitive Labs, opening our AI Research to the world",
@@ -487,6 +487,11 @@
   
 
   
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>July 17, 2025</span>
+    </span>
+  
 </div>
 
 
@@ -495,12 +500,8 @@
 
   <div class="tags">
     
-      <a href='/cognitive-labs/preview/pr-2/blog?search="tag:%20software"' class="tag" data-tooltip='Show items with the tag "software"'>
-        software
-      </a>
-    
-      <a href='/cognitive-labs/preview/pr-2/blog?search="tag:%20framework-agnostic"' class="tag" data-tooltip='Show items with the tag "framework-agnostic"'>
-        framework-agnostic
+      <a href='/cognitive-labs/preview/pr-2/blog?search="tag:%20engineering"' class="tag" data-tooltip='Show items with the tag "engineering"'>
+        engineering
       </a>
     
   </div>
@@ -639,7 +640,7 @@
     <tr>
       <td>Mutability</td>
       <td>Mutable tensors</td>
-      <td>Usually mutable</td>
+      <td>Sometimes mutable</td>
       <td>Immutable (<code class="language-plaintext highlighter-rouge">pure functions</code>)</td>
     </tr>
     <tr>
@@ -655,8 +656,6 @@
   <li>Writing one model that works across all three? Possible, but fragile, complex, and possible very restrictive.</li>
 </ul>
 
-<p>As it can be seen, the difference in coding structure is not only the library but also the abstraction of the objects.</p>
-
 <!-- Include this once in your base layout (if not already present) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 
@@ -671,14 +670,30 @@
   <div style="flex: 0.5; min-width: 100px;">
     <h5>PyTorch</h5>
     <pre><code class="language-python">
-import torch.nn as nn
+    import torch.nn as nn
 
-class TorchModel(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.fc = nn.Linear(32, 10)
+    class TorchModel(nn.Module):
+      def __init__(self):
+          super().__init__()
+          self.fc = nn.Linear(32, 10)
 
-    def forward(self, x):
+      def forward(self, x):
+          return self.fc(x)
+    </code></pre>
+  </div>
+
+  <!-- Tensorflow -->
+  <div style="flex: 0.5; min-width: 100px;">
+    <h5>Tensorflow</h5>
+    <pre><code class="language-python">
+    import tensorflow as tf
+    from tf.keras.layers import Dense
+
+    class Model(tf.keras.Model):
+      def __init__(self):
+        self.fc = Dense(32, 10)
+
+      def __call__(self, x):
         return self.fc(x)
     </code></pre>
   </div>
@@ -687,37 +702,33 @@ class TorchModel(nn.Module):
   <div style="flex: 0.5; min-width: 100px;">
     <h5>JAX (Flax)</h5>
     <pre><code class="language-python">
-import flax.linen as nn
+    from flax import nnx
 
-class JAXModel(nn.Module):
-    @nn.compact
-    def __call__(self, x):
-        return nn.Dense(10)(x)
-    </code></pre>
-  </div>
+    class Model(nnx.Module):
+      def __init__(self, rngs):
+        self.fc = nnx.Linear(
+          32, 10, rngs=rngs)
 
-  <!-- Agnostic -->
-  <div style="flex: 0.5; min-width: 100px;">
-    <h5>Framework-Agnostic</h5>
-    <pre><code class="language-python">
-def linear(x, w, b):
-    return x @ w + b
+      def __call__(self, x):
+        return self.fc(x)
     </code></pre>
-  </div>
+</div>
 
 </div>
 
-<p>So, multi-framework support is often the compromise. You used to write framework-specific code and sometimes even in parallel; but now you’re maintaining N versions of the same functionality, that’s a simulatenous development, testing and deployment needed for N codes. That’s a recipe for bugs. Automated testing and good abstractions are a must here, and that still requieres more effort.</p>
+<p>Teams may decide that they are going to support a multi-framework codebase. But now you’re maintaining N versions of the same functionality; that’s simultaneous development, testing and deployment needed for N codes. That’s a recipe for bugs. Automated testing and good abstractions are a must here, and that still requires more effort.</p>
 
 <p>Luckily, tool support is growing<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. There’s active research into model verification, bug detection, and better conversion tools. As the community embraces this direction, the ecosystem becomes more robust.</p>
 
 <h2 id="where-were-headed">Where We’re Headed</h2>
 
-<p>The ideal? A world where ML engineers can <em>write once, run anywhere</em> — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We’re not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you  initial framework selection is a coming step.</p>
+<p>The ideal? A world where ML engineers can <em>write once, run anywhere</em> — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We’re not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you initial framework selection is a coming step.</p>
 
-<p>If your team is building anything meant to last more than a couple years, thinking about framework-agnostic design early on can save you a lot of pain later.</p>
+<p>If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there. This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.</p>
 
 <p>Let’s build for the long term — even if the frameworks keep changing under our feet.</p>
+
+<p>And if this catches your eye, stay tuned for what we’ll be releasing in the Cognitive Labs!</p>
 
 <hr>
 
@@ -736,7 +747,7 @@ def linear(x, w, b):
       <p>Examples include: i) The ecosystem built over PyTorch: PyTorch Geometric, TorchText, TorchAudio, and third-party libraries like Pyro and Stable Baselines 3 (SB3). ii) The TensorFlow ecosystem: APIs like TensorFlow Lite, TFX, TensorFlow.js, and extensions such as TensorFlow Probability, TensorFlow GNN, and TensorFlow Quantum (plus projects like Sonnet). iii) Other frameworks: Stable Baselines (SB3) is building SBX for reinforcement learning with JAX or <a href="https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/">Google DeepMind’s libraries</a> including dm-haiku (neural networks), MCTX (Monte Carlo tree search), Jraph (graph neural networks), and physics simulators like JAX MD. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
     <li id="fn:5">
-      <p>One recent paper on DL testing [Deep Learning Library Testing: Definition, Methods, and Challenges][3] Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
+      <p>One recent paper on DL testing <a href="https://dl.acm.org/doi/10.1145/3716497">Deep Learning Library Testing: Definition, Methods, and Challenges</a> Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
