@@ -19,7 +19,8 @@ You might think, “Well, that’s just how it goes,” but here’s the thing: 
 (Here’s a quick reminder of how these trends have changed over time)
 
 <!-- Google Trends embed remains here -->
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"></script> <script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/g/11gd3905v1","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11bwp1s2k3","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/m/0h95mh8","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11t6my1_gw","geo":"","time":"2014-01-01 2025-04-29"}],"category":0,"property":""}, {"exploreQuery":"date=2014-01-01%202025-04-29&q=%2Fg%2F11gd3905v1,%2Fg%2F11bwp1s2k3,%2Fm%2F0h95mh8,%2Fg%2F11t6my1_gw&hl=en-GB","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
+<!-- <iframe src="/assets/google_trends_dark.html" width="100%" height="600" style="border:none;"></iframe> -->
+![Google Trends Chart](/images/posts/google_trends.svg)
 
 ## The Ever-Shifting Framework Landscape
 
@@ -148,7 +149,7 @@ Luckily, tool support is growing[^5]. There’s active research into model verif
 
 The ideal? A world where ML engineers can *write once, run anywhere* — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We're not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you initial framework selection is a coming step.
 
-If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there (and contribute if you feel so). This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.
+If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there (...and if you feel the courage, why not contribute too?). This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.
 
 Let’s build for the long term — even if the frameworks keep changing under our feet.
 
