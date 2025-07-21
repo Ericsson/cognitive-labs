@@ -2,33 +2,32 @@ name: build-preview
 run-name: build pull request preview
 
 on:
-  # run when called from another workflow
+  pull_request:
   workflow_call:
-
-  # run if user manually requests it
   workflow_dispatch:
 
-# variables
 env:
   PREVIEWS_FOLDER: preview
+  DEBUG: false
 
 permissions:
   contents: write
   pull-requests: write
+
 
 jobs:
   build-preview:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug dump
+      - name: Debug context
         uses: crazy-max/ghaction-dump-context@v2
 
       - name: Checkout branch contents
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.head_ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Install Ruby packages
         if: github.event.action != 'closed'
@@ -37,22 +36,33 @@ jobs:
           ruby-version: "3.4"
           bundler-cache: true
 
-      - name: Get Pages url
+      - name: Get Pages URL
         if: github.event.action != 'closed'
         id: pages
         uses: actions/configure-pages@v4
 
       - name: SSH debug
-        if: runner.debug == '1'
+        if: ${{ env.DEBUG == 'true' }}
         uses: mxschmitt/action-tmate@v3
+        
+      - name: Set preview folder name
+        id: vars
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "preview_dir=pr-${{ github.event.number }}" >> $GITHUB_OUTPUT
+          else
+            echo "preview_dir=run-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Build preview version of site
-        if: github.event.action != 'closed'
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '' }}/${{ env.PREVIEWS_FOLDER }}/pr-${{ github.event.number }}"
+          JEKYLL_ENV=production bundle exec jekyll build \
+            --baseurl "${{ steps.pages.outputs.base_path || '' }}/${{ env.PREVIEWS_FOLDER }}/${{ steps.vars.outputs.preview_dir }}"
 
       - name: Commit preview to Pages branch
         uses: rossjrw/pr-preview-action@v1.4.7
         with:
           source-dir: _site
           umbrella-dir: ${{ env.PREVIEWS_FOLDER }}
+          target-dir: ${{ steps.vars.outputs.preview_dir }}
+
