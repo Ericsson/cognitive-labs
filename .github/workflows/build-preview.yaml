@@ -49,8 +49,10 @@ jobs:
       - name: Build preview version of site
         if: github.event.action != 'closed'
         run: |
-          JEKYLL_ENV=production bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path || '' }}/${{ env.PREVIEWS_FOLDER }}/pr-${{ github.event.number }}"
-
+          JEKYLL_ENV=production bundle exec jekyll build \
+          --baseurl "${{ steps.pages.outputs.base_path || '' }}/${{ env.PREVIEWS_FOLDER }}/run-${{ github.run_number }}"
+          # /pr-${{ github.event.number }}" this comes from a pullrequest id
+          
       - name: Commit preview to Pages branch
         uses: rossjrw/pr-preview-action@v1.4.7
         with:
