@@ -20,7 +20,7 @@ You might think, “Well, that’s just how it goes,” but here’s the thing: 
 
 <!-- Google Trends embed remains here -->
 <!-- <iframe src="/assets/google_trends_dark.html" width="100%" height="600" style="border:none;"></iframe> -->
-![Google Trends Chart](/images/posts/google_trends.svg)
+<img src="{{ 'images/posts/google_trends.svg' | relative_url }}" alt="Google Trends Chart">
 
 ## The Ever-Shifting Framework Landscape
 
