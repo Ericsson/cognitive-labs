@@ -40,20 +40,20 @@
         tags=post.tags
       %}
 
-      {% assign excerpt = post.content
+      {% assign excerpt_text = post.content
         | default: ""
-        | regex_scan: "<!-- excerpt start -->(.*)<!-- excerpt end -->", true
-        | default: post.excerpt
+        | regex_scan: "<!-- abstract start -->([\\s\\S]*?)<!-- abstract end -->", true
+        | default: post.abstract
         | default: ""
         | strip_html
       %}
-      {% assign search = post.content
+      {% assign search = post.abstract
         | strip_html
         | strip_newlines
         | regex_strip
       %}
       <p data-search="{{ search }}">
-        {{ excerpt }}
+        {{ excerpt_text }}
       </p>
     </div>
   </div>

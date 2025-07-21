@@ -3,7 +3,7 @@ title: Framework-Agnostic Libraries are needed
 author: lucia-ferrer
 tags:
   - Engineering
-excerpt: The explosion of deep learning has made AI software more than a research endeavor. It's now a business-critical asset. As AI goes from prototype to product, the underlying infrastructure grows with it. The tools? Diverse. The choices? Fragmented. The frameworks? A bit of a mess. And that mess? It’s increasingly a blocker.
+abstract: The explosion of deep learning has made AI software more than a research endeavor. It's now a business-critical asset. As AI goes from prototype to product, the underlying infrastructure grows with it. The tools? Diverse. The choices? Fragmented. The frameworks? A bit of a mess. And that mess? It’s increasingly a blocker.
 ---
 
 Deep learning has grown fast, *really fast*. It's now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We're now living in a world full layers of complexity to build on top of backends[^1]. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.
