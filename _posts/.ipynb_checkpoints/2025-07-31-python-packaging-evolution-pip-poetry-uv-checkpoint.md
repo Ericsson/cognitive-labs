@@ -11,8 +11,7 @@ tags:
   - Software Engineering
   - Open Source
   - Developer Tools
-abstract: >
-  Python packaging has come a long way — from the simplicity of pip, to the structured workflow of Poetry, and now to the lightning-fast performance of uv. This post traces the journey of these tools, compares them across real-world developer needs, benchmarks their performance, and explores how they serve different personas. Whether you're managing CI pipelines, developing machine learning projects, or maintaining open-source libraries, understanding this evolution helps you choose the right tool with confidence.
+abstract: Python packaging has come a long way — from the simplicity of pip, to the structured workflow of Poetry, and now to the lightning-fast performance of uv. This post traces the journey of these tools, compares them across real-world developer needs, benchmarks their performance, and explores how they serve different personas. Whether you're managing CI pipelines, developing machine learning projects, or maintaining open-source libraries, understanding this evolution helps you choose the right tool with confidence.
 ---
 ![pip vs poetry vs uv](images/posts/image_001_spd2m_image1.png)
 
@@ -48,31 +47,31 @@ However, a new player has emerged: **uv**[^4], a fast, Rust-based toolset that i
 
 In this post, we will explore the unique features of **pip**, **Poetry** and **uv**, helping oneself to determine which tool may be the best fit for respective workflow.
 
-## **🧰**** What Are They?**
+## 🧰 What Are They?
 
-## **🐍 ****pip**
+## 🐍 pip
 
 pip is the default package installer for Python. It installs packages from the Python Package Index (PyPI) and is widely supported and lightweight. While it lacks the advanced dependency resolution and packaging features of tools like Poetry or uv, it's simple, battle-tested, and integrates well with virtual environments created by **venv** or **virtualenv**.
 
-## **🧪**** Poetry**
+## 🧪 Poetry
 
 Poetry is a comprehensive tool for dependency management and Python packaging[^3]. It works directly with pyproject.toml and simplifies everything from installing packages to publishing to PyPI.
 
 This shift is happening gradually. PyTorch and TensorFlow are even borrowing ideas from each other. TF2 got eager execution from PyTorch, and PyTorch 2.0 added `torch.compile` (similar to how XLA optimizes graphs in TF or JAX). These aren’t just nice features, they’re steps toward a shared ecosystem.
 
-## **⚡**** uv**
+## ⚡uv
 
 uv is a **Rust-powered, ultra-fast tool** designed to replace **pip**, **pip-tools**, and **virtualenv**[^4]. It’s modular, interoperable with existing tools (like **Poetry**), and emphasizes speed and correctness.
 
-### **📦**** Installing and Using Libraries with Pip, Poetry, and UV**
+### 📦 Installing and Using Libraries with Pip, Poetry, and UV
 
 Installing libraries is the foundation of any Python project. Let's walk through how three popular tools - **Pip**, **Poetry**, and **UV** - handle this process[^1].
 
-### **🐍**** ****Pip ****-**** Python’s Default Package Installer**
+### 🐍 Pip - Python’s Default Package Installer
 
 Pip is the most commonly used tool for installing and managing Python libraries[^5]. It’s included with most Python distributions and works well in combination with virtual environments.
 
-## **🔧**** Common Pip Commands**
+## 🔧 Common Pip Commands
 
 <pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
 
@@ -82,7 +81,7 @@ Pip is the most commonly used tool for installing and managing Python libraries[
 
 📝 *Tip: Run these commands inside a virtual environment for best practice. See the “Virtual Environment Support” section for setup instructions.*
 
-### **🎼**** ****Poetry ****-**** Dependency & Packaging Manager**
+### 🎼 Poetry - Dependency & Packaging Manager
 
 Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth.
 
@@ -96,7 +95,7 @@ Poetry simplifies dependency management and packaging by using **pyproject.toml*
 
 📝 *Tip: Poetry manages a virtual environment automatically. **We** can run commands inside it using poetry shell.*
 
-## **⚡**** UV ****- ****Ultra-Fast Package & Project Manager**
+## ⚡UV -Ultra-Fast Package & Project Manager
 
 UV is a modern Python packaging tool, written in Rust, focusing on speed and compatibility.
 
@@ -116,7 +115,7 @@ Virtual environments are isolated environments that contain a specific Python in
 
 Here's how Pip, Poetry, and UV approach virtual environment management:
 
-## **🐍**** Pip (Python's default installer)**
+## 🐍 Pip (Python's default installer)
 
 - Pip itself doesn’t manage virtual environments. Instead, it installs packages in whichever environment is currently active.
 
@@ -126,7 +125,7 @@ Here's how Pip, Poetry, and UV approach virtual environment management:
 
 *🔹** Note: Pip is simple and flexible, but requires manual handling of the virtual environment.*
 
-## **🎼**** Poetry (Dependency and packaging manager)**
+## 🎼 Poetry (Dependency and packaging manager)
     
 - Poetry seamlessly integrates virtual environment management.
 
@@ -143,7 +142,7 @@ Here's how Pip, Poetry, and UV approach virtual environment management:
 
 🔹 *Poetry provides a polished experience with integrated dependency and environment management.*
 
-## **🎼**** UV (Ultra-fast Python package manager)**    
+## 🎼 UV (Ultra-fast Python package manager) 
 
 - UV combines virtual environment creation and package installation into one streamlined workflow.
 - To create an environment:
@@ -201,7 +200,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 </pre>
 
 ## ***📊 Performance Results: pip vs Poetry vs uv***
-### ****![image_012_spd2m_image12.png](images/posts/image_012_spd2m_image12.png)
+![image_012_spd2m_image12.png](images/posts/image_012_spd2m_image12.png)
 
 📝 **Interpretation:**
 
