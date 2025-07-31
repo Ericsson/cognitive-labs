@@ -58,8 +58,6 @@ pip is the default package installer for Python. It installs packages from the P
 
 Poetry is a comprehensive tool for dependency management and Python packaging[^3]. It works directly with pyproject.toml and simplifies everything from installing packages to publishing to PyPI.
 
-This shift is happening gradually. PyTorch and TensorFlow are even borrowing ideas from each other. TF2 got eager execution from PyTorch, and PyTorch 2.0 added `torch.compile` (similar to how XLA optimizes graphs in TF or JAX). These aren’t just nice features, they’re steps toward a shared ecosystem.
-
 ## ⚡uv
 
 uv is a **Rust-powered, ultra-fast tool** designed to replace **pip**, **pip-tools**, and **virtualenv**[^4]. It’s modular, interoperable with existing tools (like **Poetry**), and emphasizes speed and correctness.
