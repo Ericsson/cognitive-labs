@@ -259,7 +259,7 @@ Here’s who stands to gain the most:
 Data professionals often need to create and manage multiple environments for experiments. `uv`’s lightning-fast environment creation and package installation streamline this process, allowing for more experiments in less time.
 
 > *"UV combines environment creation and package management in a single tool, streamlining the workflow."*  
-> — [*DataCamp Tutorial on uv*](https://www.datacamp.com/tutorial/uv-python-package-manager)
+> — [*DataCamp Tutorial on uv*](https://www.datacamp.com/tutorial/python-uv)
 
 ---
 
@@ -268,8 +268,8 @@ Data professionals often need to create and manage multiple environments for exp
 
 In continuous integration and deployment workflows, time is critical. `uv`’s performance can drastically cut down the time required for dependency installation, leading to faster build and deployment processes.
 
-> *"UV's performance shines brightest in automation pipelines, where every second counts."*  
-> — [*Introducing uv: Next-Gen Python Package Manager*](https://astral.sh/blog/introducing-uv/)
+> *"UV's performance shines brightest in automation pipelines, where every second counts."*
+> — [*Introducing uv: Next-Gen Python Package Manager*](https://codemaker2016.medium.com/introducing-uv-next-gen-python-package-manager-b78ad39c95d7)
 
 ---
 
