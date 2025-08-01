@@ -12,7 +12,7 @@ abstract: >
 ---
 ![pip vs poetry vs uv](images/posts/image_001_spd2m_image1.png)
 
-Over the past decade, Python's packaging ecosystem has undergone a remarkable transformation - one that has been both confusing and exciting for developers. From the early days of pip to the modern robustness of tools like Poetry and uv, Python users have experienced a fragmented yet progressive journey. This blog post explores that evolution - highlighting the steps, motivations, and turning points that have shaped the tools we rely on today. Whether we are a seasoned developer or a curious newcomer, understanding this progression not only clarifies the landscape but also empowers us to make smarter decisions for future projects.
+Over the past decade, Python's packaging ecosystem has undergone a remarkable transformation - one that has been both confusing and exciting for developers. From the early days of `pip` to the structured reliability of `Poetry`, and now the lightning-fast innovation of `uv`, developers have navigated a fragmented yet steadily improving landscape. This blog post traces that journey, highlighting the motivations, missteps, and milestones that shaped the tools we use today. Whether you're a seasoned developer or just starting out, understanding this evolution helps clarify the tooling chaos — and makes it easier to choose the right tool for your next project.
 
 The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.
 
