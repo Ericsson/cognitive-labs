@@ -8,7 +8,7 @@ tags:
   - Tooling
   - Developer Experience
 abstract: >
-  Python packaging has come a long way — from the simplicity of pip, to the structured workflow of Poetry, and now to the lightning-fast performance of uv. This post traces the journey of these tools, compares them across real-world developer needs, benchmarks their performance, and explores how they serve different personas. Whether you're managing CI pipelines, developing machine learning projects, or maintaining open-source libraries, understanding this evolution helps you choose the right tool with confidence.
+  Python packaging today feels like a **Looney Tunes** episode — **`pip`** is the quiet, reliable *Porky Pig* who’s been around forever, **`Poetry`** is *Wile E. Coyote* with a plan (and a lockfile) for everything, and **`uv`** is the *Road Runner*, blazing past everyone with Rust-powered speed. We’ve tossed these characters into the same scene, **benchmarked their performance**, and **compared how they handle real-world developer workflows**. Whether you're **wrangling CI pipelines** or just trying to `pip install` *without dropping an anvil on your foot*, this blog will help you **pick the right tool** — *no Acme products required.*
 ---
 ![pip vs poetry vs uv](images/posts/image_001_spd2m_image1.png)
 
