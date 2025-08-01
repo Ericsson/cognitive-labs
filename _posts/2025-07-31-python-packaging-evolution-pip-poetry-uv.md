@@ -3,14 +3,10 @@ title: "🐍 pip vs 🧪 Poetry vs ⚡ uv: Benchmarking the Future of Python Dep
 author: sangam
 tags:
   - Python
-  - Dependency Management
-  - pip
-  - Poetry
-  - uv
   - Packaging
-  - Software Engineering
-  - Open Source
-  - Developer Tools
+  - Dependency Management
+  - Tooling
+  - Developer Experience
 abstract: >
   Python packaging has come a long way — from the simplicity of pip, to the structured workflow of Poetry, and now to the lightning-fast performance of uv. This post traces the journey of these tools, compares them across real-world developer needs, benchmarks their performance, and explores how they serve different personas. Whether you're managing CI pipelines, developing machine learning projects, or maintaining open-source libraries, understanding this evolution helps you choose the right tool with confidence.
 ---
