@@ -246,13 +246,13 @@ Each tool shines in different situations. Here's a quick guide to help choose th
 
 | 💼 Scenario                          | 🏆 Best Tool | 💡 Why                                                                                   |
 |-------------------------------------|--------------|------------------------------------------------------------------------------------------|
-| Easier to learn                     | ✅ Poetry     | Built-in support for dependency resolution, virtualenv, and packaging                   |
-| Super-fast installs in CI or dev    | ⚡ UV         | Significantly faster env creation & installs (5x–10x faster than pip)                   |
-| Combining best of both worlds       | 🔥 UV         | Handles fast installs, packaging, and PyPI publishing – all-in-one                      |
-| Virtual environment creation        | ⚙️ UV         | Fast and supports multiple isolated envs with ease                                      |
-| Familiar workflow & legacy compatibility | 🐍 Pip        | Universal and works with any Python project                                             |
+| Easier to learn                     | Poetry     | Built-in support for dependency resolution, virtualenv, and packaging                   |
+| Super-fast installs in CI or dev    | UV         | Significantly faster env creation & installs (5x–10x faster than pip)                   |
+| Combining best of both worlds       | UV         | Handles fast installs, packaging, and PyPI publishing – all-in-one                      |
+| Virtual environment creation        | UV         | Fast and supports multiple isolated envs with ease                                      |
+| Familiar workflow & legacy compatibility | Pip        | Universal and works with any Python project                                             |
 
-### ***👥 Who Benefits the Most from `uv`?***
+### Who Benefits the Most from `uv`?
 
 The transition to modern Python dependency management tools like `uv` isn’t just about speed — it’s about empowering specific groups to work more efficiently and effectively.  
 Here’s who stands to gain the most:
@@ -270,7 +270,7 @@ Data professionals often need to create and manage multiple environments for exp
 ---
 
 #### 2. CI/CD Engineers & DevOps Teams  
-**⚙️ Benefit:** Significantly reduced CI/CD pipeline times
+**Benefit:** Significantly reduced CI/CD pipeline times
 
 In continuous integration and deployment workflows, time is critical. `uv`’s performance can drastically cut down the time required for dependency installation, leading to faster build and deployment processes.
 
@@ -301,7 +301,7 @@ As the chart shows:
 
 ---
 
-### ***💡 Final Thought***
+### Final Thought
 
 Whether we're accelerating machine learning experiments, streamlining CI/CD pipelines, maintaining open-source projects, teaching the next generation of developers, or building core Python infrastructure — `uv` offers a modern, efficient solution for dependency management.
 
