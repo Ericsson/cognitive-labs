@@ -114,7 +114,7 @@ Example: Installing and Freezing with uv
 
 📝 *Tip: UV uses the pyproject.toml to manage dependencies and environments. **We** can run any command inside the project's virtual environment using uv run.*
 
-## **Virtual environment support with Pip, Poetry, and UV**
+## Virtual environment support with Pip, Poetry, and UV
 
 Virtual environments are isolated environments that contain a specific Python interpreter, along with its own set of installed packages. They are crucial for managing dependencies, avoiding conflicts, and ensuring reproducibility across Python projects.
 
