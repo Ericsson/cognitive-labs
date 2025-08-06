@@ -60,7 +60,7 @@ Built in Rust, `uv` reimagines Python tooling for the modern era. It’s blazing
 
 ---
 
-## Installing and Using Libraries with Pip, Poetry, and UV
+## Installing and Managing Dependencies
 
 Installing libraries is the foundation of any Python project. Let's walk through how three popular tools - **Pip**, **Poetry**, and **UV** - handle this process[^1].
 
@@ -68,7 +68,7 @@ Installing libraries is the foundation of any Python project. Let's walk through
 
 Pip is the most commonly used tool for installing and managing Python libraries[^5]. It’s included with most Python distributions and works well in combination with virtual environments.
 
-## 🔧 Common Pip Commands
+🔧 Common Pip Commands
 
 <pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
 
@@ -92,7 +92,7 @@ Example: Installing and Freezing with Poetry
 
 📝 *Tip: Poetry manages a virtual environment automatically. **We** can run commands inside it using poetry shell.*
 
-## UV -Ultra-Fast Package & Project Manager
+### UV - Ultra-Fast Package & Project Manager
 
 UV is a modern Python packaging tool, written in Rust, focusing on speed and compatibility.
 
@@ -122,7 +122,7 @@ Here's how Pip, Poetry, and UV approach virtual environment management:
 
 *🔹** Note: Pip is simple and flexible, but requires manual handling of the virtual environment.*
 
-## 🎼 Poetry (Dependency and packaging manager)
+## Poetry (Dependency and packaging manager)
     
 - Poetry seamlessly integrates virtual environment management.
 
@@ -159,7 +159,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 - Installing lightweight packages: numpy, pandas, scikit-learn
 - Installing heavyweight package: torch
 
-### ***❓ This benchmark helps answer:***
+### ❓ This benchmark helps answer:
     
 - Which tool creates environments fastest?
 - How do installation times compare for lightweight and heavyweight packages?
@@ -199,7 +199,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 ## Performance Results: pip vs Poetry vs uv
 ![image_012_spd2m_image12.png](images/posts/image_012_spd2m_image12.png)
 
-📝 **Interpretation:**
+📝 Interpretation:
 
 - `pip` is the slowest across the board.
 - `Poetry` is faster, but still Python-bound and primarily sequential.
