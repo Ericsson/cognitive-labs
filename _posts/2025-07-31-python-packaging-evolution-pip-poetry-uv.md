@@ -223,7 +223,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 💡 *"Using uv for the first time feels like switching the project to SSD after years on a spinning disk."*
 
-## ***🔄 CLI & UX***
+## 🔄 CLI & UX
 
 Different tools offer different trade-offs in terms of usability and feature completeness[^8]. Here’s a quick comparison of pip, Poetry, and uv from a command-line experience perspective:
 
