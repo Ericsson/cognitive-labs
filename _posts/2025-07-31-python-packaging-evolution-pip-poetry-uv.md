@@ -60,14 +60,6 @@ Built in Rust, `uv` reimagines Python tooling for the modern era. It’s blazing
 
 ---
 
-Each of these tools answers a different question:
-
-- Want the most compatibility? Use `pip`.
-- Want simplicity and structure? Use `Poetry`.
-- Want raw speed and modern ergonomics? Try `uv`.
-
-> There’s no “winner,” but Python developers now have real options - and that’s a win in itself.
-
 ## Installing and Using Libraries with Pip, Poetry, and UV
 
 Installing libraries is the foundation of any Python project. Let's walk through how three popular tools - **Pip**, **Poetry**, and **UV** - handle this process[^1].
