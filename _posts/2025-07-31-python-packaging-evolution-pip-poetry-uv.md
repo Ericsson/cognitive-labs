@@ -1,5 +1,5 @@
 ---
-title: "🐍 pip vs 🧪 Poetry vs ⚡ uv: Benchmarking the Future of Python Dependency Management"
+title: "pip vs Poetry vs uv: Benchmarking the Future of Python Dependency Management"
 author: sangam
 tags:
   - Python
@@ -16,7 +16,7 @@ Over the past decade, Python's packaging ecosystem has undergone a remarkable tr
 
 The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.
 
-## 🧭 ***Python Packaging Timeline: From pip to uv***
+## Python Packaging Timeline: From pip to uv
 
 ![Timeline: pip to uv](images/posts/image_002_spd2m_image2.png)
 
@@ -36,7 +36,7 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
 > 💡 *Curious about where Python packaging trends are heading? Try Googling: “code speed”, “modern Python packaging”, or “developer workflow optimization”.*
 
-### 🐍 **pip vs 🧪 Poetry vs ⚡uv: The Future of Python Dependency Management?**
+## pip vs Poetry vs uv: What’s Changing?
 
 Python's packaging ecosystem has historically been complex. Developers have had to navigate multiple tools, such as **pip**[^5], **virtualenv**, **pipenv**, and **Poetry**[^3], to manage dependencies, environments, and packaging.
 
@@ -44,17 +44,17 @@ However, a new player has emerged: **uv**[^4], a fast, Rust-based toolset that i
 
 In this post, we will explore the unique features of **pip**, **Poetry** and **uv**, helping oneself to determine which tool may be the best fit for respective workflow.
 
-## 🧰 What Are They?
+## What Are They?
 
-## 🐍 pip
+### pip
 
 pip is the default package installer for Python. It installs packages from the Python Package Index (PyPI) and is widely supported and lightweight. While it lacks the advanced dependency resolution and packaging features of tools like Poetry or uv, it's simple, battle-tested, and integrates well with virtual environments created by **venv** or **virtualenv**.
 
-## 🧪 Poetry
+### Poetry
 
 Poetry is a comprehensive tool for dependency management and Python packaging[^3]. It works directly with pyproject.toml and simplifies everything from installing packages to publishing to PyPI.
 
-## ⚡uv
+### uv
 
 uv is a **Rust-powered, ultra-fast tool** designed to replace **pip**, **pip-tools**, and **virtualenv**[^4]. It’s modular, interoperable with existing tools (like **Poetry**), and emphasizes speed and correctness.
 
