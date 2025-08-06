@@ -112,7 +112,7 @@ Example: Installing and Freezing with uv
 
 <pre> ```bash # Step 1: Install UV pip install uv # Step 2: Create a new project (adds pyproject.toml) mkdir my-uv-project cd my-uv-project uv init # Step 3: Add and install a package (e.g., requests) uv add requests # Step 4: Freeze dependencies into requirements.txt uv pip compile pyproject.toml -o requirements.txt # Step 5: Run a script within the virtual environment uv run python my_script.py ``` </pre>
 
-*📝** Tip: UV uses the pyproject.toml to manage dependencies and environments.** We **can run any command inside the project's virtual environment using uv run*
+📝 *Tip: UV uses the pyproject.toml to manage dependencies and environments. **We** can run any command inside the project's virtual environment using uv run.*
 
 ## **Virtual environment support with Pip, Poetry, and UV**
 
