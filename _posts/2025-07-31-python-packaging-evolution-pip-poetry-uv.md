@@ -36,7 +36,7 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
 > 💡 *Curious about where Python packaging trends are heading? Try Googling: “code speed”, “modern Python packaging”, or “developer workflow optimization”.*
 
-## pip vs Poetry vs uv: A New Landscape
+## A New Landscape in Python Packaging
 
 Python has long lacked a single, unified approach to dependency management. But with uv shaking up the status quo, it’s worth comparing how these three tools stack up — not just on features, but on philosophy.
 
@@ -54,7 +54,7 @@ Poetry introduced a higher level of abstraction. It brought in a clear project s
 
 ### `uv`: The Speed-Focused Contender
 
-Built in Rust, `uv` reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml` standards. It’s also the backend for **Rye**, which aims to be a Poetry-style toolchain — but even faster.
+Built in Rust, `uv` reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml` standards. It’s also the backend for **Rye**, which aims to be a Poetry-style toolchain - but even faster.
 
 > `uv` is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.
 
@@ -66,7 +66,7 @@ Each of these tools answers a different question:
 - Want simplicity and structure? Use `Poetry`.
 - Want raw speed and modern ergonomics? Try `uv`.
 
-There’s no “winner,” but Python developers now have real options — and that’s a win in itself.
+> There’s no “winner,” but Python developers now have real options - and that’s a win in itself.
 
 ## Installing and Using Libraries with Pip, Poetry, and UV
 
