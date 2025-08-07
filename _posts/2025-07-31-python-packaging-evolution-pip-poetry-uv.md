@@ -1,5 +1,5 @@
 ---
-title: "`pip` vs Poetry vs uv: Benchmarking the Future of Python Dependency Management"
+title: "`pip` vs `Poetry` vs uv: Benchmarking the Future of Python Dependency Management"
 author: sangam
 tags:
   - Python
@@ -32,14 +32,14 @@ The timeline below visually maps out this journey, showcasing when major tools e
    An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use - and never became the standard.
 
 3. **`Poetry` Arrives: Structure and Simplicity**  
-   Poetry introduced a higher level of abstraction. It brought in a clear project structure (`pyproject.toml`), semantic versioning, and dependency resolution with lockfiles - all while abstracting away virtual
+   `Poetry` introduced a higher level of abstraction. It brought in a clear project structure (`pyproject.toml`), semantic versioning, and dependency resolution with lockfiles - all while abstracting away virtual
    environments. It appeals to developers who want opinionated defaults and consistency without stitching together multiple tools.
 
    > 🛠 `Poetry` is the all-in-one power drill: batteries included, and it just works.
 
 4. **Enter `uv`: The Speed-Focused Contender**  
    Built in Rust, `uv` reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml` standards. It’s also the backend
-   for **Rye**, which aims to be a Poetry-style toolchain - but even faster.
+   for **Rye**, which aims to be a `Poetry`-style toolchain - but even faster.
 
    > 🏎️ `uv` is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.
 
@@ -65,13 +65,13 @@ Having already introduced `pip`, let’s now walk through how it fits into core 
 
 ### Poetry Workflow
 
-Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth. Unlike `pip`, Poetry automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
+`Poetry` simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth. Unlike `pip`, `Poetry` automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
 
   - Creates a virtual environment (usually in a central cache directory).
   - Resolves dependencies.
   - Installs them into the environment.
   
-We can configure Poetry to store the virtual environment inside the project directory (rather than in the global cache) by updating config:
+We can configure `Poetry` to store the virtual environment inside the project directory (rather than in the global cache) by updating config:
 <pre> ```toml [virtualenvs] in-project = true ``` </pre>
 
 To activate the environment manually:
@@ -150,11 +150,11 @@ Choosing the right Python tool for dependency management can drastically impact 
 - `pip` is the slowest across the board.
 - `Poetry` is faster, but still Python-bound and primarily sequential.
 - `uv` is by far the fastest:
-  - **5x–10x faster than `pip` or Poetry** for lightweight installs  
+  - **5x–10x faster than `pip` or `Poetry`** for lightweight installs  
     (e.g., `numpy`, `pandas`, `scikit-learn`)
 
   - Full install (with `torch`) in **~21s**, nearly  
-    **2.5x faster than Poetry** and **3x+ faster than `pip`**
+    **2.5x faster than `Poetry`** and **3x+ faster than `pip`**
 
   - **Up to 40x faster** (<0.1s) for virtual environment creation,  
     thanks to its **Rust-powered speed** and **smarter dependency resolution**
@@ -175,7 +175,7 @@ Different tools offer different trade-offs in terms of usability and feature com
 | Editable install (`-e .`) | Yes                          | Yes                         | Yes                         | All three support editable installs                                                       |
 
 > 💡 **Key Takeaway**  
-> If we are looking for an opinionated all-in-one tool, **Poetry** is great.  
+> If we are looking for an opinionated all-in-one tool, **`Poetry`** is great.  
 > If we want **speed with modularity**, **uv** is compelling.
 
 ### When to Use Which?
@@ -192,8 +192,7 @@ Each tool shines in different situations. Here's a quick guide to help choose th
 
 ### Who Benefits the Most from `uv`?
 
-The transition to modern Python dependency management tools like `uv` isn’t just about speed — it’s about empowering specific groups to work more efficiently and effectively.  
-Here’s who stands to gain the most:
+The transition to modern Python dependency management tools like `uv` isn’t just about speed — it’s about empowering specific groups to work more efficiently and effectively. Here’s who stands to gain the most:
 
 ---
 
@@ -234,7 +233,7 @@ To complement the performance and feature comparison[^7], let's look at real-wor
 As the chart shows:
 
 - **`pip`** remains dominant as the default tool  
-- **poetry** has gained steady popularity as the structured alternative  
+- **`Poetry`** has gained steady popularity as the structured alternative  
 - **uv**, although newer, shows an upward trend with increasing attention
 
 ---
@@ -243,7 +242,7 @@ As the chart shows:
 
 Whether we're accelerating machine learning experiments, streamlining CI/CD pipelines, maintaining open-source projects, teaching the next generation of developers, or building core Python infrastructure — `uv` offers a modern, efficient solution for dependency management.
 
-It embodies the best of both worlds: the **flexibility of `pip`**, the **structured reliability of Poetry**, and the **performance of a Rust-powered engine** — reflecting a Python community continually evolving toward a smoother developer experience.
+It embodies the best of both worlds: the **flexibility of `pip`**, the **structured reliability of `Poetry`**, and the **performance of a Rust-powered engine** — reflecting a Python community continually evolving toward a smoother developer experience.
 
 Each generation of packaging tools has pushed toward greater developer empowerment:
 
