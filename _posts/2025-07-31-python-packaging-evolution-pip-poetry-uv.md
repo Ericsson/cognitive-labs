@@ -53,21 +53,17 @@ Installing dependencies and managing virtual environments are at the core of eve
 
 ### Pip - Python’s Default Package Installer
 
-Pip is the most commonly used tool for installing and managing Python libraries[^5]. It’s included with most Python distributions and works well in combination with virtual environments.
+Having already introduced `pip`, let’s now walk through how it fits into core workflows - particularly when managing virtual environments and installing dependencies.
 
----
+#### Working with Virtual Environments 
 
-#### 
-
-- Pip itself doesn’t manage virtual environments. Instead, it installs packages in whichever environment is currently active.
-
-- To use a virtual environment with Pip:
+While Pip installs packages into the currently active environment, it does **not** create or manage virtual environments by itself. To isolate dependencies, it’s best to use Python’s built-in `venv` module alongside `pip`.
 
 <pre> ```bash # Create a virtual environment: python3 -m venv .venv # Activate it: # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages: pip install &lt;package&gt; ``` </pre>
 
 📝 Tip: Always run pip commands inside a virtual environment for better isolation and reproducibility.
 
-🔧 Common Pip Commands
+#### Common Pip Commands
 
 <pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
 
@@ -75,32 +71,27 @@ Pip is the most commonly used tool for installing and managing Python libraries[
 
 Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth.
 
-🛠️ Poetry Setup and Commands:
-
-<pre> ```bash # Install Poetry (recommended way) pipx install poetry # Or use the official install script curl -sSL https://install.python-poetry.org | python3 - # Create a new project poetry new my_project cd my_project # Add dependencies poetry add requests # Install dependencies (from pyproject.toml) poetry install # Update all dependencies poetry update # Remove a dependency poetry remove requests # Run a script inside Poetry’s virtual env poetry run python app.py ``` </pre>
-
-Example: Installing and Freezing with Poetry
-
-<pre> ```bash # Initialize a new Poetry project (creates pyproject.toml) poetry init # Add a package poetry add requests # Install dependencies (from pyproject.toml) poetry install # Export to requirements.txt (if needed) poetry export -f requirements.txt --output requirements.txt ``` </pre>
-
-📝 *Tip: Poetry manages a virtual environment automatically. **We** can run commands inside it using poetry shell.*
-
-## Poetry (Dependency and packaging manager)
+#### Working with Poetry Environments
     
-- Poetry seamlessly integrates virtual environment management.
+Unlike pip, Poetry automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
 
-- When we run `poetry install` or `poetry add`, it:
-  - Creates a virtual environment (usually in a cache).
+  - Creates a virtual environment (usually in a cache directory).
   - Resolves dependencies.
-  - Installs them into that environment.
+  - Installs them into the environment.
   
-- We can configure Poetry to store the virtual environment inside the project directory (rather than in the global cache) by adding this to your config.toml:
+We can configure Poetry to store the virtual environment inside the project directory (rather than in the global cache) by adding this to config.toml:
 <pre> ```toml [virtualenvs] in-project = true ``` </pre>
 
-- To activate the environment manually:
+To activate the environment manually:
 <pre> ```bash poetry shell ``` </pre>
 
-🔹 *Poetry provides a polished experience with integrated dependency and environment management.*
+📝 Tip: Use poetry run to execute scripts inside the managed environment.
+
+#### Poetry - Setup, Usage, and Dependency Management
+
+Here's a quick walkthrough of common Poetry commands for setting up and managing a Python project:
+
+<pre> ```bash # Install Poetry (recommended way) pipx install poetry # Or use the official install script curl -sSL https://install.python-poetry.org | python3 - # Create a new project poetry new my_project cd my_project # OR initialize Poetry in an existing project (creates pyproject.toml) poetry init # Add dependencies poetry add requests # Install dependencies (from pyproject.toml) poetry install # Update all dependencies poetry update # Remove a dependency poetry remove requests # Run a script inside Poetry’s virtual environment poetry run python app.py # Export dependencies to requirements.txt (if needed) poetry export -f requirements.txt --output requirements.txt ``` </pre>
 
 ### UV - Ultra-Fast Package & Project Manager
 
@@ -129,52 +120,6 @@ Example: Installing and Freezing with uv
 
 🔹 *Ideal for users who value speed and simplicity in managing environments and packages together.*   
 
-## Virtual environment support with Pip, Poetry, and UV
-
-Virtual environments are isolated environments that contain a specific Python interpreter, along with its own set of installed packages. They are crucial for managing dependencies, avoiding conflicts, and ensuring reproducibility across Python projects.
-
-Here's how Pip, Poetry, and UV approach virtual environment management:
-
-## Pip (Python's default installer)
-
-- Pip itself doesn’t manage virtual environments. Instead, it installs packages in whichever environment is currently active.
-
-- To use a virtual environment with Pip:
-
-<pre> ```bash # Create one with Python’s built-in venv module: python3 -m venv .venv # Activate it: # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages: pip install &lt;package&gt; ``` </pre>
-
-*🔹** Note: Pip is simple and flexible, but requires manual handling of the virtual environment.*
-
-## Poetry (Dependency and packaging manager)
-    
-- Poetry seamlessly integrates virtual environment management.
-
-- When we run `poetry install` or `poetry add`, it:
-  - Creates a virtual environment (usually in a cache).
-  - Resolves dependencies.
-  - Installs them into that environment.
-  
-- We can configure Poetry to store the virtual environment inside the project directory (rather than in the global cache) by adding this to your config.toml:
-<pre> ```toml [virtualenvs] in-project = true ``` </pre>
-
-- To activate the environment manually:
-<pre> ```bash poetry shell ``` </pre>
-
-🔹 *Poetry provides a polished experience with integrated dependency and environment management.*
-
-## UV (Ultra-fast Python package manager) 
-
-- UV combines virtual environment creation and package installation into one streamlined workflow.
-- To create an environment:
-<pre> ```bash uv venv ``` </pre>
-
-- It auto-detects project environments and can also create one with a specific Python version:
-<pre> ```bash uv venv ``` </pre>
-
-- UV aims to be a faster alternative to tools like pip, venv, and even Poetry, especially for large dependency trees.
-
-🔹 *Ideal for users who value speed and simplicity in managing environments and packages together.*    
-    
 ## Benchmarking Python Dependency Installation: pip vs Poetry vs uv
 
 Choosing the right Python tool for dependency management can drastically impact the development speed[^6]. We benchmarked three popular tools - pip, Poetry, and uv - to measure their performance for:
