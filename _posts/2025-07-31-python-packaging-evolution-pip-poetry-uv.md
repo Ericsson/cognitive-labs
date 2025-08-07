@@ -1,5 +1,5 @@
 ---
-title: "`pip` vs `Poetry` vs uv: Benchmarking the Future of Python Dependency Management"
+title: "`pip` vs `Poetry` vs `uv`: Benchmarking the Future of Python Dependency Management"
 author: sangam
 tags:
   - Python
@@ -85,22 +85,22 @@ To activate the environment manually:
 
 ### UV Workflow
 
-Let’s now look at how `uv` fits into the core workflows of installing dependencies and managing virtual environments. UV combines both tasks into a single streamlined interface — automatically creating virtual environments, resolving dependencies, and managing packages via `pyproject.toml`.
+Let’s now look at how `uv` fits into the core workflows of installing dependencies and managing virtual environments. `uv` combines both tasks into a single streamlined interface — automatically creating virtual environments, resolving dependencies, and managing packages via `pyproject.toml`.
 
 - To create a virtual environment:
 <pre> ```bash uv venv ``` </pre>
 
-📝 Tip: Use `uv run` to execute commands inside UV’s managed environment.
+📝 Tip: Use `uv run` to execute commands inside `uv`’s managed environment.
 
 #### UV – Setup, Usage, and Dependency Management
 
 <pre>```bash # Install UV pip install uv # OR (macOS/Linux) brew install astral-sh/uv/uv # Initialize a new project (adds pyproject.toml) mkdir my-uv-project cd my-uv-project uv init # Create a virtual environment uv venv # Add and install a package (e.g., requests) uv add requests # Install a package manually (pip-style) uv pip install another-package # Install from requirements file uv pip install -r requirements.txt # Freeze dependencies (like pip-tools) uv pip compile pyproject.toml -o requirements.txt # Sync environment from lock file uv pip sync requirements.txt # Remove a package uv remove requests # Run script within the virtual environment uv run python my_script.py ```</pre>
 
-📝 Tip: `uv` uses the pyproject.toml to manage dependencies and environments.
+📝 Tip: `uv` uses the `pyproject.toml` to manage dependencies and environments.
 
 ## Benchmarking Python Dependency Installation Tools
 
-Choosing the right Python tool for dependency management can drastically impact the development speed[^6]. We benchmarked three popular tools - pip, Poetry, and uv - to measure their performance for:
+Choosing the right Python tool for dependency management can drastically impact the development speed[^6]. We benchmarked three popular tools - `pip`, `Poetry`, and `uv` - to measure their performance for:
 - Virtual environment creation
 - Installing lightweight packages: numpy, pandas, scikit-learn
 - Installing heavyweight package: torch
@@ -109,7 +109,7 @@ Choosing the right Python tool for dependency management can drastically impact 
     
 - Which tool creates environments fastest?
 - How do installation times compare for lightweight and heavyweight packages?
-- What’s the end-to-end speed advantage of using a tool like uv?
+- What’s the end-to-end speed advantage of using a tool like `uv`?
 
 ⚙️ Experimental Setup:
 <pre>
@@ -159,7 +159,7 @@ Choosing the right Python tool for dependency management can drastically impact 
   - **Up to 40x faster** (<0.1s) for virtual environment creation,  
     thanks to its **Rust-powered speed** and **smarter dependency resolution**
 
-> 💡 *"Using uv for the first time feels like switching the project to SSD after years on a spinning disk."*
+> 💡 *"Using `uv` for the first time feels like switching the project to SSD after years on a spinning disk."*
 
 ## Beyond Speed: CLI Usability & Developer Experience
 
@@ -176,7 +176,7 @@ Different tools offer different trade-offs in terms of usability and feature com
 
 > 💡 **Key Takeaway**  
 > If we are looking for an opinionated all-in-one tool, **`Poetry`** is great.  
-> If we want **speed with modularity**, **uv** is compelling.
+> If we want **speed with modularity**, **`uv`** is compelling.
 
 ### When to Use Which?
 
@@ -234,11 +234,11 @@ As the chart shows:
 
 - **`pip`** remains dominant as the default tool  
 - **`Poetry`** has gained steady popularity as the structured alternative  
-- **uv**, although newer, shows an upward trend with increasing attention
+- **`uv`**, although newer, shows an upward trend with increasing attention
 
 ---
 
-### Final Thought
+## Final Thought
 
 Whether we're accelerating machine learning experiments, streamlining CI/CD pipelines, maintaining open-source projects, teaching the next generation of developers, or building core Python infrastructure — `uv` offers a modern, efficient solution for dependency management.
 
@@ -270,7 +270,7 @@ Choosing the right tool today involves more than just looking at features — it
 
 ---
 
-### 📚 References
+## 📚 References
 
 [^1]: **Python Packaging User Guide**  
 [https://packaging.python.org](https://packaging.python.org)  
