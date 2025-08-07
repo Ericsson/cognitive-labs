@@ -51,32 +51,25 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
 Installing dependencies and managing virtual environments are at the core of every Python project. These isolated setups contain their own Python interpreter and installed packages, helping avoid conflicts and ensuring reproducibility. Let’s explore how the three major tools - `pip`, `Poetry`, and `uv` - approach these workflows[^1].
 
-
-
 ### Pip - Python’s Default Package Installer
 
 Pip is the most commonly used tool for installing and managing Python libraries[^5]. It’s included with most Python distributions and works well in combination with virtual environments.
 
-🔧 Common Pip Commands
+---
 
-<pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
-
-Example: Installing and Freezing with Pip
-
-<pre> ```bash # Install a package pip install requests # Export installed dependencies pip freeze > requirements.txt ``` </pre>
-
-📝 *Tip: Run these commands inside a virtual environment for best practice. See the “Virtual Environment Support” section for setup instructions.*
-
-## Pip (Python's default installer)
+#### 
 
 - Pip itself doesn’t manage virtual environments. Instead, it installs packages in whichever environment is currently active.
 
 - To use a virtual environment with Pip:
 
-<pre> ```bash # Create one with Python’s built-in venv module: python3 -m venv .venv # Activate it: # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages: pip install &lt;package&gt; ``` </pre>
+<pre> ```bash # Create a virtual environment: python3 -m venv .venv # Activate it: # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages: pip install &lt;package&gt; ``` </pre>
 
-*🔹** Note: Pip is simple and flexible, but requires manual handling of the virtual environment.*
+📝 Tip: Always run pip commands inside a virtual environment for better isolation and reproducibility.
 
+🔧 Common Pip Commands
+
+<pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
 
 ### Poetry - Dependency & Packaging Manager
 
