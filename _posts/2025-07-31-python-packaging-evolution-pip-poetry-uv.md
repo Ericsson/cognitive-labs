@@ -1,5 +1,5 @@
 ---
-title: "pip vs Poetry vs uv: Benchmarking the Future of Python Dependency Management"
+title: "`pip` vs Poetry vs uv: Benchmarking the Future of Python Dependency Management"
 author: sangam
 tags:
   - Python
@@ -57,15 +57,15 @@ Having already introduced `pip`, let’s now walk through how it fits into core 
 
 <pre> ```bash # Create a virtual environment python3 -m venv .venv # Activate it # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages pip install &lt;package&gt; ``` </pre>
 
-📝 Tip: Always run pip commands inside a virtual environment for better isolation and reproducibility.
+📝 Tip: Always run `pip` commands inside a virtual environment for better isolation and reproducibility.
 
-#### Pip – Setup, Usage, and Dependency Management
+#### `pip` – Setup, Usage, and Dependency Management
 
 <pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
 
 ### Poetry Workflow
 
-Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth. Unlike pip, Poetry automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
+Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth. Unlike `pip`, Poetry automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
 
   - Creates a virtual environment (usually in a central cache directory).
   - Resolves dependencies.
@@ -150,11 +150,11 @@ Choosing the right Python tool for dependency management can drastically impact 
 - `pip` is the slowest across the board.
 - `Poetry` is faster, but still Python-bound and primarily sequential.
 - `uv` is by far the fastest:
-  - **5x–10x faster than pip or Poetry** for lightweight installs  
+  - **5x–10x faster than `pip` or Poetry** for lightweight installs  
     (e.g., `numpy`, `pandas`, `scikit-learn`)
 
   - Full install (with `torch`) in **~21s**, nearly  
-    **2.5x faster than Poetry** and **3x+ faster than pip**
+    **2.5x faster than Poetry** and **3x+ faster than `pip`**
 
   - **Up to 40x faster** (<0.1s) for virtual environment creation,  
     thanks to its **Rust-powered speed** and **smarter dependency resolution**
@@ -167,7 +167,7 @@ Different tools offer different trade-offs in terms of usability and feature com
 
 | Feature                   | pip                            | Poetry                         | uv                             | Comment                                                                                   |
 |---------------------------|---------------------------------|--------------------------------|--------------------------------|-------------------------------------------------------------------------------------------|
-| Dependency resolution     | Manual + pip-tools           | Built-in                    | Faster, smarter             | `uv` is Rust-based and significantly faster                                                 |
+| Dependency resolution     | Manual (or pip-tools)           | Built-in                    | Faster, smarter             | `uv` is Rust-based and significantly faster                                                 |
 | Virtual env support       | Manual (`venv`)                | Auto-managed                | Explicit & fast             | `Poetry` creates & manages venvs automatically; `uv` expects external management or activation |
 | Lock file support         | `requirements.txt` only        | `poetry.lock`                 | `uv.lock`                     | `pip` lacks native lock file format                                                         |
 | `pyproject.toml` support    | Partial (via PEP 517/518)    | Native (`[tool.poetry]`)    | Flexible (`[project]`, `[tool.poetry]`) | `pip` reads PEP 517 build systems but doesn’t manage them                              |
@@ -233,7 +233,7 @@ To complement the performance and feature comparison[^7], let's look at real-wor
 
 As the chart shows:
 
-- **pip** remains dominant as the default tool  
+- **`pip`** remains dominant as the default tool  
 - **poetry** has gained steady popularity as the structured alternative  
 - **uv**, although newer, shows an upward trend with increasing attention
 
@@ -243,7 +243,7 @@ As the chart shows:
 
 Whether we're accelerating machine learning experiments, streamlining CI/CD pipelines, maintaining open-source projects, teaching the next generation of developers, or building core Python infrastructure — `uv` offers a modern, efficient solution for dependency management.
 
-It embodies the best of both worlds: the **flexibility of pip**, the **structured reliability of Poetry**, and the **performance of a Rust-powered engine** — reflecting a Python community continually evolving toward a smoother developer experience.
+It embodies the best of both worlds: the **flexibility of `pip`**, the **structured reliability of Poetry**, and the **performance of a Rust-powered engine** — reflecting a Python community continually evolving toward a smoother developer experience.
 
 Each generation of packaging tools has pushed toward greater developer empowerment:
 
