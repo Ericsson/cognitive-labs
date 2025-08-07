@@ -315,37 +315,37 @@ Choosing the right tool today involves more than just looking at features — it
 ### 📚 References
 
 [^1]: **Python Packaging User Guide**  
-📌 [https://packaging.python.org](https://packaging.python.org)  
+[https://packaging.python.org](https://packaging.python.org)  
 The canonical resource for all Python packaging tools and standards, including pip, Poetry, setuptools, `pyproject.toml`, and best practices.
 
 [^2]: **PEP 621 – pyproject.toml Project Metadata**  
-📌 [https://peps.python.org/pep-0621/](https://peps.python.org/pep-0621/)  
+[https://peps.python.org/pep-0621/](https://peps.python.org/pep-0621/)  
 Explains the metadata structure in `pyproject.toml`, relevant to both Poetry and uv.
 
 [^3]: **Poetry – Python Packaging and Dependency Management**  
-📌 [https://python-poetry.org](https://python-poetry.org)  
+[https://python-poetry.org](https://python-poetry.org)  
 The official site for Poetry, including documentation and installation instructions.
 
 [^4]: **uv – Next-gen Python Package Manager**  
-📌 [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)  
+[https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)  
 Official GitHub repo for uv, with details on speed comparisons, usage, and roadmap.
 
 [^5]: **Python Packaging Authority (PyPA) – pip Documentation**  
-📌 [https://pip.pypa.io](https://pip.pypa.io)  
+[https://pip.pypa.io](https://pip.pypa.io)  
 Official pip documentation covering CLI usage, resolver behavior, caching, and internals.
 
 [^6]: **Comparing pip, Poetry, and uv Performance**  
-📌 [Astral Docs – uv Benchmarks](https://docs.astral.sh/uv/reference/benchmarks)  
+[Astral Docs – uv Benchmarks](https://docs.astral.sh/uv/reference/benchmarks)  
 Provides up-to-date performance comparisons and benchmark graphs showing how uv significantly outpaces pip and Poetry, with installation speeds ranging from 10× to 100× faster.
 
 [^7]: **pip vs pipx vs Poetry vs uv – Community Feedback (GitHub Discussion)**  
-📌 [https://github.com/pypa/pip/issues/9884](https://github.com/pypa/pip/issues/9884)  
+[https://github.com/pypa/pip/issues/9884](https://github.com/pypa/pip/issues/9884)  
 An active GitHub thread comparing packaging tools in real-world workflows like Docker, CI, and production. Includes insights from users and pip maintainers on tool preferences and limitations.
 
 [^8]: **Python Packaging Ecosystem Talk (PyCon)**  
-📌 [https://www.youtube.com/watch?v=miQwGPbPg_M](https://www.youtube.com/watch?v=miQwGPbPg_M)  
+[https://www.youtube.com/watch?v=miQwGPbPg_M](https://www.youtube.com/watch?v=miQwGPbPg_M)  
 *Simple guidelines for packaging* – A recent PyCon session covering tool choices and workflows involving pip, Poetry, and other modern package tools.
 
 [^9]: **Why Python Packaging is Hard – Brett Cannon (Interview)**  
-📌 [https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/)  
+[https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/)  
 Explores why Python packaging remains complex, with Brett Cannon explaining the historical and architectural reasons behind tool fragmentation.
