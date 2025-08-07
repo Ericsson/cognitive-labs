@@ -96,30 +96,31 @@ Let’s now look at how `uv` fits into the core workflows of installing dependen
 
 <pre>```bash # Install UV pip install uv # OR (macOS/Linux) brew install astral-sh/uv/uv # Initialize a new project (adds pyproject.toml) mkdir my-uv-project cd my-uv-project uv init # Create a virtual environment uv venv # Add and install a package (e.g., requests) uv add requests # Install a package manually (pip-style) uv pip install another-package # Install from requirements file uv pip install -r requirements.txt # Freeze dependencies (like pip-tools) uv pip compile pyproject.toml -o requirements.txt # Sync environment from lock file uv pip sync requirements.txt # Remove a package uv remove requests # Run script within the virtual environment uv run python my_script.py ```</pre>
 
-📝 Tip: UV uses the pyproject.toml to manage dependencies and environments.
+📝 Tip: `uv` uses the pyproject.toml to manage dependencies and environments.
 
-## Benchmarking Python Dependency Installation: pip vs Poetry vs uv
+## Benchmarking Python Dependency Installation Tools
 
 Choosing the right Python tool for dependency management can drastically impact the development speed[^6]. We benchmarked three popular tools - pip, Poetry, and uv - to measure their performance for:
 - Virtual environment creation
 - Installing lightweight packages: numpy, pandas, scikit-learn
 - Installing heavyweight package: torch
 
-### ❓ This benchmark helps answer:
+### Key Questions
     
 - Which tool creates environments fastest?
 - How do installation times compare for lightweight and heavyweight packages?
 - What’s the end-to-end speed advantage of using a tool like uv?
 
-⚙️ Experimental Setup
-
+⚙️ Experimental Setup:
+<pre>
 - Python Version: 3.8+
 - OS: Linux
 - CPU: 7 cores
 - Memory: 15 GB
 - Platform: Kubeflow notebook pod
+</pre>
 
-⏱️ *"Times may vary slightly based on network speed and package cache state".
+> "Times may vary slightly based on network speed and package cache state".
 
 - Tools Benchmarked:
 <pre>
@@ -142,7 +143,6 @@ Choosing the right Python tool for dependency management can drastically impact 
 - Virtualenv removed after each run
 </pre>
 
-## Performance Results: pip vs Poetry vs uv
 ![image_012_spd2m_image12.png](images/posts/image_012_spd2m_image12.png)
 
 📝 Interpretation:
@@ -159,7 +159,7 @@ Choosing the right Python tool for dependency management can drastically impact 
   - **Up to 40x faster** (<0.1s) for virtual environment creation,  
     thanks to its **Rust-powered speed** and **smarter dependency resolution**
 
-💡 *"Using uv for the first time feels like switching the project to SSD after years on a spinning disk."*
+> 💡 *"Using uv for the first time feels like switching the project to SSD after years on a spinning disk."*
 
 ## CLI & UX
 
