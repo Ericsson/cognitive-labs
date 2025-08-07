@@ -161,9 +161,9 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 > 💡 *"Using uv for the first time feels like switching the project to SSD after years on a spinning disk."*
 
-## Usability & Developer Experience: CLI Comparison
+## Beyond Speed: CLI Usability & Developer Experience
 
-Different tools offer different trade-offs in terms of usability and feature completeness[^8]. Here’s a quick comparison of pip, Poetry, and uv from a command-line experience perspective:
+Different tools offer different trade-offs in terms of usability and feature completeness[^8]. Here’s a quick comparison of `pip`, `Poetry`, and `uv` from a command-line experience perspective:
 
 | Feature                   | pip                            | Poetry                         | uv                             | Comment                                                                                   |
 |---------------------------|---------------------------------|--------------------------------|--------------------------------|-------------------------------------------------------------------------------------------|
@@ -182,13 +182,13 @@ Different tools offer different trade-offs in terms of usability and feature com
 
 Each tool shines in different situations. Here's a quick guide to help choose the right one depending on your needs:
 
-| 💼 Scenario                          | 🏆 Best Tool | 💡 Why                                                                                   |
+| Scenario                          | Best Tool | Why                                                                                   |
 |-------------------------------------|--------------|------------------------------------------------------------------------------------------|
-| Easier to learn                     | Poetry     | Built-in support for dependency resolution, virtualenv, and packaging                   |
-| Super-fast installs in CI or dev    | UV         | Significantly faster env creation & installs (5x–10x faster than pip)                   |
-| Combining best of both worlds       | UV         | Handles fast installs, packaging, and PyPI publishing – all-in-one                      |
-| Virtual environment creation        | UV         | Fast and supports multiple isolated envs with ease                                      |
-| Familiar workflow & legacy compatibility | Pip        | Universal and works with any Python project                                             |
+| Easier to learn                     | `Poetry`     | Built-in support for dependency resolution, `virtualenv`, and packaging                   |
+| Super-fast installs in CI or dev    | `uv`         | Significantly faster env creation & installs (5x–10x faster than `pip`)                   |
+| Combining best of both worlds       | `uv`         | Handles fast installs, packaging, and PyPI publishing – all-in-one                      |
+| Virtual environment creation        | `uv`         | Fast and supports multiple isolated envs with ease                                      |
+| Familiar workflow & legacy compatibility | `pip`        | Universal and works with any Python project                                             |
 
 ### Who Benefits the Most from `uv`?
 
