@@ -161,18 +161,18 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 > 💡 *"Using uv for the first time feels like switching the project to SSD after years on a spinning disk."*
 
-## CLI & UX
+## Usability & Developer Experience: CLI Comparison
 
 Different tools offer different trade-offs in terms of usability and feature completeness[^8]. Here’s a quick comparison of pip, Poetry, and uv from a command-line experience perspective:
 
 | Feature                   | Pip                            | Poetry                         | UV                             | Comment                                                                                   |
 |---------------------------|---------------------------------|--------------------------------|--------------------------------|-------------------------------------------------------------------------------------------|
-| Dependency resolution     | ⚠️ Manual + pip-tools           | ✅ Built-in                    | ✅ Faster, smarter             | uv is Rust-based and significantly faster                                                 |
-| Virtual env support       | ❌ Manual (venv)                | ✅ Auto-managed                | ✅ Explicit & fast             | Poetry creates & manages venvs automatically; uv expects external management or activation |
-| Lock file support         | ❌ requirements.txt only        | ✅ poetry.lock                 | ✅ uv.lock                     | Pip lacks native lock file format                                                         |
-| pyproject.toml support    | ⚠️ Partial (via PEP 517/518)    | ✅ Native (`[tool.poetry]`)    | ✅ Flexible (`[project]`, `[tool.poetry]`) | Pip reads PEP 517 build systems but doesn’t manage them                              |
-| Publishing to PyPI        | ❌ Use `twine`                  | ✅ Built-in                    | ✅ Now supported               | `uv publish` is available as of 2024 (experimental, but working)                         |
-| Editable install (`-e .`) | ✅ Yes                          | ✅ Yes                         | ✅ Yes                         | All three support editable installs                                                       |
+| Dependency resolution     | Manual + pip-tools           | Built-in                    | Faster, smarter             | uv is Rust-based and significantly faster                                                 |
+| Virtual env support       | Manual (venv)                | Auto-managed                | Explicit & fast             | Poetry creates & manages venvs automatically; uv expects external management or activation |
+| Lock file support         | requirements.txt only        | poetry.lock                 | uv.lock                     | Pip lacks native lock file format                                                         |
+| pyproject.toml support    | Partial (via PEP 517/518)    | Native (`[tool.poetry]`)    | Flexible (`[project]`, `[tool.poetry]`) | Pip reads PEP 517 build systems but doesn’t manage them                              |
+| Publishing to PyPI        | Use `twine`                  | Built-in                    | Now supported               | `uv publish` is available as of 2024 (experimental, but working)                         |
+| Editable install (`-e .`) | Yes                          | Yes                         | Yes                         | All three support editable installs                                                       |
 
 > 💡 **Key Takeaway**  
 > If we are looking for an opinionated all-in-one tool, **Poetry** is great.  
