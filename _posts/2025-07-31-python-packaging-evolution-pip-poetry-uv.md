@@ -145,7 +145,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 ![image_012_spd2m_image12.png](images/posts/image_012_spd2m_image12.png)
 
-📝 Interpretation:
+### 📊 Here’s what we found:
 
 - `pip` is the slowest across the board.
 - `Poetry` is faster, but still Python-bound and primarily sequential.
