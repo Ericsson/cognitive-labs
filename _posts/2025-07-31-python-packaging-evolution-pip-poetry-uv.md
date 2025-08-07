@@ -51,74 +51,52 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
 Installing dependencies and managing virtual environments are at the core of every Python project. These isolated setups contain their own Python interpreter and installed packages, helping avoid conflicts and ensuring reproducibility. Let’s explore how the three major tools - `pip`, `Poetry`, and `uv` - approach these workflows[^1].
 
-### Pip - Python’s Default Package Installer
+### Pip Workflow
 
-Having already introduced `pip`, let’s now walk through how it fits into core workflows - particularly when managing virtual environments and installing dependencies.
+Having already introduced `pip`, let’s now walk through how it fits into core workflows — particularly when managing virtual environments and installing dependencies. While `pip` installs packages into the currently active environment, it does **not** create or manage virtual environments by itself. To isolate dependencies, it’s best to use Python’s built-in `venv` module alongside `pip`.
 
-#### Working with Virtual Environments 
-
-While Pip installs packages into the currently active environment, it does **not** create or manage virtual environments by itself. To isolate dependencies, it’s best to use Python’s built-in `venv` module alongside `pip`.
-
-<pre> ```bash # Create a virtual environment: python3 -m venv .venv # Activate it: # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages: pip install &lt;package&gt; ``` </pre>
+<pre> ```bash # Create a virtual environment python3 -m venv .venv # Activate it # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages pip install &lt;package&gt; ``` </pre>
 
 📝 Tip: Always run pip commands inside a virtual environment for better isolation and reproducibility.
 
-#### Common Pip Commands
+#### Pip – Setup, Usage, and Dependency Management
 
 <pre> ```bash # Check pip version pip --version # OR (more reliable) python -m pip --version # Install a package pip install requests # Install a specific version pip install "requests==2.18.4" # Install from requirements.txt pip install -r requirements.txt # Upgrade a package pip install --upgrade requests # Uninstall a package pip uninstall requests # Export current dependencies pip freeze > requirements.txt ``` </pre>
 
-### Poetry - Dependency & Packaging Manager
+### Poetry Workflow
 
-Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth.
+Poetry simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth. Unlike pip, Poetry automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
 
-#### Working with Poetry Environments
-    
-Unlike pip, Poetry automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
-
-  - Creates a virtual environment (usually in a cache directory).
+  - Creates a virtual environment (usually in a central cache directory).
   - Resolves dependencies.
   - Installs them into the environment.
   
-We can configure Poetry to store the virtual environment inside the project directory (rather than in the global cache) by adding this to config.toml:
+We can configure Poetry to store the virtual environment inside the project directory (rather than in the global cache) by updating config:
 <pre> ```toml [virtualenvs] in-project = true ``` </pre>
 
 To activate the environment manually:
 <pre> ```bash poetry shell ``` </pre>
 
-📝 Tip: Use poetry run to execute scripts inside the managed environment.
+📝 Tip: Use `poetry run` to execute scripts inside the managed environment.
 
 #### Poetry - Setup, Usage, and Dependency Management
 
-Here's a quick walkthrough of common Poetry commands for setting up and managing a Python project:
-
 <pre> ```bash # Install Poetry (recommended way) pipx install poetry # Or use the official install script curl -sSL https://install.python-poetry.org | python3 - # Create a new project poetry new my_project cd my_project # OR initialize Poetry in an existing project (creates pyproject.toml) poetry init # Add dependencies poetry add requests # Install dependencies (from pyproject.toml) poetry install # Update all dependencies poetry update # Remove a dependency poetry remove requests # Run a script inside Poetry’s virtual environment poetry run python app.py # Export dependencies to requirements.txt (if needed) poetry export -f requirements.txt --output requirements.txt ``` </pre>
 
-### UV - Ultra-Fast Package & Project Manager
+### UV Workflow
 
-UV is a modern Python packaging tool, written in Rust, focusing on speed and compatibility.
+Let’s now look at how `uv` fits into the core workflows of installing dependencies and managing virtual environments. UV combines both tasks into a single streamlined interface — automatically creating virtual environments, resolving dependencies, and managing packages via `pyproject.toml`.
 
-UV Installation & Usage:
-
-<pre> ```bash # Install UV via pip pip install uv # OR with Homebrew (macOS/Linux) brew install astral-sh/uv/uv # Initialize a new project uv init # Create a virtual environment uv venv # Install a package (Pip-style) uv pip install requests # Install from requirements file uv pip install -r requirements.txt # Lock dependencies (like pip-tools) uv pip compile requirements.in -o requirements.txt # Sync from lock file uv pip sync requirements.txt # Add a package and install uv add requests # Remove a package uv remove requests # Run script in venv uv run python my_script.py ``` </pre>
-
-Example: Installing and Freezing with uv
-
-<pre> ```bash # Step 1: Install UV pip install uv # Step 2: Create a new project (adds pyproject.toml) mkdir my-uv-project cd my-uv-project uv init # Step 3: Add and install a package (e.g., requests) uv add requests # Step 4: Freeze dependencies into requirements.txt uv pip compile pyproject.toml -o requirements.txt # Step 5: Run a script within the virtual environment uv run python my_script.py ``` </pre>
-
-📝 *Tip: UV uses the pyproject.toml to manage dependencies and environments. **We** can run any command inside the project's virtual environment using uv run.*
-
-## UV (Ultra-fast Python package manager) 
-
-- UV combines virtual environment creation and package installation into one streamlined workflow.
-- To create an environment:
+- To create a virtual environment:
 <pre> ```bash uv venv ``` </pre>
 
-- It auto-detects project environments and can also create one with a specific Python version:
-<pre> ```bash uv venv ``` </pre>
+📝 Tip: Use `uv run` to execute commands inside UV’s managed environment.
 
-- UV aims to be a faster alternative to tools like pip, venv, and even Poetry, especially for large dependency trees.
+#### UV – Setup, Usage, and Dependency Management
 
-🔹 *Ideal for users who value speed and simplicity in managing environments and packages together.*   
+<pre>```bash # Install UV pip install uv # OR (macOS/Linux) brew install astral-sh/uv/uv # Initialize a new project (adds pyproject.toml) mkdir my-uv-project cd my-uv-project uv init # Create a virtual environment uv venv # Add and install a package (e.g., requests) uv add requests # Install a package manually (pip-style) uv pip install another-package # Install from requirements file uv pip install -r requirements.txt # Freeze dependencies (like pip-tools) uv pip compile pyproject.toml -o requirements.txt # Sync environment from lock file uv pip sync requirements.txt # Remove a package uv remove requests # Run script within the virtual environment uv run python my_script.py ```</pre>
+
+📝 Tip: UV uses the pyproject.toml to manage dependencies and environments.
 
 ## Benchmarking Python Dependency Installation: pip vs Poetry vs uv
 
