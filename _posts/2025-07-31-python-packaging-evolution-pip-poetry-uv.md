@@ -28,16 +28,16 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
    > 🧰 Think of `pip` as the “do-it-yourself” toolbox — flexible, but you bring the glue.
 
-3. **The pipenv Moment:**  
+2. **The pipenv Moment:**  
    An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard[^7].
 
-4. **`Poetry` Arrives: Structure and Simplicity**  
+3. **`Poetry` Arrives: Structure and Simplicity**  
    `Poetry`[^3] introduced a higher level of abstraction. It brought in a clear project structure (`pyproject.toml`)[^2], semantic versioning, and dependency resolution with lockfiles — all while abstracting away virtual
    environments. It appeals to developers who want opinionated defaults and consistency without stitching together multiple tools.
 
    > 🛠 `Poetry` is the all-in-one power drill: batteries included, and it just works.
 
-5. **Enter `uv`: The Speed-Focused Contender**  
+4. **Enter `uv`: The Speed-Focused Contender**  
    Built in Rust, `uv`[^4]  reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml`[^2] standards. It’s also the
    backend for **Rye**, which aims to be a `Poetry`-style toolchain — but even faster.
 
