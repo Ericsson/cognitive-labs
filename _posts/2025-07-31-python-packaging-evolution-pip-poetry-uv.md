@@ -261,31 +261,17 @@ Choosing the right tool today involves more than just looking at features — it
 
 ---
 
-## 📚 References
+[^1]: The **Python Packaging User Guide** is the canonical resource for all Python packaging tools and standards, including `pip`, `Poetry`, `setuptools`, `pyproject.toml`, and best practices. It serves as a comprehensive reference for packaging workflows and guidelines. [https://packaging.python.org](https://packaging.python.org)
 
-[^1]: **Python Packaging User Guide**  
-[https://packaging.python.org](https://packaging.python.org)  
-The canonical resource for all Python packaging tools and standards, including pip, Poetry, setuptools, `pyproject.toml`, and best practices.
+[^2]: **PEP 621** defines the standard for project metadata in `pyproject.toml`, which is relevant for modern Python package managers such as `Poetry` and `uv`. It outlines how to declare project details in a standardized way. [https://peps.python.org/pep-0621/](https://peps.python.org/pep-0621/)
 
-[^2]: **PEP 621 – pyproject.toml Project Metadata**  
-[https://peps.python.org/pep-0621/](https://peps.python.org/pep-0621/)  
-Explains the metadata structure in `pyproject.toml`, relevant to both Poetry and uv.
+[^3]: **Poetry** is a popular Python packaging and dependency management tool focused on ease of use and reproducibility. Its official site provides documentation, installation instructions, and guides for managing project dependencies. [https://python-poetry.org](https://python-poetry.org)
 
-[^3]: **Poetry – Python Packaging and Dependency Management**  
-[https://python-poetry.org](https://python-poetry.org)  
-The official site for Poetry, including documentation and installation instructions.
+[^4]: **uv** is a next-generation Python package manager designed for speed and efficiency, significantly outperforming `pip` and `Poetry` in installation times. Its GitHub repository contains usage details, roadmap, and benchmarks. [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
 
-[^4]: **uv – Next-gen Python Package Manager**  
-[https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)  
-Official GitHub repo for uv, with details on speed comparisons, usage, and roadmap.
+[^5]: The **Python Packaging Authority (PyPA)** maintains `pip`, the de facto standard Python package installer. Its official documentation covers CLI usage, dependency resolution, caching mechanisms, and internals. [https://pip.pypa.io](https://pip.pypa.io)
 
-[^5]: **Python Packaging Authority (PyPA) – pip Documentation**  
-[https://pip.pypa.io](https://pip.pypa.io)  
-Official pip documentation covering CLI usage, resolver behavior, caching, and internals.
-
-[^6]: **Comparing pip, Poetry, and uv Performance**  
-[Astral Docs – uv Benchmarks](https://docs.astral.sh/uv/reference/benchmarks)  
-Provides up-to-date performance comparisons and benchmark graphs showing how uv significantly outpaces pip and Poetry, with installation speeds ranging from 10× to 100× faster.
+[^6]: Performance comparisons among pip, Poetry, and uv show that uv achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports. These benchmarks highlight uv’s advantages in modern package management. [https://docs.astral.sh/uv/reference/benchmarks](https://docs.astral.sh/uv/reference/benchmarks)
 
 [^7]: **pip vs pipx vs Poetry vs uv – Community Feedback (GitHub Discussion)**  
 [https://github.com/pypa/pip/issues/9884](https://github.com/pypa/pip/issues/9884)  
