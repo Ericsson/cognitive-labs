@@ -265,7 +265,7 @@ Choosing the right tool today involves more than just looking at features — it
 ---
 
 🛠️ **Want to try it yourself?**  
-👉 *[Explore the code and run the benchmark on GitHub] — coming soon!*
+👉 *Explore the benchmark code on GitHub – coming soon!*
 
 
 ---
