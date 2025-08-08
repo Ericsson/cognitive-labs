@@ -141,7 +141,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 - Virtualenv removed after each run
 </pre>
 
-![image_012_spd2m_image12.png](images/posts/image_012_spd2m_image12.png)
+![Benchmark: pip vs poetry vs uv (Env + Packages Install Time)](images/posts/image_012_spd2m_image12.png)
 
 ### 📊 Here’s what we found:
 
@@ -264,7 +264,6 @@ Choosing the right tool today involves more than just looking at features — it
 
 🛠️ **Want to try it yourself?**  
 👉 *Explore the benchmark code on GitHub – coming soon!*
-
 
 ---
 
