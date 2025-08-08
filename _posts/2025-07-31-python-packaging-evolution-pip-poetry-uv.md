@@ -10,7 +10,7 @@ tags:
 abstract: >
   Python packaging today feels like a **Looney Tunes** episode — **`pip`** is the quiet, reliable *Porky Pig* who’s been around forever, **`Poetry`** is *Wile E. Coyote* with a plan (and a lockfile) for everything, and **`uv`** is the *Road Runner*, blazing past everyone with Rust-powered speed. We’ve tossed these characters into the same scene, **benchmarked their performance**, and **compared how they handle real-world developer workflows**. Whether you're **wrangling CI pipelines** or just trying to `pip install` *without dropping an anvil on your foot*, this blog will help you **pick the right tool** — *no Acme products required.*
 ---
-![pip vs poetry vs uv](images/posts/image_001_spd2m_image1.png)
+<img src="{{ 'images/posts/image_001_spd2m_image1.png' | relative_url }}" alt="pip vs poetry vs uv" style="width:100%; margin-top:1rem;" />
 
 Over the past decade, Python's packaging ecosystem has undergone a remarkable transformation — one that has been both confusing and exciting for developers. From the early days of `pip` to the structured reliability of `Poetry`, and now the lightning-fast innovation of `uv`, developers have navigated a fragmented yet steadily improving landscape. This blog post traces that journey, highlighting the motivations, missteps, and milestones that shaped the tools we use today. Whether you're a seasoned developer or just starting out, understanding this evolution helps clarify the tooling chaos — and makes it easier to choose the right tool for your next project.
 
@@ -18,7 +18,7 @@ Over the past decade, Python's packaging ecosystem has undergone a remarkable tr
 
 The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.
 
-![Timeline: pip to uv](images/posts/image_002_spd2m_image2.png)
+<img src="{{ 'images/posts/image_002_spd2m_image2.png' | relative_url }}" alt="Timeline: pip to uv" style="width:100%; margin-top:1rem;" />
 
 > *Timeline of major packaging tools and their influence.*
 
@@ -141,7 +141,7 @@ Choosing the right Python tool for dependency management can drastically impact 
 - Virtualenv removed after each run
 </pre>
 
-![Benchmark: pip vs poetry vs uv (Env + Packages Install Time)](images/posts/image_012_spd2m_image12.png)
+<img src="{{ 'images/posts/image_012_spd2m_image12.png' | relative_url }}" alt="Benchmark: pip vs poetry vs uv (Env + Packages Install Time)" style="width:100%; margin-top:1rem;" />
 
 ### 📊 Here’s what we found:
 
@@ -192,8 +192,6 @@ Each tool shines in different situations. Here's a quick guide to help choose th
 
 The transition to modern Python dependency management tools like `uv` isn’t just about speed — it’s about empowering specific groups to work more efficiently and effectively. Here’s who stands to gain the most:
 
----
-
 #### 1. Data Scientists and Machine Learning Engineers  
 **Benefit:** Rapid environment setup and reproducibility
 
@@ -202,8 +200,6 @@ Data professionals often need to create and manage multiple environments for exp
 > *"UV combines environment creation and package management in a single tool, streamlining the workflow."*  
 > — [*DataCamp Tutorial on uv*](https://www.datacamp.com/tutorial/python-uv)
 
----
-
 #### 2. CI/CD Engineers & DevOps Teams  
 **Benefit:** Significantly reduced CI/CD pipeline times
 
@@ -211,8 +207,6 @@ In continuous integration and deployment workflows, time is critical. `uv`’s p
 
 > *"UV's performance shines brightest in automation pipelines, where every second counts."*
 > — [*Introducing uv: Next-Gen Python Package Manager*](https://codemaker2016.medium.com/introducing-uv-next-gen-python-package-manager-b78ad39c95d7)
-
----
 
 #### 3. Open-Source Maintainers  
 **Benefit:** Simplified dependency management and contributor onboarding
@@ -226,7 +220,7 @@ Maintainers juggling multiple projects and contributors can benefit from `uv`’
 
 To complement the performance and feature comparison, let's look at real-world developer interest using Google search data[^7]:
 
-<img src="{{ 'images/posts/image_013_spd2m_image13.svg' | relative_url }}" alt="Google Trends for pip vs poetry vs uv" style="width:100%; margin-top:1rem;" />
+<img src="{{ 'images/posts/image_013_spd2m_image13.png' | relative_url }}" alt="Google Trends for pip vs poetry vs uv" style="width:100%; margin-top:1rem;" />
 
 As the chart shows:
 
