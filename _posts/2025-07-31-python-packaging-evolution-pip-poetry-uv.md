@@ -273,14 +273,8 @@ Choosing the right tool today involves more than just looking at features — it
 
 [^6]: Performance comparisons among pip, Poetry, and uv show that uv achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports. These benchmarks highlight uv’s advantages in modern package management. [https://docs.astral.sh/uv/reference/benchmarks](https://docs.astral.sh/uv/reference/benchmarks)
 
-[^7]: **pip vs pipx vs Poetry vs uv – Community Feedback (GitHub Discussion)**  
-[https://github.com/pypa/pip/issues/9884](https://github.com/pypa/pip/issues/9884)  
-An active GitHub thread comparing packaging tools in real-world workflows like Docker, CI, and production. Includes insights from users and pip maintainers on tool preferences and limitations.
+[^7]: A lively GitHub discussion compares `pip`, `pipx`, `Poetry`, and `uv` based on real-world workflows including Docker, CI pipelines, and production environments. The thread includes insights from both users and `pip` maintainers regarding pros, cons, and trade-offs of each tool. [https://github.com/pypa/pip/issues/9884](https://github.com/pypa/pip/issues/9884)
 
-[^8]: **Python Packaging Ecosystem Talk (PyCon)**  
-[https://www.youtube.com/watch?v=miQwGPbPg_M](https://www.youtube.com/watch?v=miQwGPbPg_M)  
-*Simple guidelines for packaging* – A recent PyCon session covering tool choices and workflows involving pip, Poetry, and other modern package tools.
+[^8]: The **Python Packaging Ecosystem Talk** from PyCon provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving `pip`, `Poetry`, and other modern Python package managers. [https://www.youtube.com/watch?v=miQwGPbPg_M](https://www.youtube.com/watch?v=miQwGPbPg_M)
 
-[^9]: **Why Python Packaging is Hard – Brett Cannon (Interview)**  
-[https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/)  
-Explores why Python packaging remains complex, with Brett Cannon explaining the historical and architectural reasons behind tool fragmentation.
+[^9]: Brett Cannon’s interview **“Why Python Packaging is Hard”** explores the historical and architectural reasons behind Python packaging complexity and tool fragmentation. [https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/)
