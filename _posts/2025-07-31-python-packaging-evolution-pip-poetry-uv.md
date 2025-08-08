@@ -23,23 +23,23 @@ The timeline below visually maps out this journey, showcasing when major tools e
 > *Timeline of major packaging tools and their influence.*
 
 1. **The Early Days:**  
-   For years, `pip` has been the default tool every Python developer learns first. It’s reliable, ubiquitous, and works across nearly every environment. But it’s also relatively low-level: you often need to combine it
-   with virtual environments (`venv` or `virtualenv`) and dependency trackers like `pip-tools` to create a full project workflow.
+   For years, `pip`[^5] has been the default tool every Python developer learns first. It’s reliable, ubiquitous, and works across nearly every environment. But it’s also relatively low-level: you often need to combine
+   it with virtual environments (`venv` or `virtualenv`) and dependency trackers like `pip-tools` to create a full project workflow.
 
    > 🧰 Think of `pip` as the “do-it-yourself” toolbox — flexible, but you bring the glue.
 
-2. **The pipenv Moment:**  
-   An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard.
+3. **The pipenv Moment:**  
+   An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard[^7].
 
-3. **`Poetry` Arrives: Structure and Simplicity**  
-   `Poetry` introduced a higher level of abstraction. It brought in a clear project structure (`pyproject.toml`), semantic versioning, and dependency resolution with lockfiles — all while abstracting away virtual
+4. **`Poetry` Arrives: Structure and Simplicity**  
+   `Poetry`[^3] introduced a higher level of abstraction. It brought in a clear project structure (`pyproject.toml`)[^2], semantic versioning, and dependency resolution with lockfiles — all while abstracting away virtual
    environments. It appeals to developers who want opinionated defaults and consistency without stitching together multiple tools.
 
    > 🛠 `Poetry` is the all-in-one power drill: batteries included, and it just works.
 
-4. **Enter `uv`: The Speed-Focused Contender**  
-   Built in Rust, `uv` reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml` standards. It’s also the backend
-   for **Rye**, which aims to be a `Poetry`-style toolchain — but even faster.
+5. **Enter `uv`: The Speed-Focused Contender**  
+   Built in Rust, `uv`[^4]  reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml`[^2] standards. It’s also the
+   backend for **Rye**, which aims to be a `Poetry`-style toolchain — but even faster.
 
    > 🏎️ `uv` is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.
 
@@ -49,7 +49,7 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
 ## Core Workflows: Installation & Virtual Environment Management
 
-Installing dependencies and managing virtual environments are at the core of every Python project. These isolated setups contain their own Python interpreter and installed packages, helping avoid conflicts and ensuring reproducibility. Let’s explore how the three major tools — `pip`, `Poetry`, and `uv` — approach these workflows[^1].
+Installing dependencies and managing virtual environments are at the core of every Python project[^1]. These isolated setups contain their own Python interpreter and installed packages, helping avoid conflicts and ensuring reproducibility. Let’s explore how the three major tools — `pip`, `Poetry`, and `uv` — approach these workflows.
 
 ### Pip Workflow
 
@@ -224,7 +224,7 @@ Maintainers juggling multiple projects and contributors can benefit from `uv`’
 
 ### Popularity & Community Adoption
 
-To complement the performance and feature comparison[^7], let's look at real-world developer interest using Google search data:
+To complement the performance and feature comparison, let's look at real-world developer interest using Google search data[^7]:
 
 <img src="{{ 'images/posts/image_013_spd2m_image13.svg' | relative_url }}" alt="Google Trends for pip vs poetry vs uv" style="width:100%; margin-top:1rem;" />
 
