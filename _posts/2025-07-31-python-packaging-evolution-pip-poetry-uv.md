@@ -14,13 +14,13 @@ abstract: >
 
 Over the past decade, Python's packaging ecosystem has undergone a remarkable transformation — one that has been both confusing and exciting for developers. From the early days of `pip` to the structured reliability of `Poetry`, and now the lightning-fast innovation of `uv`, developers have navigated a fragmented yet steadily improving landscape. This blog post traces that journey, highlighting the motivations, missteps, and milestones that shaped the tools we use today. Whether you're a seasoned developer or just starting out, understanding this evolution helps clarify the tooling chaos — and makes it easier to choose the right tool for your next project.
 
-The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.
-
 ## The Evolution of Python Packaging
+
+The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.
 
 ![Timeline: pip to uv](images/posts/image_002_spd2m_image2.png)
 
-*Timeline of major packaging tools and their influence.*
+> *Timeline of major packaging tools and their influence.*
 
 1. **The Early Days:**  
    For years, `pip` has been the default tool every Python developer learns first. It’s reliable, ubiquitous, and works across nearly every environment. But it’s also relatively low-level: you often need to combine it
