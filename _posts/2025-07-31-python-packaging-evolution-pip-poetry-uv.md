@@ -57,7 +57,7 @@ Having already introduced `pip`, let’s now walk through how it fits into core 
 
 <pre> ```bash # Create a virtual environment python3 -m venv .venv # Activate it # macOS/Linux: source .venv/bin/activate # Windows: .venv\Scripts\activate # Then install packages pip install &lt;package&gt; ``` </pre>
 
-📝 Tip: Always run `pip` commands inside a virtual environment for better isolation and reproducibility.
+> Always run `pip` commands inside a virtual environment for better isolation and reproducibility.
 
 #### Pip — Setup, Usage, and Dependency Management
 
@@ -77,7 +77,7 @@ We can configure `Poetry` to store the virtual environment inside the project di
 To activate the environment manually:
 <pre> ```bash poetry shell ``` </pre>
 
-📝 Tip: Use `poetry run` to execute scripts inside the managed environment.
+> Use `poetry run` to execute scripts inside the managed environment.
 
 #### Poetry — Setup, Usage, and Dependency Management
 
@@ -90,13 +90,11 @@ To activate the environment manually:
 - To create a virtual environment:
 <pre> ```bash uv venv ``` </pre>
 
-📝 Tip: Use `uv run` to execute commands inside `uv`’s managed environment.
-
 #### UV — Setup, Usage, and Dependency Management
 
 <pre>```bash # Install UV pip install uv # OR (macOS/Linux) brew install astral-sh/uv/uv # Initialize a new project (adds pyproject.toml) mkdir my-uv-project cd my-uv-project uv init # Create a virtual environment uv venv # Add and install a package (e.g., requests) uv add requests # Install a package manually (pip-style) uv pip install another-package # Install from requirements file uv pip install -r requirements.txt # Freeze dependencies (like pip-tools) uv pip compile pyproject.toml -o requirements.txt # Sync environment from lock file uv pip sync requirements.txt # Remove a package uv remove requests # Run script within the virtual environment uv run python my_script.py ```</pre>
 
-📝 Tip: `uv` uses the `pyproject.toml` to manage dependencies and environments.
+> Use `uv run` to execute commands inside `uv`’s managed environment.
 
 ## Python Packaging: The Benchmark Battle
 
