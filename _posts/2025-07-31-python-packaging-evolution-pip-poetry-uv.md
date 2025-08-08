@@ -278,4 +278,3 @@ Choosing the right tool today involves more than just looking at features — it
 [^8]: The **Python Packaging Ecosystem Talk** from PyCon provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving `pip`, `Poetry`, and other modern Python package managers. Watch it on [YouTube](https://www.youtube.com/watch?v=miQwGPbPg_M).
 
 [^9]: Brett Cannon’s interview **“Why Python Packaging is Hard”** explores the historical and architectural reasons behind Python packaging complexity and tool fragmentation. Read it at [pydevtools.com](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/).
-
