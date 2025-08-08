@@ -273,7 +273,7 @@ Choosing the right tool today involves more than just looking at features — it
 
 [^6]: Performance comparisons among `pip`, `Poetry`, and `uv` show that `uv` achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports at [uv benchmarks](https://docs.astral.sh/uv/reference/benchmarks).
 
-[^7]: A lively GitHub discussion compares `pip`, `pipx`, `Poetry`, and `uv` based on real-world workflows including Docker, CI pipelines, and production environments. See the thread at [GitHub issue #9884](https://github.com/pypa/pip/issues/9884).
+[^7]: Community discussions about `pip`, `pipx`, `Poetry`, and `uv` in real-world workflows—including Docker, CI pipelines, and production environments—can be explored through their active GitHub issue trackers: [pip](https://github.com/pypa/pip/issues), [pipx](https://github.com/pypa/pipx/issues), [Poetry](https://github.com/python-poetry/poetry/issues), and [uv](https://github.com/astral-sh/uv/issues).
 
 [^8]: The **Python Packaging Ecosystem Talk** from PyCon provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving `pip`, `Poetry`, and other modern Python package managers. Watch it on [YouTube](https://www.youtube.com/watch?v=miQwGPbPg_M).
 
