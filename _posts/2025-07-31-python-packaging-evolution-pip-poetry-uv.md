@@ -43,7 +43,7 @@ The timeline below visually maps out this journey, showcasing when major tools e
 
    > 🏎️ `uv` is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.
 
-> 💡 *Curious about Python packaging trends? Follow PyCon, PyPA, EuroPython, the Python Language Summit, and PyData — the key hubs shaping Python’s packaging future.”*
+> 💡 *Curious about Python packaging trends? Follow PyCon, PyPA, EuroPython, and more — the key hubs shaping Python’s packaging future.”*
 
 ---
 
