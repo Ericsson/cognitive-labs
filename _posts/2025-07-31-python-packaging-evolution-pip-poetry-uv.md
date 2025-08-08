@@ -98,7 +98,7 @@ To activate the environment manually:
 
 📝 Tip: `uv` uses the `pyproject.toml` to manage dependencies and environments.
 
-## Benchmarking Python Dependency Installation Tools
+## Python Packaging: The Benchmark Battle
 
 Choosing the right Python tool for dependency management can drastically impact the development speed[^6]. We benchmarked three popular tools — `pip`, `Poetry`, and `uv` — to measure their performance for:
 - Virtual environment creation
