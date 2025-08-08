@@ -261,20 +261,21 @@ Choosing the right tool today involves more than just looking at features — it
 
 ---
 
-[^1]: The **Python Packaging User Guide** is the canonical resource for all Python packaging tools and standards, including `pip`, `Poetry`, `setuptools`, `pyproject.toml`, and best practices. It serves as a comprehensive reference for packaging workflows and guidelines. [https://packaging.python.org](https://packaging.python.org)
+[^1]: The **Python Packaging User Guide** is the canonical resource for all Python packaging tools and standards, including [`pip`](https://packaging.python.org), `Poetry`, `setuptools`, `pyproject.toml`, and best practices.
 
-[^2]: **PEP 621** defines the standard for project metadata in `pyproject.toml`, which is relevant for modern Python package managers such as `Poetry` and `uv`. It outlines how to declare project details in a standardized way. [https://peps.python.org/pep-0621/](https://peps.python.org/pep-0621/)
+[^2]: **PEP 621** defines the standard for project metadata in `pyproject.toml`, which is relevant for modern Python package managers such as `Poetry` and `uv`. See [PEP 621](https://peps.python.org/pep-0621/).
 
-[^3]: **Poetry** is a popular Python packaging and dependency management tool focused on ease of use and reproducibility. Its official site provides documentation, installation instructions, and guides for managing project dependencies. [https://python-poetry.org](https://python-poetry.org)
+[^3]: **Poetry** is a popular Python packaging and dependency management tool focused on ease of use and reproducibility. Its official site provides documentation and installation instructions at [python-poetry.org](https://python-poetry.org).
 
-[^4]: **uv** is a next-generation Python package manager designed for speed and efficiency, significantly outperforming `pip` and `Poetry` in installation times. Its GitHub repository contains usage details, roadmap, and benchmarks. [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv)
+[^4]: **uv** is a next-generation Python package manager designed for speed and efficiency, significantly outperforming `pip` and `Poetry` in installation times. See the [uv GitHub repo](https://github.com/astral-sh/uv) for details.
 
-[^5]: The **Python Packaging Authority (PyPA)** maintains `pip`, the de facto standard Python package installer. Its official documentation covers CLI usage, dependency resolution, caching mechanisms, and internals. [https://pip.pypa.io](https://pip.pypa.io)
+[^5]: The **Python Packaging Authority (PyPA)** maintains [`pip`](https://pip.pypa.io), the de facto standard Python package installer. Its official documentation covers CLI usage, dependency resolution, caching mechanisms, and internals.
 
-[^6]: Performance comparisons among pip, Poetry, and uv show that uv achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports. These benchmarks highlight uv’s advantages in modern package management. [https://docs.astral.sh/uv/reference/benchmarks](https://docs.astral.sh/uv/reference/benchmarks)
+[^6]: Performance comparisons among `pip`, `Poetry`, and `uv` show that `uv` achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports at [uv benchmarks](https://docs.astral.sh/uv/reference/benchmarks).
 
-[^7]: A lively GitHub discussion compares `pip`, `pipx`, `Poetry`, and `uv` based on real-world workflows including Docker, CI pipelines, and production environments. The thread includes insights from both users and `pip` maintainers regarding pros, cons, and trade-offs of each tool. [https://github.com/pypa/pip/issues/9884](https://github.com/pypa/pip/issues/9884)
+[^7]: A lively GitHub discussion compares `pip`, `pipx`, `Poetry`, and `uv` based on real-world workflows including Docker, CI pipelines, and production environments. See the thread at [GitHub issue #9884](https://github.com/pypa/pip/issues/9884).
 
-[^8]: The **Python Packaging Ecosystem Talk** from PyCon provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving `pip`, `Poetry`, and other modern Python package managers. [https://www.youtube.com/watch?v=miQwGPbPg_M](https://www.youtube.com/watch?v=miQwGPbPg_M)
+[^8]: The **Python Packaging Ecosystem Talk** from PyCon provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving `pip`, `Poetry`, and other modern Python package managers. Watch it on [YouTube](https://www.youtube.com/watch?v=miQwGPbPg_M).
 
-[^9]: Brett Cannon’s interview **“Why Python Packaging is Hard”** explores the historical and architectural reasons behind Python packaging complexity and tool fragmentation. [https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/)
+[^9]: Brett Cannon’s interview **“Why Python Packaging is Hard”** explores the historical and architectural reasons behind Python packaging complexity and tool fragmentation. Read it at [pydevtools.com](https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/).
+
