@@ -65,7 +65,7 @@ Having already introduced `pip`, let’s now walk through how it fits into core 
 
 ### Poetry Workflow
 
-`Poetry` simplifies dependency management and packaging by using **pyproject.toml**[^2] as the single source of truth. Unlike `pip`, `Poetry` automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
+`Poetry` simplifies dependency management and packaging by using **pyproject.toml** as the single source of truth. Unlike `pip`, `Poetry` automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
 
   - Creates a virtual environment (usually in a central cache directory).
   - Resolves dependencies.
