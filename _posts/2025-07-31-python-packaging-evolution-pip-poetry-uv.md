@@ -229,20 +229,20 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 > "Times may vary slightly based on network speed and package cache state".
 
-- Tools Benchmarked:
+- 🛠 Tools Benchmarked:
 <pre>
 - pip (with venv)
 - Poetry (with in-project virtualenv)
 - uv (using its internal virtualenv and pip-like install flow)
 </pre>
 
-- Dependencies:
+- 📚 Dependencies:
 <pre>
 - Light: numpy==1.24.4, pandas==1.5.3, scikit-learn==1.1.3  
 - Heavy: torch==1.13.1
 </pre>
 
-- Conditions:
+- 📋 Conditions:
 <pre>
 - Clean install per run (--no-cache-dir, --force-reinstall)
 - 3 iterations per tool
