@@ -83,6 +83,39 @@ To activate the environment manually:
 
 <pre> ```bash # Install Poetry (recommended way) pipx install poetry # Or use the official install script curl -sSL https://install.python-poetry.org | python3 - # Create a new project poetry new my_project cd my_project # OR initialize Poetry in an existing project (creates pyproject.toml) poetry init # Add dependencies poetry add requests # Install dependencies (from pyproject.toml) poetry install # Update all dependencies poetry update # Remove a dependency poetry remove requests # Run a script inside Poetry’s virtual environment poetry run python app.py # Export dependencies to requirements.txt (if needed) poetry export -f requirements.txt --output requirements.txt ``` </pre>
 
+```bash
+# Install Poetry (recommended way)
+pipx install poetry
+
+# Or use the official install script
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Create a new project
+poetry new my_project
+cd my_project
+
+# OR initialize Poetry in an existing project (creates pyproject.toml)
+poetry init
+
+# Add dependencies
+poetry add requests
+
+# Install dependencies (from pyproject.toml)
+poetry install
+
+# Update all dependencies
+poetry update
+
+# Remove a dependency
+poetry remove requests
+
+# Run a script inside Poetry’s virtual environment
+poetry run python app.py
+
+# Export dependencies to requirements.txt (if needed)
+poetry export -f requirements.txt --output requirements.txt
+```
+
 ### UV Workflow
 
 `uv` is like swapping your toolbox for a pit crew — built in Rust, lightning-fast, and fully automated. It doesn’t just install packages; it **builds your whole environment** in record time. Let’s now look at how `uv` fits into the core workflows of installing dependencies and managing virtual environments. `uv` combines both tasks into a single streamlined interface — automatically creating virtual environments, resolving dependencies, and managing packages via `pyproject.toml`.
