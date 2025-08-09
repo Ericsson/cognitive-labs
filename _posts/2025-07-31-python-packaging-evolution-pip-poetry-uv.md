@@ -29,7 +29,7 @@ The timeline below visually maps out this journey, showcasing when major tools e
    > 🧰 Think of `pip` as the “do-it-yourself” toolbox — flexible, but you bring the glue.
 
 2. **The pipenv Moment:**  
-   An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard[^7].
+   An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard.
 
 3. **`Poetry` Arrives: Structure and Simplicity**  
    `Poetry`[^3] introduced a higher level of abstraction. It brought in a clear project structure (`pyproject.toml`)[^2], semantic versioning, and dependency resolution with lockfiles — all while abstracting away virtual
