@@ -38,7 +38,7 @@ The timeline below visually maps out this journey, showcasing when major tools e
    > 🛠 `Poetry` is the all-in-one power drill: batteries included, and it just works.
 
 4. **Enter `uv`: The Speed-Focused Contender**  
-   Built in Rust, `uv`[^4]  reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml`[^2] standards. It’s also the
+   Built in Rust, `uv`[^4]  reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for `pip` and `virtualenv`, and aligns closely with `pyproject.toml` standards. It’s also the
    backend for **Rye**, which aims to be a `Poetry`-style toolchain — but even faster.
 
    > 🏎️ `uv` is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.
