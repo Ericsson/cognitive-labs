@@ -363,10 +363,6 @@ Choosing the right tool today involves more than just looking at features — it
 - [`Poetry`](https://python-poetry.org)
 - [`uv`](https://github.com/astral-sh/uv)
 
-<div style="background-color: #240054; padding: 10px; color: white; font-weight: bold; font-family: sans-serif;">
-  Python Stack (3)
-</div>
-
 <!-- Python Stack Mini Landscape -->
 <div style="background-color: #19006d; padding: 12px 16px; color: white; font-size: 16px; font-family: sans-serif; font-weight: bold;">
   Python Stack (3)
