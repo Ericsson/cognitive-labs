@@ -363,37 +363,22 @@ Choosing the right tool today involves more than just looking at features — it
 - [`Poetry`](https://python-poetry.org)
 - [`uv`](https://github.com/astral-sh/uv)
 
-<div style="background-color: #19006d; padding: 12px 16px; color: white; font-size: 16px; font-family: sans-serif; font-weight: bold;">
-  Python Stack (3)
-</div>
+What's your current Python stack? Have you tried <code>uv</code> yet?
 
-<div style="display: flex; flex-wrap: wrap; gap: 16px; background-color: #f5f5f5; padding: 20px; font-family: sans-serif;">
-
-  <!-- pip -->
-  <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <a href="https://pip.pypa.io/" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pypa.svg/600px-Pypa.svg.png" alt="pip logo" style="height: 40px; margin-bottom: 12px;"><br>
-      pip
-    </a>
-  </div>
-
-  <!-- Poetry -->
-  <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <a href="https://python-poetry.org/" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://raw.githubusercontent.com/python-poetry/poetry/master/docs/images/logo.svg" alt="Poetry logo" style="height: 40px; margin-bottom: 12px;"><br>
-      Poetry
-    </a>
-  </div>
-
-  <!-- uv -->
-  <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <a href="https://github.com/astral-sh/uv" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://avatars.githubusercontent.com/u/1342004?s=200&v=4" alt="uv logo" style="height: 40px; margin-bottom: 12px;"><br>
-      uv
-    </a>
-  </div>
-
-</div>
+<ul>
+  <li>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pypa.svg/600px-Pypa.svg.png" alt="pip" width="16" style="vertical-align:middle; margin-right:6px;">
+    <a href="https://pip.pypa.io/">pip</a>
+  </li>
+  <li>
+    <img src="https://raw.githubusercontent.com/python-poetry/poetry/master/docs/images/logo.svg" alt="Poetry" width="16" style="vertical-align:middle; margin-right:6px;">
+    <a href="https://python-poetry.org/">Poetry</a>
+  </li>
+  <li>
+    <img src="https://avatars.githubusercontent.com/u/1342004?s=200&v=4" alt="uv" width="16" style="vertical-align:middle; margin-right:6px;">
+    <a href="https://github.com/astral-sh/uv">uv</a>
+  </li>
+</ul>
 
 ---
 
