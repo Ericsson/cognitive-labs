@@ -254,9 +254,9 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 ### 📊 Here’s what we found:
 
-- `pip` is the slowest across the board.
-- `Poetry` is faster, but still Python-bound and primarily sequential.
-- `uv` is by far the fastest:
+- **`pip`** is the slowest across the board.
+- **`Poetry`** is faster, but still Python-bound and primarily sequential.
+- **`uv`** is by far the fastest:
   - **5x–10x faster than `pip` or `Poetry`** for lightweight installs  
     (e.g., `numpy`, `pandas`, `scikit-learn`)
 
@@ -347,9 +347,9 @@ It embodies the best of both worlds: the **flexibility of `pip`**, the **structu
 
 Each generation of packaging tools has pushed toward greater developer empowerment:
 
-- `pip` was flexible but manual  
-- `Poetry` automated best practices through a unified workflow  
-- `uv` brings composability and speed — doing fewer things, but doing them exceptionally well
+- **`pip`** was flexible but manual  
+- **`Poetry`** automated best practices through a unified workflow  
+- **`uv`** brings composability and speed — doing fewer things, but doing them exceptionally well
 
 While the Python packaging ecosystem is still influenced by specific design choices and continues to evolve, it is now more cohesive, efficient, and developer-friendly than ever.
 
@@ -367,25 +367,33 @@ Choosing the right tool today involves more than just looking at features — it
   Python Stack (3)
 </div>
 
-<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; font-family: sans-serif;">
+<!-- Python Stack Mini Landscape -->
+<div style="background-color: #19006d; padding: 12px 16px; color: white; font-size: 16px; font-family: sans-serif; font-weight: bold;">
+  Python Stack (3)
+</div>
 
-  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 150px; text-align: center;">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; background-color: #f5f5f5; padding: 20px; font-family: sans-serif;">
+
+  <!-- pip -->
+  <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <a href="https://pip.pypa.io/" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://raw.githubusercontent.com/pypa/pip/main/docs/_static/images/pip-logo.png" alt="pip logo" style="height: 40px; margin-bottom: 10px;"><br>
+      <img src="https://raw.githubusercontent.com/pypa/pip/main/docs/_static/images/pip-logo.png" alt="pip logo" style="height: 40px; margin-bottom: 12px;"><br>
       pip
     </a>
   </div>
 
-  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 150px; text-align: center;">
+  <!-- Poetry -->
+  <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <a href="https://python-poetry.org/" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://raw.githubusercontent.com/python-poetry/poetry/master/docs/images/logo.svg" alt="Poetry logo" style="height: 40px; margin-bottom: 10px;"><br>
+      <img src="https://raw.githubusercontent.com/python-poetry/poetry/master/docs/images/logo.svg" alt="Poetry logo" style="height: 40px; margin-bottom: 12px;"><br>
       Poetry
     </a>
   </div>
 
-  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 150px; text-align: center;">
+  <!-- uv -->
+  <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <a href="https://github.com/astral-sh/uv" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://avatars.githubusercontent.com/u/1342004?s=200&v=4" alt="uv logo" style="height: 40px; margin-bottom: 10px;"><br>
+      <img src="https://avatars.githubusercontent.com/u/1342004?s=200&v=4" alt="uv logo" style="height: 40px; margin-bottom: 12px;"><br>
       uv
     </a>
   </div>
