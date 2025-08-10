@@ -363,7 +363,6 @@ Choosing the right tool today involves more than just looking at features — it
 - [`Poetry`](https://python-poetry.org)
 - [`uv`](https://github.com/astral-sh/uv)
 
-<!-- Python Stack Mini Landscape -->
 <div style="background-color: #19006d; padding: 12px 16px; color: white; font-size: 16px; font-family: sans-serif; font-weight: bold;">
   Python Stack (3)
 </div>
@@ -373,7 +372,7 @@ Choosing the right tool today involves more than just looking at features — it
   <!-- pip -->
   <div style="background-color: white; padding: 20px; width: 160px; text-align: center; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
     <a href="https://pip.pypa.io/" target="_blank" style="text-decoration: none; color: black;">
-      <img src="https://raw.githubusercontent.com/pypa/pip/main/docs/_static/images/pip-logo.png" alt="pip logo" style="height: 40px; margin-bottom: 12px;"><br>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pypa.svg/600px-Pypa.svg.png" alt="pip logo" style="height: 40px; margin-bottom: 12px;"><br>
       pip
     </a>
   </div>
