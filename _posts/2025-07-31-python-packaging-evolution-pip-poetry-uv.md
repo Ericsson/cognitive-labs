@@ -363,23 +363,6 @@ Choosing the right tool today involves more than just looking at features — it
 - [`Poetry`](https://python-poetry.org)
 - [`uv`](https://github.com/astral-sh/uv)
 
-What's your current Python stack? Have you tried <code>uv</code> yet?
-
-<ul>
-  <li>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pypa.svg/600px-Pypa.svg.png" alt="pip" width="16" style="vertical-align:middle; margin-right:6px;">
-    <a href="https://pip.pypa.io/">pip</a>
-  </li>
-  <li>
-    <img src="https://raw.githubusercontent.com/python-poetry/poetry/master/docs/images/logo.svg" alt="Poetry" width="16" style="vertical-align:middle; margin-right:6px;">
-    <a href="https://python-poetry.org/">Poetry</a>
-  </li>
-  <li>
-    <img src="https://avatars.githubusercontent.com/u/1342004?s=200&v=4" alt="uv" width="16" style="vertical-align:middle; margin-right:6px;">
-    <a href="https://github.com/astral-sh/uv">uv</a>
-  </li>
-</ul>
-
 ---
 
 🛠️ **Want to try it yourself?**  
