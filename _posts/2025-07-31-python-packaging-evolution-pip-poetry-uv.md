@@ -333,7 +333,6 @@ As the chart shows:
 - **`Poetry`** has gained steady popularity as the structured alternative  
 - **`uv`**, although newer, shows an upward trend with increasing attention
 
----
 
 ## So… Which One Should You Bet On?
 
