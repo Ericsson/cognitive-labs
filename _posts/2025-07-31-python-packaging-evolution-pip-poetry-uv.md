@@ -1,5 +1,5 @@
 ---
-title: "`pip` vs `Poetry` vs `uv`: Benchmarking the Future of Python Dependency Management"
+title: "Python Packaging Needs a Speed Revolution"
 author: sangam
 tags:
   - Python
