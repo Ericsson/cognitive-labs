@@ -1,0 +1,74 @@
+# site properties and page defaults
+title: Ericsson Cognitive Labs
+title_intro: Ericsson Cognitive Labs
+title_short: Ericsson Cognitive Labs
+subtitle: 
+description: Ericsson Cognitive Labs, opening our AI Research to the world
+header: images/ericsson_background.jpg
+footer: images/ericsson_background.jpg
+
+# site social media and other links
+links:
+  email: oscar.llorente.gonzalez@ericsson.com
+  github: EricssonResearch
+  linkedin_company: ericsson
+  youtube: user/ericsson
+  twitter: ericsson
+
+### jekyll settings
+
+# front matter defaults
+defaults:
+  # all markdown files
+  - scope:
+      path: ""
+    values:
+      layout: default
+  # markdown files in /_members
+  - scope:
+      type: "members"
+    values:
+      layout: member
+  # markdown files in /_posts
+  - scope:
+      type: "posts"
+    values:
+      layout: post
+
+collections:
+  # generate page for each member
+  members:
+    output: true
+  # generate page for each post
+  posts:
+    output: true
+
+# jekyll plugins
+plugins:
+  - jekyll-spaceship
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-last-modified-at
+
+# code block syntax highlighting
+highlighter: rouge
+
+# jekyll theme
+theme: null
+
+# sass settings
+sass:
+  sass_dir: _styles
+
+# force jekyll to include certain files/folders
+include:
+  - _styles
+  - _scripts
+
+# force jekyll to exclude certain files/folders
+exclude:
+  - README.md
+  - LICENSE.md
+  - CITATION.cff
+  - .venv
