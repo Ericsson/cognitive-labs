@@ -99,9 +99,9 @@ pip freeze > requirements.txt
 
 `Poetry` simplifies dependency management and packaging by using **pyproject.toml** as the single source of truth. Unlike `pip`, `Poetry` automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:
 
-  - Creates a virtual environment (usually in a central cache directory).
-  - Resolves dependencies.
-  - Installs them into the environment.
+  - Creates a virtual environment (usually in a central cache directory)
+  - Resolves dependencies
+  - Installs them into the environment
   
 We can configure `Poetry` to store the virtual environment inside the project directory (rather than in the global cache) by updating config:
 ```toml 
@@ -250,8 +250,8 @@ Choosing the right Python tool for dependency management can drastically impact 
 
 ### 📊 Here’s what we found:
 
-- **`pip`** is the slowest across the board.
-- **`Poetry`** is faster, but still Python-bound and primarily sequential.
+- **`pip`** is the slowest across the board
+- **`Poetry`** is faster, but still Python-bound and primarily sequential
 - **`uv`** is by far the fastest:
   - **5x–10x faster than `pip` or `Poetry`** for lightweight installs  
     (e.g., `numpy`, `pandas`, `scikit-learn`)
