@@ -3,7 +3,7 @@
   type: paper
   image: images/papers/light.jpg
   authors:
-  - Oscar Llorente Gonzalez
+  - Oscar Llorente
   - Rana Fawzy
   - Jared keown
   - Michal Horemuz
@@ -26,6 +26,26 @@
     text: Source Code
     link: EricssonResearch/gnn-neighbors-xai
 
+- id: doi:10.48550/arXiv.2403.16108
+
+  date: '2024-03-24'
+  type: paper
+  image: images/papers/screens.png
+  authors:
+  - Oscar Llorente
+  - Jose Portela
+  description: This paper presents a novel approach to electricity price forecasting (EPF) using a pure Transformer model. As opposed to other alternatives, no other recurrent network is used in combination to the attention mechanism. Hence, showing that the attention layer is enough for capturing the temporal patterns. The paper also provides fair comparison of the models using the open-source EPF toolbox and provide the code to enhance reproducibility and transparency in EPF research. The results show that the Transformer model outperforms traditional methods, offering a promising solution for reliable and sustainable power system operation.
+  tags:
+  - GAI Lab
+  - ICAI
+  buttons:
+  - type: paper
+    text: Manuscript
+    link: https://arxiv.org/abs/2403.16108
+  - type: github
+    text: Source Code
+    link: osllogon/epf-transformers
+
 - id: doi:10.48550/arXiv.2310.19573
   date: '2023-10-30'
   type: paper
@@ -45,13 +65,13 @@
   type: paper
   image: images/papers/space.jpg
   authors:
-  - Oscar Llorente Gonzalez
+  - Oscar Llorente
   - Jaime Boal
   - Eugenio F. Sánchez-Úbeda
-  description: ESaliency maps have become one of the most widely used interpretability techniques for convolutional neural networks (CNN) due to their simplicity and the quality of the insights they provide. However, there are still some doubts about whether these insights are a trustworthy representation of what CNNs use to come up with their predictions. This paper explores how rescuing the sign of the gradients from the saliency map can lead to a deeper understanding of multi-class classification problems. Using both pretrained and trained from scratch CNNs we unveil that considering the sign and the effect not only of the correct class, but also the influence of the other classes, allows to better identify the pixels of the image that the network is really focusing on. Furthermore, how occluding or altering those pixels is expected to affect the outcome also becomes clearer.
+  description: Saliency maps have become one of the most widely used interpretability techniques for convolutional neural networks (CNN) due to their simplicity and the quality of the insights they provide. However, there are still some doubts about whether these insights are a trustworthy representation of what CNNs use to come up with their predictions. This paper explores how rescuing the sign of the gradients from the saliency map can lead to a deeper understanding of multi-class classification problems. Using both pretrained and trained from scratch CNNs we unveil that considering the sign and the effect not only of the correct class, but also the influence of the other classes, allows to better identify the pixels of the image that the network is really focusing on. Furthermore, how occluding or altering those pixels is expected to affect the outcome also becomes clearer.
   tags:
   - GAI Lab
-  - Comillas Pontifical University (ICAI)
+  - ICAI
   buttons:
   - type: paper
     text: Manuscript
