@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Python Packaging Needs a Speed Revolution | Ericsson Cognitive Labs</title>
+
+<link rel="icon" href="/cognitive-labs/images/logo_small.png">
+
+<meta name="title" content="Python Packaging Needs a Speed Revolution">
+<meta name="description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+
+<meta property="og:title" content="Python Packaging Needs a Speed Revolution">
+<meta property="og:site_title" content="Ericsson Cognitive Labs">
+<meta property="og:description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+<meta property="og:url" content="https://ericsson.github.io/cognitive-labs">
+<meta property="og:image" content="/cognitive-labs/images/logo_small.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Python Packaging Needs a Speed Revolution">
+<meta property="twitter:description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+<meta property="twitter:url" content="https://ericsson.github.io/cognitive-labs">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/cognitive-labs/images/logo_small.png">
+
+
+  <meta name="author" content="sangam">
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2025-12-16T10:22:18+00:00">
+  <meta property="article:published_time" content="2025-10-01T00:00:00+00:00">
+  <meta property="article:modified_time" content="2025-12-16T10:22:18+00:00">
+  <meta name="revised" content="2025-12-16T10:22:18+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "Python Packaging Needs a Speed Revolution" },
+      "datePublished": "2025-10-01T00:00:00+00:00",
+      "dateModified": "2025-12-16T10:22:18+00:00",
+    
+    "name": "Python Packaging Needs a Speed Revolution",
+    "description": "Ericsson Cognitive Labs, opening our AI Research to the world",
+    "headline": "Python Packaging Needs a Speed Revolution",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/cognitive-labs/images/logo_small.png" }
+    },
+    "url": "https://ericsson.github.io/cognitive-labs"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="https://ericsson.github.io/cognitive-labs/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=ericsson:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/cognitive-labs/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/cognitive-labs/_scripts/anchors.js"></script>
+
+  <script src="/cognitive-labs/_scripts/dark-mode.js"></script>
+
+  <script src="/cognitive-labs/_scripts/dark-toggle-img.js"></script>
+
+  <script src="/cognitive-labs/_scripts/fetch-tags.js"></script>
+
+  <script src="/cognitive-labs/_scripts/search.js"></script>
+
+  <script src="/cognitive-labs/_scripts/site-search.js"></script>
+
+  <script src="/cognitive-labs/_scripts/table-wrap.js"></script>
+
+  <script src="/cognitive-labs/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/cognitive-labs/images/ericsson_background.jpg')" data-dark="true">
+  <a href="/cognitive-labs/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FAFAFA;}
+</style>
+<g>
+	<path class="st0" d="M692,53.1c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,143c-35.6,11.9-51.6,26.5-60.6,44.6
+		c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7l404.3-134.8c35.6-11.8,51.6-26.5,60.6-44.6
+		C696.8,95.3,698.9,73.8,692,53.1z"></path>
+	<path class="st0" d="M692,302.6c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,392.5
+		c-35.6,11.9-51.6,26.5-60.6,44.6c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7l404.3-134.7
+		c35.6-11.9,51.6-26.5,60.6-44.7C696.8,344.8,698.9,323.3,692,302.6z"></path>
+	<path class="st0" d="M692,552.2c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,642.1
+		c-35.6,11.9-51.6,26.5-60.6,44.6c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7L627.1,657
+		c35.6-11.8,51.6-26.5,60.6-44.6C696.8,594.4,698.9,572.9,692,552.2z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">Ericsson Cognitive Labs</span>
+        
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/cognitive-labs/publications/" data-tooltip="Published works">
+          Publications
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/labs/" data-tooltip="Our research organization">
+          Labs
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/blog/" data-tooltip="Our insights">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - wrap each table in div to allow for scrolling
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">Python Packaging Needs a Speed Revolution</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        
+
+
+
+<div class="portrait-wrapper">
+  <a href="/cognitive-labs/members/sangam.html" class="portrait" data-style="tiny" aria-label="Sangam Kumar Singh">
+    
+      <i class="icon fa-solid fa-dna"></i>
+    
+
+    <img src="/cognitive-labs/images/members/gai-lab/sangam.JPG" class="portrait-image" alt="member portrait" loading="lazy" onerror="this.src = '/cognitive-labs/images/fallback.svg'; this.onerror = null;">
+
+    
+      <span class="portrait-name">
+        Sangam Kumar Singh
+      </span>
+    
+
+    
+      <span class="portrait-description">
+        Senior Data Scientist
+      </span>
+    
+
+    
+  </a>
+</div>
+
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>October 01, 2025</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>December 16, 2025</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/cognitive-labs/blog?search="tag:%20engineering"' class="tag" data-tooltip='Show items with the tag "engineering"'>
+        engineering
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<p><img src="/cognitive-labs/images/posts/image_001_spd2m_image1.png" alt="pip vs poetry vs uv" style="width:100%; margin-top:1rem;"></p>
+
+<p>Over the past decade, Python’s packaging ecosystem has undergone a remarkable transformation — one that has been both confusing and exciting for developers. From the early days of <code class="language-plaintext highlighter-rouge">pip</code> to the structured reliability of <code class="language-plaintext highlighter-rouge">Poetry</code>, and now the lightning-fast innovation of <code class="language-plaintext highlighter-rouge">uv</code>, developers have navigated a fragmented yet steadily improving landscape. This blog post traces that journey, highlighting the motivations, missteps, and milestones that shaped the tools we use today. Whether you’re a seasoned developer or just starting out, understanding this evolution helps clarify the tooling chaos — and makes it easier to choose the right tool for your next project.</p>
+
+<h2 id="the-evolution-of-python-packaging">The Evolution of Python Packaging</h2>
+
+<p>The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.</p>
+
+<p><img src="/cognitive-labs/images/posts/image_002_spd2m_image2.png" alt="Timeline: pip to uv" style="width:100%; margin-top:1rem;"></p>
+
+<blockquote>
+  <p><em>Timeline of major packaging tools and their influence.</em></p>
+</blockquote>
+
+<ol>
+  <li>
+    <p><strong>The Early Days:</strong><br>
+For years, <code class="language-plaintext highlighter-rouge">pip</code><sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> has been the default tool every Python developer learns first. It’s reliable, ubiquitous, and works across nearly every environment. But it’s also relatively low-level: you often need to combine
+it with virtual environments (<code class="language-plaintext highlighter-rouge">venv</code> or <code class="language-plaintext highlighter-rouge">virtualenv</code>) and dependency trackers like <code class="language-plaintext highlighter-rouge">pip-tools</code> to create a full project workflow.</p>
+
+    <blockquote>
+      <p>🧰 Think of <code class="language-plaintext highlighter-rouge">pip</code> as the “do-it-yourself” toolbox — flexible, but you bring the glue.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>The pipenv Moment:</strong><br>
+An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">Poetry</code> Arrives: Structure and Simplicity</strong><br>
+<code class="language-plaintext highlighter-rouge">Poetry</code><sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> introduced a higher level of abstraction. It brought in a clear project structure (<code class="language-plaintext highlighter-rouge">pyproject.toml</code>)<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>, semantic versioning, and dependency resolution with lockfiles — all while abstracting away virtual
+environments. It appeals to developers who want opinionated defaults and consistency without stitching together multiple tools.</p>
+
+    <blockquote>
+      <p>🛠 <code class="language-plaintext highlighter-rouge">Poetry</code> is the all-in-one power drill: batteries included, and it just works.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Enter <code class="language-plaintext highlighter-rouge">uv</code>: The Speed-Focused Contender</strong><br>
+Built in Rust, <code class="language-plaintext highlighter-rouge">uv</code><sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>  reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for <code class="language-plaintext highlighter-rouge">pip</code> and <code class="language-plaintext highlighter-rouge">virtualenv</code>, and aligns closely with <code class="language-plaintext highlighter-rouge">pyproject.toml</code> standards. It’s also the
+backend for <strong>Rye</strong>, which aims to be a <code class="language-plaintext highlighter-rouge">Poetry</code>-style toolchain — but even faster.</p>
+
+    <blockquote>
+      <p>🏎️ <code class="language-plaintext highlighter-rouge">uv</code> is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<blockquote>
+  <p>💡 <em>Curious about Python packaging trends? Follow PyCon, PyPA, EuroPython, and more — the key hubs shaping Python’s packaging future.</em></p>
+</blockquote>
+
+<hr>
+
+<h2 id="core-workflows-installation--virtual-environment-management">Core Workflows: Installation &amp; Virtual Environment Management</h2>
+
+<p>Installing dependencies and managing virtual environments are at the core of every Python project<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. These isolated setups contain their own Python interpreter and installed packages, helping avoid conflicts and ensuring reproducibility. Let’s explore how the three major tools — <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> — approach these workflows.</p>
+
+<h3 id="pip-workflow">Pip Workflow</h3>
+
+<p>Having already introduced <code class="language-plaintext highlighter-rouge">pip</code>, let’s now walk through how it fits into core workflows — particularly when managing virtual environments and installing dependencies. While <code class="language-plaintext highlighter-rouge">pip</code> installs packages into the currently active environment, it does <strong>not</strong> create or manage virtual environments by itself. To isolate dependencies, it’s best to use Python’s built-in <code class="language-plaintext highlighter-rouge">venv</code> module alongside <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create a virtual environment</span>
+python3 <span class="nt">-m</span> venv .venv
+
+<span class="c"># Activate it</span>
+<span class="c"># macOS/Linux:</span>
+<span class="nb">source</span> .venv/bin/activate
+<span class="c"># Windows:</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+
+<span class="c"># Then install packages</span>
+pip <span class="nb">install</span> &lt;package&gt;
+</code></pre></div></div>
+
+<blockquote>
+  <p>Always run <code class="language-plaintext highlighter-rouge">pip</code> commands inside a virtual environment for better isolation and reproducibility.</p>
+</blockquote>
+
+<h4 id="pip--setup-usage-and-dependency-management">Pip — Setup, Usage, and Dependency Management</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check pip version</span>
+pip <span class="nt">--version</span>
+
+<span class="c"># OR (more reliable)</span>
+python <span class="nt">-m</span> pip <span class="nt">--version</span>
+
+<span class="c"># Install a package</span>
+pip <span class="nb">install </span>requests
+
+<span class="c"># Install a specific version</span>
+pip <span class="nb">install</span> <span class="s2">"requests==2.18.4"</span>
+
+<span class="c"># Install from requirements.txt</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Upgrade a package</span>
+pip <span class="nb">install</span> <span class="nt">--upgrade</span> requests
+
+<span class="c"># Uninstall a package</span>
+pip uninstall requests
+
+<span class="c"># Export current dependencies</span>
+pip freeze <span class="o">&gt;</span> requirements.txt
+</code></pre></div></div>
+
+<h3 id="poetry-workflow">Poetry Workflow</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Poetry</code> simplifies dependency management and packaging by using <strong>pyproject.toml</strong> as the single source of truth. Unlike <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code> automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:</p>
+
+<ul>
+  <li>Creates a virtual environment (usually in a central cache directory)</li>
+  <li>Resolves dependencies</li>
+  <li>Installs them into the environment</li>
+</ul>
+
+<p>We can configure <code class="language-plaintext highlighter-rouge">Poetry</code> to store the virtual environment inside the project directory (rather than in the global cache) by updating config:</p>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[virtualenvs]</span>
+<span class="py">in-project</span> <span class="p">=</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<p>To activate the environment manually:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry shell
+</code></pre></div></div>
+
+<blockquote>
+  <p>Use <code class="language-plaintext highlighter-rouge">poetry run</code> to execute scripts inside the managed environment.</p>
+</blockquote>
+
+<h4 id="poetry--setup-usage-and-dependency-management">Poetry — Setup, Usage, and Dependency Management</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Poetry (recommended way)</span>
+pipx <span class="nb">install </span>poetry
+
+<span class="c"># Or use the official install script</span>
+curl <span class="nt">-sSL</span> https://install.python-poetry.org | python3 -
+
+<span class="c"># Create a new project</span>
+poetry new my_project
+<span class="nb">cd </span>my_project
+
+<span class="c"># OR initialize Poetry in an existing project (creates pyproject.toml)</span>
+poetry init
+
+<span class="c"># Add dependencies</span>
+poetry add requests
+
+<span class="c"># Install dependencies (from pyproject.toml)</span>
+poetry <span class="nb">install</span>
+
+<span class="c"># Update all dependencies</span>
+poetry update
+
+<span class="c"># Remove a dependency</span>
+poetry remove requests
+
+<span class="c"># Run a script inside Poetry’s virtual environment</span>
+poetry run python app.py
+
+<span class="c"># Export dependencies to requirements.txt (if needed)</span>
+poetry <span class="nb">export</span> <span class="nt">-f</span> requirements.txt <span class="nt">--output</span> requirements.txt
+</code></pre></div></div>
+
+<h3 id="uv-workflow">UV Workflow</h3>
+
+<p><code class="language-plaintext highlighter-rouge">uv</code> is like swapping your toolbox for a pit crew — built in Rust, lightning-fast, and fully automated. It doesn’t just install packages; it <strong>builds your whole environment</strong> in record time. Let’s now look at how <code class="language-plaintext highlighter-rouge">uv</code> fits into the core workflows of installing dependencies and managing virtual environments. <code class="language-plaintext highlighter-rouge">uv</code> combines both tasks into a single streamlined interface — automatically creating virtual environments, resolving dependencies, and managing packages via <code class="language-plaintext highlighter-rouge">pyproject.toml</code>.</p>
+
+<ul>
+  <li>To create a virtual environment:
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>uv venv
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="uv--setup-usage-and-dependency-management">UV — Setup, Usage, and Dependency Management</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install UV</span>
+pip <span class="nb">install </span>uv
+
+<span class="c"># OR (macOS/Linux)</span>
+brew <span class="nb">install </span>astral-sh/uv/uv
+
+<span class="c"># Initialize a new project (adds pyproject.toml)</span>
+<span class="nb">mkdir </span>my-uv-project
+<span class="nb">cd </span>my-uv-project
+uv init
+
+<span class="c"># Create a virtual environment</span>
+uv venv
+
+<span class="c"># Add and install a package (e.g., requests)</span>
+uv add requests
+
+<span class="c"># Install a package manually (pip-style)</span>
+uv pip <span class="nb">install </span>another-package
+
+<span class="c"># Install from requirements file</span>
+uv pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Freeze dependencies (like pip-tools)</span>
+uv pip compile pyproject.toml <span class="nt">-o</span> requirements.txt
+
+<span class="c"># Sync environment from lock file</span>
+uv pip <span class="nb">sync </span>requirements.txt
+
+<span class="c"># Remove a package</span>
+uv remove requests
+
+<span class="c"># Run script within the virtual environment</span>
+uv run python my_script.py
+</code></pre></div></div>
+
+<blockquote>
+  <p>Use <code class="language-plaintext highlighter-rouge">uv run</code> to execute commands inside <code class="language-plaintext highlighter-rouge">uv</code>’s managed environment.</p>
+</blockquote>
+
+<h2 id="python-packaging-the-benchmark-battle">Python Packaging: The Benchmark Battle</h2>
+
+<p>Choosing the right Python tool for dependency management can drastically impact the development speed<sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>. We benchmarked three popular tools — <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> — to measure their performance for:</p>
+<ul>
+  <li>Virtual environment creation</li>
+  <li>Installing lightweight packages: numpy, pandas, scikit-learn</li>
+  <li>Installing heavyweight package: torch</li>
+</ul>
+
+<h3 id="key-questions">Key Questions</h3>
+
+<ul>
+  <li>Which tool creates environments fastest?</li>
+  <li>How do installation times compare for lightweight and heavyweight packages?</li>
+  <li>What’s the end-to-end speed advantage of using a tool like <code class="language-plaintext highlighter-rouge">uv</code>?</li>
+</ul>
+
+<p>⚙️ Experimental Setup:</p>
+<pre>
+- Python Version: 3.8+
+- OS: Linux
+- CPU: 7 cores
+- Memory: 15 GB
+- Platform: Kubeflow notebook pod
+</pre>
+
+<blockquote>
+  <p>“Times may vary slightly based on network speed and package cache state”.</p>
+</blockquote>
+
+<ul>
+  <li>🛠 Tools Benchmarked:</li>
+</ul>
+<pre>
+- pip (with venv)
+- Poetry (with in-project virtualenv)
+- uv (using its internal virtualenv and pip-like install flow)
+</pre>
+
+<ul>
+  <li>📚 Dependencies:</li>
+</ul>
+<pre>
+- Light: numpy==1.24.4, pandas==1.5.3, scikit-learn==1.1.3  
+- Heavy: torch==1.13.1
+</pre>
+
+<ul>
+  <li>📋 Conditions:</li>
+</ul>
+<pre>
+- Clean install per run (--no-cache-dir, --force-reinstall)
+- 3 iterations per tool
+- Timing via time.time()
+- Virtualenv removed after each run
+</pre>
+
+<p><img src="/cognitive-labs/images/posts/image_012_spd2m_image12.png" alt="Benchmark: pip vs poetry vs uv (Env + Packages Install Time)" style="width:100%; margin-top:1rem;"></p>
+
+<h3 id="-heres-what-we-found">📊 Here’s what we found:</h3>
+
+<ul>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">pip</code></strong> is the slowest across the board</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> is faster, but still Python-bound and primarily sequential</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">uv</code></strong> is by far the fastest:
+    <ul>
+      <li>
+        <p><strong>5x–10x faster than <code class="language-plaintext highlighter-rouge">pip</code> or <code class="language-plaintext highlighter-rouge">Poetry</code></strong> for lightweight installs<br>
+(e.g., <code class="language-plaintext highlighter-rouge">numpy</code>, <code class="language-plaintext highlighter-rouge">pandas</code>, <code class="language-plaintext highlighter-rouge">scikit-learn</code>)</p>
+      </li>
+      <li>
+        <p>Full install (with <code class="language-plaintext highlighter-rouge">torch</code>) in <strong>~21s</strong>, nearly<br>
+<strong>2.5x faster than <code class="language-plaintext highlighter-rouge">Poetry</code></strong> and <strong>3x+ faster than <code class="language-plaintext highlighter-rouge">pip</code></strong></p>
+      </li>
+      <li>
+        <p><strong>Up to 40x faster</strong> (&lt;0.1s) for virtual environment creation,<br>
+thanks to its <strong>Rust-powered speed</strong> and <strong>smarter dependency resolution</strong></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>💡 <em>“Using <code class="language-plaintext highlighter-rouge">uv</code> for the first time feels like switching the project to SSD after years on a spinning disk.”</em></p>
+</blockquote>
+
+<h2 id="beyond-speed-cli-usability--developer-experience">Beyond Speed: CLI Usability &amp; Developer Experience</h2>
+
+<p>Different tools offer different trade-offs in terms of usability and feature completeness<sup id="fnref:8"><a href="#fn:8" class="footnote" rel="footnote" role="doc-noteref">7</a></sup>. Here’s a quick comparison of <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> from a command-line experience perspective:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>pip</th>
+      <th>Poetry</th>
+      <th>uv</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dependency resolution</td>
+      <td>Manual (or pip-tools)</td>
+      <td>Built-in</td>
+      <td>Faster, smarter</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">uv</code> is Rust-based and significantly faster</td>
+    </tr>
+    <tr>
+      <td>Virtual env support</td>
+      <td>Manual (<code class="language-plaintext highlighter-rouge">venv</code>)</td>
+      <td>Auto-managed</td>
+      <td>Explicit &amp; fast</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">Poetry</code> creates &amp; manages venvs automatically; <code class="language-plaintext highlighter-rouge">uv</code> expects external management or activation</td>
+    </tr>
+    <tr>
+      <td>Lock file support</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">requirements.txt</code> only</td>
+      <td><code class="language-plaintext highlighter-rouge">poetry.lock</code></td>
+      <td><code class="language-plaintext highlighter-rouge">uv.lock</code></td>
+      <td>
+<code class="language-plaintext highlighter-rouge">pip</code> lacks native lock file format</td>
+    </tr>
+    <tr>
+      <td>
+<code class="language-plaintext highlighter-rouge">pyproject.toml</code> support</td>
+      <td>Partial (via PEP 517/518)</td>
+      <td>Native (<code class="language-plaintext highlighter-rouge">[tool.poetry]</code>)</td>
+      <td>Flexible (<code class="language-plaintext highlighter-rouge">[project]</code>, <code class="language-plaintext highlighter-rouge">[tool.poetry]</code>)</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">pip</code> reads PEP 517 build systems but doesn’t manage them</td>
+    </tr>
+    <tr>
+      <td>Publishing to PyPI</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">twine</code>
+</td>
+      <td>Built-in</td>
+      <td>Now supported</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">uv publish</code> is available as of 2024 (experimental, but working)</td>
+    </tr>
+    <tr>
+      <td>Editable install (<code class="language-plaintext highlighter-rouge">-e .</code>)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>All three support editable installs</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>💡 <strong>Key Takeaway</strong><br>
+If we are looking for an opinionated all-in-one tool, <strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> is great.<br>
+If we want <strong>speed with modularity</strong>, <strong><code class="language-plaintext highlighter-rouge">uv</code></strong> is compelling.</p>
+</blockquote>
+
+<h3 id="when-to-use-which">When to Use Which?</h3>
+
+<p>Each tool shines in different situations. Here’s a quick guide to help choose the right one depending on your needs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Best Tool</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Easier to learn</td>
+      <td><code class="language-plaintext highlighter-rouge">Poetry</code></td>
+      <td>Built-in support for dependency resolution, <code class="language-plaintext highlighter-rouge">virtualenv</code>, and packaging</td>
+    </tr>
+    <tr>
+      <td>Super-fast installs in CI or dev</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code></td>
+      <td>Significantly faster env creation &amp; installs (5x–10x faster than <code class="language-plaintext highlighter-rouge">pip</code>)</td>
+    </tr>
+    <tr>
+      <td>Combining best of both worlds</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code></td>
+      <td>Handles fast installs, packaging, and PyPI publishing – all-in-one</td>
+    </tr>
+    <tr>
+      <td>Virtual environment creation</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code></td>
+      <td>Fast and supports multiple isolated envs with ease</td>
+    </tr>
+    <tr>
+      <td>Familiar workflow &amp; legacy compatibility</td>
+      <td><code class="language-plaintext highlighter-rouge">pip</code></td>
+      <td>Universal and works with any Python project</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="who-benefits-the-most-from-uv">Who Benefits the Most from <code class="language-plaintext highlighter-rouge">uv</code>?</h3>
+
+<p>The transition to modern Python dependency management tools like <code class="language-plaintext highlighter-rouge">uv</code> isn’t just about speed — it’s about empowering specific groups to work more efficiently and effectively. Here’s who stands to gain the most:</p>
+
+<h4 id="1-data-scientists-and-machine-learning-engineers">1. Data Scientists and Machine Learning Engineers</h4>
+<p><strong>Benefit:</strong> Rapid environment setup and reproducibility</p>
+
+<p>Data professionals often need to create and manage multiple environments for experiments. <code class="language-plaintext highlighter-rouge">uv</code>’s lightning-fast environment creation and package installation streamline this process, allowing for more experiments in less time.</p>
+
+<blockquote>
+  <p><em>“UV combines environment creation and package management in a single tool, streamlining the workflow.”</em><br>
+— <a href="https://www.datacamp.com/tutorial/python-uv"><em>DataCamp Tutorial on uv</em></a></p>
+</blockquote>
+
+<h4 id="2-cicd-engineers--devops-teams">2. CI/CD Engineers &amp; DevOps Teams</h4>
+<p><strong>Benefit:</strong> Significantly reduced CI/CD pipeline times</p>
+
+<p>In continuous integration and deployment workflows, time is critical. <code class="language-plaintext highlighter-rouge">uv</code>’s performance can drastically cut down the time required for dependency installation, leading to faster build and deployment processes.</p>
+
+<blockquote>
+  <p><em>“UV’s performance shines brightest in automation pipelines, where every second counts.”</em>
+— <a href="https://codemaker2016.medium.com/introducing-uv-next-gen-python-package-manager-b78ad39c95d7"><em>Introducing uv: Next-Gen Python Package Manager</em></a></p>
+</blockquote>
+
+<h4 id="3-open-source-maintainers">3. Open-Source Maintainers</h4>
+<p><strong>Benefit:</strong> Simplified dependency management and contributor onboarding</p>
+
+<p>Maintainers juggling multiple projects and contributors can benefit from <code class="language-plaintext highlighter-rouge">uv</code>’s deterministic resolution and seamless integration, making it easier to manage dependencies and onboard new contributors.</p>
+
+<blockquote>
+  <p><em>“UV’s standards-compliant virtual environments work seamlessly with other tools, avoiding lock-in or customization.”</em><br>
+— <a href="https://github.com/astral-sh/uv"><em>uv GitHub Repository</em></a></p>
+</blockquote>
+
+<h3 id="popularity--community-adoption">Popularity &amp; Community Adoption</h3>
+
+<p>To complement the performance and feature comparison, let’s look at real-world developer interest using Google search data<sup id="fnref:7"><a href="#fn:7" class="footnote" rel="footnote" role="doc-noteref">8</a></sup>:</p>
+
+<p><img src="/cognitive-labs/images/posts/image_013_spd2m_image13.png" alt="Google Trends for pip vs poetry vs uv" style="width:100%; margin-top:1rem;"></p>
+
+<p>As the chart shows:</p>
+
+<ul>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">pip</code></strong> remains dominant as the default tool</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> has gained steady popularity as the structured alternative</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">uv</code></strong>, although newer, shows an upward trend with increasing attention</li>
+</ul>
+
+<h2 id="so-which-one-should-you-bet-on">So… Which One Should You Bet On?</h2>
+
+<p>Whether we’re accelerating machine learning experiments, streamlining CI/CD pipelines, maintaining open-source projects, teaching the next generation of developers, or building core Python infrastructure — <code class="language-plaintext highlighter-rouge">uv</code> offers a modern, efficient solution for dependency management.</p>
+
+<p>It embodies the best of both worlds: the <strong>flexibility of <code class="language-plaintext highlighter-rouge">pip</code></strong>, the <strong>structured reliability of <code class="language-plaintext highlighter-rouge">Poetry</code></strong>, and the <strong>performance of a Rust-powered engine</strong> — reflecting a Python community continually evolving toward a smoother developer experience.</p>
+
+<p>Each generation of packaging tools has pushed toward greater developer empowerment:</p>
+
+<ul>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">pip</code></strong> was flexible but manual</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> automated best practices through a unified workflow</li>
+  <li>
+<strong><code class="language-plaintext highlighter-rouge">uv</code></strong> brings composability and speed — doing fewer things, but doing them exceptionally well</li>
+</ul>
+
+<p>While the Python packaging ecosystem is still influenced by specific design choices and continues to evolve, it is now more cohesive, efficient, and developer-friendly than ever.</p>
+
+<p>Choosing the right tool today involves more than just looking at features — it also requires an understanding of the journey that led us here and a focus on clarity rather than disruption in our development process<sup id="fnref:9"><a href="#fn:9" class="footnote" rel="footnote" role="doc-noteref">9</a></sup>.</p>
+
+<hr>
+
+<p><strong>What’s your current Python stack? Have you tried <code class="language-plaintext highlighter-rouge">uv</code> yet?</strong></p>
+
+<ul>
+  <li><a href="https://pip.pypa.io"><code class="language-plaintext highlighter-rouge">pip</code></a></li>
+  <li><a href="https://python-poetry.org"><code class="language-plaintext highlighter-rouge">Poetry</code></a></li>
+  <li><a href="https://github.com/astral-sh/uv"><code class="language-plaintext highlighter-rouge">uv</code></a></li>
+</ul>
+
+<hr>
+
+<p>🛠️ <strong>Want to try it yourself?</strong><br>
+👉 <em>Explore the benchmark code on GitHub – coming soon!</em></p>
+
+<hr>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:5">
+      <p>The <strong>Python Packaging Authority (PyPA)</strong> maintains <a href="https://pip.pypa.io"><code class="language-plaintext highlighter-rouge">pip</code></a>, the de facto standard Python package installer. Its official documentation covers CLI usage, dependency resolution, caching mechanisms, and internals. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p><strong>Poetry</strong> is a popular Python packaging and dependency management tool focused on ease of use and reproducibility. Its official site provides documentation and installation instructions at <a href="https://python-poetry.org">python-poetry.org</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p><strong>PEP 621</strong> defines the standard for project metadata in <code class="language-plaintext highlighter-rouge">pyproject.toml</code>, which is relevant for modern Python package managers such as <code class="language-plaintext highlighter-rouge">Poetry</code> and <code class="language-plaintext highlighter-rouge">uv</code>. See <a href="https://peps.python.org/pep-0621/">PEP 621</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:4">
+      <p><strong>uv</strong> is a next-generation Python package manager designed for speed and efficiency, significantly outperforming <code class="language-plaintext highlighter-rouge">pip</code> and <code class="language-plaintext highlighter-rouge">Poetry</code> in installation times. See the <a href="https://github.com/astral-sh/uv">uv GitHub repo</a> for details. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:1">
+      <p>The <strong>Python Packaging User Guide</strong> is the canonical resource for all Python packaging tools and standards, including <a href="https://packaging.python.org"><code class="language-plaintext highlighter-rouge">pip</code></a>, <code class="language-plaintext highlighter-rouge">Poetry</code>, <code class="language-plaintext highlighter-rouge">setuptools</code>, <code class="language-plaintext highlighter-rouge">pyproject.toml</code>, and best practices. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:6">
+      <p>Performance comparisons among <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> show that <code class="language-plaintext highlighter-rouge">uv</code> achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports at <a href="https://docs.astral.sh/uv/reference/benchmarks">uv benchmarks</a>. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:8">
+      <p>The <strong>Python Packaging Ecosystem Talk</strong> from <a href="https://www.youtube.com/watch?v=miQwGPbPg_M">PyCon</a> provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and other modern Python package managers. In parallel, as noted by McKinsey Digital’s <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/from-box-to-cloud">From box to cloud: How to drive agile software and DevOps productivity</a>, agile delivery models and DevOps transformations can dramatically accelerate productivity — much like how modern Python packaging tools streamline environment setup, dependency resolution, and deployment for faster, more reliable development workflows. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:7">
+      <p>Community discussions about <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">pipx</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> in real-world workflows—including Docker, CI pipelines, and production environments—can be explored through their active GitHub issue trackers: <a href="https://github.com/pypa/pip/issues">pip</a>, <a href="https://github.com/pypa/pipx/issues">pipx</a>, <a href="https://github.com/python-poetry/poetry/issues">Poetry</a>, and <a href="https://github.com/astral-sh/uv/issues">uv</a>. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:9">
+      <p>Brett Cannon’s interview <strong>“Why Python Packaging is Hard”</strong> explores the historical and architectural reasons behind Python packaging complexity and tool fragmentation. Read it at <a href="https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/">pydevtools.com</a>. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/cognitive-labs/2025/07/21/framework-agnostic-blogy.html">
+        Framework-Agnostic Libraries are needed
+      </a>
+    
+  </span>
+  <span>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/cognitive-labs/images/ericsson_background.jpg')" data-dark="true" data-size="wide">
+  <!--
+    <div>
+      Extra details like contact info or address
+    </div>
+  -->
+
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:oscar.llorente.gonzalez@ericsson.com" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://github.com/EricssonResearch" data-tooltip="GitHub" data-style="bare" aria-label="GitHub">
+      <i class="icon fa-brands fa-github"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://www.linkedin.com/company/ericsson" data-tooltip="LinkedIn" data-style="bare" aria-label="LinkedIn">
+      <i class="icon fa-brands fa-linkedin"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://youtube.com/user/ericsson" data-tooltip="YouTube" data-style="bare" aria-label="YouTube">
+      <i class="icon fa-brands fa-youtube"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://twitter.com/ericsson" data-tooltip="Twitter" data-style="bare" aria-label="Twitter">
+      <i class="icon fa-brands fa-x-twitter"></i>
+      
+    </a>
+  </div>
+
+
+    
+  </div>
+
+  <div>
+    © Telefonaktiebolaget LM Ericsson 1994-2025 | 
+    Ericsson Cognitive Labs
+    <!-- &nbsp; | &nbsp; Built with
+    <a href="https://github.com/greenelab/lab-website-template">
+      Lab Website Template
+    </a> -->
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>

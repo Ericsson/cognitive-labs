@@ -1,4 +1,526 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ericsson.github.io/cognitive-labs/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ericsson.github.io/cognitive-labs/" rel="alternate" type="text/html" /><updated>2025-09-11T08:46:29+00:00</updated><id>https://ericsson.github.io/cognitive-labs/feed.xml</id><title type="html">Ericsson Cognitive Labs</title><subtitle>Ericsson Cognitive Labs, opening our AI Research to the world</subtitle><entry><title type="html">Framework-Agnostic Libraries are needed</title><link href="https://ericsson.github.io/cognitive-labs/2025/07/21/framework-agnostic-blogy.html" rel="alternate" type="text/html" title="Framework-Agnostic Libraries are needed" /><published>2025-07-21T00:00:00+00:00</published><updated>2025-09-11T08:43:44+00:00</updated><id>https://ericsson.github.io/cognitive-labs/2025/07/21/framework-agnostic-blogy</id><content type="html" xml:base="https://ericsson.github.io/cognitive-labs/2025/07/21/framework-agnostic-blogy.html"><![CDATA[<p>Deep learning has grown fast, <em>really fast</em>. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://ericsson.github.io/cognitive-labs/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ericsson.github.io/cognitive-labs/" rel="alternate" type="text/html" /><updated>2025-12-16T10:24:07+00:00</updated><id>https://ericsson.github.io/cognitive-labs/feed.xml</id><title type="html">Ericsson Cognitive Labs</title><subtitle>Ericsson Cognitive Labs, opening our AI Research to the world</subtitle><entry><title type="html">Python Packaging Needs a Speed Revolution</title><link href="https://ericsson.github.io/cognitive-labs/2025/10/01/python-packaging-evolution-pip-poetry-uv.html" rel="alternate" type="text/html" title="Python Packaging Needs a Speed Revolution" /><published>2025-10-01T00:00:00+00:00</published><updated>2025-12-16T10:22:18+00:00</updated><id>https://ericsson.github.io/cognitive-labs/2025/10/01/python-packaging-evolution-pip-poetry-uv</id><content type="html" xml:base="https://ericsson.github.io/cognitive-labs/2025/10/01/python-packaging-evolution-pip-poetry-uv.html"><![CDATA[<p><img src="/cognitive-labs/images/posts/image_001_spd2m_image1.png" alt="pip vs poetry vs uv" style="width:100%; margin-top:1rem;" /></p>
+
+<p>Over the past decade, Python’s packaging ecosystem has undergone a remarkable transformation — one that has been both confusing and exciting for developers. From the early days of <code class="language-plaintext highlighter-rouge">pip</code> to the structured reliability of <code class="language-plaintext highlighter-rouge">Poetry</code>, and now the lightning-fast innovation of <code class="language-plaintext highlighter-rouge">uv</code>, developers have navigated a fragmented yet steadily improving landscape. This blog post traces that journey, highlighting the motivations, missteps, and milestones that shaped the tools we use today. Whether you’re a seasoned developer or just starting out, understanding this evolution helps clarify the tooling chaos — and makes it easier to choose the right tool for your next project.</p>
+
+<h2 id="the-evolution-of-python-packaging">The Evolution of Python Packaging</h2>
+
+<p>The timeline below visually maps out this journey, showcasing when major tools emerged and how they influenced one another.</p>
+
+<p><img src="/cognitive-labs/images/posts/image_002_spd2m_image2.png" alt="Timeline: pip to uv" style="width:100%; margin-top:1rem;" /></p>
+
+<blockquote>
+  <p><em>Timeline of major packaging tools and their influence.</em></p>
+</blockquote>
+
+<ol>
+  <li>
+    <p><strong>The Early Days:</strong><br />
+For years, <code class="language-plaintext highlighter-rouge">pip</code><sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">1</a></sup> has been the default tool every Python developer learns first. It’s reliable, ubiquitous, and works across nearly every environment. But it’s also relatively low-level: you often need to combine
+it with virtual environments (<code class="language-plaintext highlighter-rouge">venv</code> or <code class="language-plaintext highlighter-rouge">virtualenv</code>) and dependency trackers like <code class="language-plaintext highlighter-rouge">pip-tools</code> to create a full project workflow.</p>
+
+    <blockquote>
+      <p>🧰 Think of <code class="language-plaintext highlighter-rouge">pip</code> as the “do-it-yourself” toolbox — flexible, but you bring the glue.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>The pipenv Moment:</strong><br />
+An early attempt to unify environments and dependencies. While promising, it was often slow and confusing in real-world use — and never became the standard.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">Poetry</code> Arrives: Structure and Simplicity</strong><br />
+<code class="language-plaintext highlighter-rouge">Poetry</code><sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> introduced a higher level of abstraction. It brought in a clear project structure (<code class="language-plaintext highlighter-rouge">pyproject.toml</code>)<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>, semantic versioning, and dependency resolution with lockfiles — all while abstracting away virtual
+environments. It appeals to developers who want opinionated defaults and consistency without stitching together multiple tools.</p>
+
+    <blockquote>
+      <p>🛠 <code class="language-plaintext highlighter-rouge">Poetry</code> is the all-in-one power drill: batteries included, and it just works.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Enter <code class="language-plaintext highlighter-rouge">uv</code>: The Speed-Focused Contender</strong><br />
+Built in Rust, <code class="language-plaintext highlighter-rouge">uv</code><sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>  reimagines Python tooling for the modern era. It’s blazing fast, offers drop-in replacements for <code class="language-plaintext highlighter-rouge">pip</code> and <code class="language-plaintext highlighter-rouge">virtualenv</code>, and aligns closely with <code class="language-plaintext highlighter-rouge">pyproject.toml</code> standards. It’s also the
+backend for <strong>Rye</strong>, which aims to be a <code class="language-plaintext highlighter-rouge">Poetry</code>-style toolchain — but even faster.</p>
+
+    <blockquote>
+      <p>🏎️ <code class="language-plaintext highlighter-rouge">uv</code> is like switching from a toolbox to a Formula 1 pit crew. Speed is the selling point.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<blockquote>
+  <p>💡 <em>Curious about Python packaging trends? Follow PyCon, PyPA, EuroPython, and more — the key hubs shaping Python’s packaging future.</em></p>
+</blockquote>
+
+<hr />
+
+<h2 id="core-workflows-installation--virtual-environment-management">Core Workflows: Installation &amp; Virtual Environment Management</h2>
+
+<p>Installing dependencies and managing virtual environments are at the core of every Python project<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. These isolated setups contain their own Python interpreter and installed packages, helping avoid conflicts and ensuring reproducibility. Let’s explore how the three major tools — <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> — approach these workflows.</p>
+
+<h3 id="pip-workflow">Pip Workflow</h3>
+
+<p>Having already introduced <code class="language-plaintext highlighter-rouge">pip</code>, let’s now walk through how it fits into core workflows — particularly when managing virtual environments and installing dependencies. While <code class="language-plaintext highlighter-rouge">pip</code> installs packages into the currently active environment, it does <strong>not</strong> create or manage virtual environments by itself. To isolate dependencies, it’s best to use Python’s built-in <code class="language-plaintext highlighter-rouge">venv</code> module alongside <code class="language-plaintext highlighter-rouge">pip</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create a virtual environment</span>
+python3 <span class="nt">-m</span> venv .venv
+
+<span class="c"># Activate it</span>
+<span class="c"># macOS/Linux:</span>
+<span class="nb">source</span> .venv/bin/activate
+<span class="c"># Windows:</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+
+<span class="c"># Then install packages</span>
+pip <span class="nb">install</span> &lt;package&gt;
+</code></pre></div></div>
+
+<blockquote>
+  <p>Always run <code class="language-plaintext highlighter-rouge">pip</code> commands inside a virtual environment for better isolation and reproducibility.</p>
+</blockquote>
+
+<h4 id="pip--setup-usage-and-dependency-management">Pip — Setup, Usage, and Dependency Management</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check pip version</span>
+pip <span class="nt">--version</span>
+
+<span class="c"># OR (more reliable)</span>
+python <span class="nt">-m</span> pip <span class="nt">--version</span>
+
+<span class="c"># Install a package</span>
+pip <span class="nb">install </span>requests
+
+<span class="c"># Install a specific version</span>
+pip <span class="nb">install</span> <span class="s2">"requests==2.18.4"</span>
+
+<span class="c"># Install from requirements.txt</span>
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Upgrade a package</span>
+pip <span class="nb">install</span> <span class="nt">--upgrade</span> requests
+
+<span class="c"># Uninstall a package</span>
+pip uninstall requests
+
+<span class="c"># Export current dependencies</span>
+pip freeze <span class="o">&gt;</span> requirements.txt
+</code></pre></div></div>
+
+<h3 id="poetry-workflow">Poetry Workflow</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Poetry</code> simplifies dependency management and packaging by using <strong>pyproject.toml</strong> as the single source of truth. Unlike <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code> automatically manages a virtual environment for our project. When we run poetry install or poetry add, it:</p>
+
+<ul>
+  <li>Creates a virtual environment (usually in a central cache directory)</li>
+  <li>Resolves dependencies</li>
+  <li>Installs them into the environment</li>
+</ul>
+
+<p>We can configure <code class="language-plaintext highlighter-rouge">Poetry</code> to store the virtual environment inside the project directory (rather than in the global cache) by updating config:</p>
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[virtualenvs]</span>
+<span class="py">in-project</span> <span class="p">=</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<p>To activate the environment manually:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry shell
+</code></pre></div></div>
+
+<blockquote>
+  <p>Use <code class="language-plaintext highlighter-rouge">poetry run</code> to execute scripts inside the managed environment.</p>
+</blockquote>
+
+<h4 id="poetry--setup-usage-and-dependency-management">Poetry — Setup, Usage, and Dependency Management</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Poetry (recommended way)</span>
+pipx <span class="nb">install </span>poetry
+
+<span class="c"># Or use the official install script</span>
+curl <span class="nt">-sSL</span> https://install.python-poetry.org | python3 -
+
+<span class="c"># Create a new project</span>
+poetry new my_project
+<span class="nb">cd </span>my_project
+
+<span class="c"># OR initialize Poetry in an existing project (creates pyproject.toml)</span>
+poetry init
+
+<span class="c"># Add dependencies</span>
+poetry add requests
+
+<span class="c"># Install dependencies (from pyproject.toml)</span>
+poetry <span class="nb">install</span>
+
+<span class="c"># Update all dependencies</span>
+poetry update
+
+<span class="c"># Remove a dependency</span>
+poetry remove requests
+
+<span class="c"># Run a script inside Poetry’s virtual environment</span>
+poetry run python app.py
+
+<span class="c"># Export dependencies to requirements.txt (if needed)</span>
+poetry <span class="nb">export</span> <span class="nt">-f</span> requirements.txt <span class="nt">--output</span> requirements.txt
+</code></pre></div></div>
+
+<h3 id="uv-workflow">UV Workflow</h3>
+
+<p><code class="language-plaintext highlighter-rouge">uv</code> is like swapping your toolbox for a pit crew — built in Rust, lightning-fast, and fully automated. It doesn’t just install packages; it <strong>builds your whole environment</strong> in record time. Let’s now look at how <code class="language-plaintext highlighter-rouge">uv</code> fits into the core workflows of installing dependencies and managing virtual environments. <code class="language-plaintext highlighter-rouge">uv</code> combines both tasks into a single streamlined interface — automatically creating virtual environments, resolving dependencies, and managing packages via <code class="language-plaintext highlighter-rouge">pyproject.toml</code>.</p>
+
+<ul>
+  <li>To create a virtual environment:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv venv
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="uv--setup-usage-and-dependency-management">UV — Setup, Usage, and Dependency Management</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install UV</span>
+pip <span class="nb">install </span>uv
+
+<span class="c"># OR (macOS/Linux)</span>
+brew <span class="nb">install </span>astral-sh/uv/uv
+
+<span class="c"># Initialize a new project (adds pyproject.toml)</span>
+<span class="nb">mkdir </span>my-uv-project
+<span class="nb">cd </span>my-uv-project
+uv init
+
+<span class="c"># Create a virtual environment</span>
+uv venv
+
+<span class="c"># Add and install a package (e.g., requests)</span>
+uv add requests
+
+<span class="c"># Install a package manually (pip-style)</span>
+uv pip <span class="nb">install </span>another-package
+
+<span class="c"># Install from requirements file</span>
+uv pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Freeze dependencies (like pip-tools)</span>
+uv pip compile pyproject.toml <span class="nt">-o</span> requirements.txt
+
+<span class="c"># Sync environment from lock file</span>
+uv pip <span class="nb">sync </span>requirements.txt
+
+<span class="c"># Remove a package</span>
+uv remove requests
+
+<span class="c"># Run script within the virtual environment</span>
+uv run python my_script.py
+</code></pre></div></div>
+
+<blockquote>
+  <p>Use <code class="language-plaintext highlighter-rouge">uv run</code> to execute commands inside <code class="language-plaintext highlighter-rouge">uv</code>’s managed environment.</p>
+</blockquote>
+
+<h2 id="python-packaging-the-benchmark-battle">Python Packaging: The Benchmark Battle</h2>
+
+<p>Choosing the right Python tool for dependency management can drastically impact the development speed<sup id="fnref:6"><a href="#fn:6" class="footnote" rel="footnote" role="doc-noteref">6</a></sup>. We benchmarked three popular tools — <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> — to measure their performance for:</p>
+<ul>
+  <li>Virtual environment creation</li>
+  <li>Installing lightweight packages: numpy, pandas, scikit-learn</li>
+  <li>Installing heavyweight package: torch</li>
+</ul>
+
+<h3 id="key-questions">Key Questions</h3>
+
+<ul>
+  <li>Which tool creates environments fastest?</li>
+  <li>How do installation times compare for lightweight and heavyweight packages?</li>
+  <li>What’s the end-to-end speed advantage of using a tool like <code class="language-plaintext highlighter-rouge">uv</code>?</li>
+</ul>
+
+<p>⚙️ Experimental Setup:</p>
+<pre>
+- Python Version: 3.8+
+- OS: Linux
+- CPU: 7 cores
+- Memory: 15 GB
+- Platform: Kubeflow notebook pod
+</pre>
+
+<blockquote>
+  <p>“Times may vary slightly based on network speed and package cache state”.</p>
+</blockquote>
+
+<ul>
+  <li>🛠 Tools Benchmarked:</li>
+</ul>
+<pre>
+- pip (with venv)
+- Poetry (with in-project virtualenv)
+- uv (using its internal virtualenv and pip-like install flow)
+</pre>
+
+<ul>
+  <li>📚 Dependencies:</li>
+</ul>
+<pre>
+- Light: numpy==1.24.4, pandas==1.5.3, scikit-learn==1.1.3  
+- Heavy: torch==1.13.1
+</pre>
+
+<ul>
+  <li>📋 Conditions:</li>
+</ul>
+<pre>
+- Clean install per run (--no-cache-dir, --force-reinstall)
+- 3 iterations per tool
+- Timing via time.time()
+- Virtualenv removed after each run
+</pre>
+
+<p><img src="/cognitive-labs/images/posts/image_012_spd2m_image12.png" alt="Benchmark: pip vs poetry vs uv (Env + Packages Install Time)" style="width:100%; margin-top:1rem;" /></p>
+
+<h3 id="-heres-what-we-found">📊 Here’s what we found:</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">pip</code></strong> is the slowest across the board</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> is faster, but still Python-bound and primarily sequential</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">uv</code></strong> is by far the fastest:
+    <ul>
+      <li>
+        <p><strong>5x–10x faster than <code class="language-plaintext highlighter-rouge">pip</code> or <code class="language-plaintext highlighter-rouge">Poetry</code></strong> for lightweight installs<br />
+(e.g., <code class="language-plaintext highlighter-rouge">numpy</code>, <code class="language-plaintext highlighter-rouge">pandas</code>, <code class="language-plaintext highlighter-rouge">scikit-learn</code>)</p>
+      </li>
+      <li>
+        <p>Full install (with <code class="language-plaintext highlighter-rouge">torch</code>) in <strong>~21s</strong>, nearly<br />
+<strong>2.5x faster than <code class="language-plaintext highlighter-rouge">Poetry</code></strong> and <strong>3x+ faster than <code class="language-plaintext highlighter-rouge">pip</code></strong></p>
+      </li>
+      <li>
+        <p><strong>Up to 40x faster</strong> (&lt;0.1s) for virtual environment creation,<br />
+thanks to its <strong>Rust-powered speed</strong> and <strong>smarter dependency resolution</strong></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>💡 <em>“Using <code class="language-plaintext highlighter-rouge">uv</code> for the first time feels like switching the project to SSD after years on a spinning disk.”</em></p>
+</blockquote>
+
+<h2 id="beyond-speed-cli-usability--developer-experience">Beyond Speed: CLI Usability &amp; Developer Experience</h2>
+
+<p>Different tools offer different trade-offs in terms of usability and feature completeness<sup id="fnref:8"><a href="#fn:8" class="footnote" rel="footnote" role="doc-noteref">7</a></sup>. Here’s a quick comparison of <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> from a command-line experience perspective:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>pip</th>
+      <th>Poetry</th>
+      <th>uv</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dependency resolution</td>
+      <td>Manual (or pip-tools)</td>
+      <td>Built-in</td>
+      <td>Faster, smarter</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code> is Rust-based and significantly faster</td>
+    </tr>
+    <tr>
+      <td>Virtual env support</td>
+      <td>Manual (<code class="language-plaintext highlighter-rouge">venv</code>)</td>
+      <td>Auto-managed</td>
+      <td>Explicit &amp; fast</td>
+      <td><code class="language-plaintext highlighter-rouge">Poetry</code> creates &amp; manages venvs automatically; <code class="language-plaintext highlighter-rouge">uv</code> expects external management or activation</td>
+    </tr>
+    <tr>
+      <td>Lock file support</td>
+      <td><code class="language-plaintext highlighter-rouge">requirements.txt</code> only</td>
+      <td><code class="language-plaintext highlighter-rouge">poetry.lock</code></td>
+      <td><code class="language-plaintext highlighter-rouge">uv.lock</code></td>
+      <td><code class="language-plaintext highlighter-rouge">pip</code> lacks native lock file format</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pyproject.toml</code> support</td>
+      <td>Partial (via PEP 517/518)</td>
+      <td>Native (<code class="language-plaintext highlighter-rouge">[tool.poetry]</code>)</td>
+      <td>Flexible (<code class="language-plaintext highlighter-rouge">[project]</code>, <code class="language-plaintext highlighter-rouge">[tool.poetry]</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">pip</code> reads PEP 517 build systems but doesn’t manage them</td>
+    </tr>
+    <tr>
+      <td>Publishing to PyPI</td>
+      <td>Use <code class="language-plaintext highlighter-rouge">twine</code></td>
+      <td>Built-in</td>
+      <td>Now supported</td>
+      <td><code class="language-plaintext highlighter-rouge">uv publish</code> is available as of 2024 (experimental, but working)</td>
+    </tr>
+    <tr>
+      <td>Editable install (<code class="language-plaintext highlighter-rouge">-e .</code>)</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>All three support editable installs</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>💡 <strong>Key Takeaway</strong><br />
+If we are looking for an opinionated all-in-one tool, <strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> is great.<br />
+If we want <strong>speed with modularity</strong>, <strong><code class="language-plaintext highlighter-rouge">uv</code></strong> is compelling.</p>
+</blockquote>
+
+<h3 id="when-to-use-which">When to Use Which?</h3>
+
+<p>Each tool shines in different situations. Here’s a quick guide to help choose the right one depending on your needs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Best Tool</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Easier to learn</td>
+      <td><code class="language-plaintext highlighter-rouge">Poetry</code></td>
+      <td>Built-in support for dependency resolution, <code class="language-plaintext highlighter-rouge">virtualenv</code>, and packaging</td>
+    </tr>
+    <tr>
+      <td>Super-fast installs in CI or dev</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code></td>
+      <td>Significantly faster env creation &amp; installs (5x–10x faster than <code class="language-plaintext highlighter-rouge">pip</code>)</td>
+    </tr>
+    <tr>
+      <td>Combining best of both worlds</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code></td>
+      <td>Handles fast installs, packaging, and PyPI publishing – all-in-one</td>
+    </tr>
+    <tr>
+      <td>Virtual environment creation</td>
+      <td><code class="language-plaintext highlighter-rouge">uv</code></td>
+      <td>Fast and supports multiple isolated envs with ease</td>
+    </tr>
+    <tr>
+      <td>Familiar workflow &amp; legacy compatibility</td>
+      <td><code class="language-plaintext highlighter-rouge">pip</code></td>
+      <td>Universal and works with any Python project</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="who-benefits-the-most-from-uv">Who Benefits the Most from <code class="language-plaintext highlighter-rouge">uv</code>?</h3>
+
+<p>The transition to modern Python dependency management tools like <code class="language-plaintext highlighter-rouge">uv</code> isn’t just about speed — it’s about empowering specific groups to work more efficiently and effectively. Here’s who stands to gain the most:</p>
+
+<h4 id="1-data-scientists-and-machine-learning-engineers">1. Data Scientists and Machine Learning Engineers</h4>
+<p><strong>Benefit:</strong> Rapid environment setup and reproducibility</p>
+
+<p>Data professionals often need to create and manage multiple environments for experiments. <code class="language-plaintext highlighter-rouge">uv</code>’s lightning-fast environment creation and package installation streamline this process, allowing for more experiments in less time.</p>
+
+<blockquote>
+  <p><em>“UV combines environment creation and package management in a single tool, streamlining the workflow.”</em><br />
+— <a href="https://www.datacamp.com/tutorial/python-uv"><em>DataCamp Tutorial on uv</em></a></p>
+</blockquote>
+
+<h4 id="2-cicd-engineers--devops-teams">2. CI/CD Engineers &amp; DevOps Teams</h4>
+<p><strong>Benefit:</strong> Significantly reduced CI/CD pipeline times</p>
+
+<p>In continuous integration and deployment workflows, time is critical. <code class="language-plaintext highlighter-rouge">uv</code>’s performance can drastically cut down the time required for dependency installation, leading to faster build and deployment processes.</p>
+
+<blockquote>
+  <p><em>“UV’s performance shines brightest in automation pipelines, where every second counts.”</em>
+— <a href="https://codemaker2016.medium.com/introducing-uv-next-gen-python-package-manager-b78ad39c95d7"><em>Introducing uv: Next-Gen Python Package Manager</em></a></p>
+</blockquote>
+
+<h4 id="3-open-source-maintainers">3. Open-Source Maintainers</h4>
+<p><strong>Benefit:</strong> Simplified dependency management and contributor onboarding</p>
+
+<p>Maintainers juggling multiple projects and contributors can benefit from <code class="language-plaintext highlighter-rouge">uv</code>’s deterministic resolution and seamless integration, making it easier to manage dependencies and onboard new contributors.</p>
+
+<blockquote>
+  <p><em>“UV’s standards-compliant virtual environments work seamlessly with other tools, avoiding lock-in or customization.”</em><br />
+— <a href="https://github.com/astral-sh/uv"><em>uv GitHub Repository</em></a></p>
+</blockquote>
+
+<h3 id="popularity--community-adoption">Popularity &amp; Community Adoption</h3>
+
+<p>To complement the performance and feature comparison, let’s look at real-world developer interest using Google search data<sup id="fnref:7"><a href="#fn:7" class="footnote" rel="footnote" role="doc-noteref">8</a></sup>:</p>
+
+<p><img src="/cognitive-labs/images/posts/image_013_spd2m_image13.png" alt="Google Trends for pip vs poetry vs uv" style="width:100%; margin-top:1rem;" /></p>
+
+<p>As the chart shows:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">pip</code></strong> remains dominant as the default tool</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> has gained steady popularity as the structured alternative</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">uv</code></strong>, although newer, shows an upward trend with increasing attention</li>
+</ul>
+
+<h2 id="so-which-one-should-you-bet-on">So… Which One Should You Bet On?</h2>
+
+<p>Whether we’re accelerating machine learning experiments, streamlining CI/CD pipelines, maintaining open-source projects, teaching the next generation of developers, or building core Python infrastructure — <code class="language-plaintext highlighter-rouge">uv</code> offers a modern, efficient solution for dependency management.</p>
+
+<p>It embodies the best of both worlds: the <strong>flexibility of <code class="language-plaintext highlighter-rouge">pip</code></strong>, the <strong>structured reliability of <code class="language-plaintext highlighter-rouge">Poetry</code></strong>, and the <strong>performance of a Rust-powered engine</strong> — reflecting a Python community continually evolving toward a smoother developer experience.</p>
+
+<p>Each generation of packaging tools has pushed toward greater developer empowerment:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">pip</code></strong> was flexible but manual</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Poetry</code></strong> automated best practices through a unified workflow</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">uv</code></strong> brings composability and speed — doing fewer things, but doing them exceptionally well</li>
+</ul>
+
+<p>While the Python packaging ecosystem is still influenced by specific design choices and continues to evolve, it is now more cohesive, efficient, and developer-friendly than ever.</p>
+
+<p>Choosing the right tool today involves more than just looking at features — it also requires an understanding of the journey that led us here and a focus on clarity rather than disruption in our development process<sup id="fnref:9"><a href="#fn:9" class="footnote" rel="footnote" role="doc-noteref">9</a></sup>.</p>
+
+<hr />
+
+<p><strong>What’s your current Python stack? Have you tried <code class="language-plaintext highlighter-rouge">uv</code> yet?</strong></p>
+
+<ul>
+  <li><a href="https://pip.pypa.io"><code class="language-plaintext highlighter-rouge">pip</code></a></li>
+  <li><a href="https://python-poetry.org"><code class="language-plaintext highlighter-rouge">Poetry</code></a></li>
+  <li><a href="https://github.com/astral-sh/uv"><code class="language-plaintext highlighter-rouge">uv</code></a></li>
+</ul>
+
+<hr />
+
+<p>🛠️ <strong>Want to try it yourself?</strong><br />
+👉 <em>Explore the benchmark code on GitHub – coming soon!</em></p>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:5">
+      <p>The <strong>Python Packaging Authority (PyPA)</strong> maintains <a href="https://pip.pypa.io"><code class="language-plaintext highlighter-rouge">pip</code></a>, the de facto standard Python package installer. Its official documentation covers CLI usage, dependency resolution, caching mechanisms, and internals. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><strong>Poetry</strong> is a popular Python packaging and dependency management tool focused on ease of use and reproducibility. Its official site provides documentation and installation instructions at <a href="https://python-poetry.org">python-poetry.org</a>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><strong>PEP 621</strong> defines the standard for project metadata in <code class="language-plaintext highlighter-rouge">pyproject.toml</code>, which is relevant for modern Python package managers such as <code class="language-plaintext highlighter-rouge">Poetry</code> and <code class="language-plaintext highlighter-rouge">uv</code>. See <a href="https://peps.python.org/pep-0621/">PEP 621</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p><strong>uv</strong> is a next-generation Python package manager designed for speed and efficiency, significantly outperforming <code class="language-plaintext highlighter-rouge">pip</code> and <code class="language-plaintext highlighter-rouge">Poetry</code> in installation times. See the <a href="https://github.com/astral-sh/uv">uv GitHub repo</a> for details. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:1">
+      <p>The <strong>Python Packaging User Guide</strong> is the canonical resource for all Python packaging tools and standards, including <a href="https://packaging.python.org"><code class="language-plaintext highlighter-rouge">pip</code></a>, <code class="language-plaintext highlighter-rouge">Poetry</code>, <code class="language-plaintext highlighter-rouge">setuptools</code>, <code class="language-plaintext highlighter-rouge">pyproject.toml</code>, and best practices. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p>Performance comparisons among <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> show that <code class="language-plaintext highlighter-rouge">uv</code> achieves installation speeds 10× to 100× faster, as documented in Astral’s benchmark reports at <a href="https://docs.astral.sh/uv/reference/benchmarks">uv benchmarks</a>. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+      <p>The <strong>Python Packaging Ecosystem Talk</strong> from <a href="https://www.youtube.com/watch?v=miQwGPbPg_M">PyCon</a> provides simple guidelines and perspectives on choosing packaging tools and managing workflows involving <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and other modern Python package managers. In parallel, as noted by McKinsey Digital’s <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/from-box-to-cloud">From box to cloud: How to drive agile software and DevOps productivity</a>, agile delivery models and DevOps transformations can dramatically accelerate productivity — much like how modern Python packaging tools streamline environment setup, dependency resolution, and deployment for faster, more reliable development workflows. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7">
+      <p>Community discussions about <code class="language-plaintext highlighter-rouge">pip</code>, <code class="language-plaintext highlighter-rouge">pipx</code>, <code class="language-plaintext highlighter-rouge">Poetry</code>, and <code class="language-plaintext highlighter-rouge">uv</code> in real-world workflows—including Docker, CI pipelines, and production environments—can be explored through their active GitHub issue trackers: <a href="https://github.com/pypa/pip/issues">pip</a>, <a href="https://github.com/pypa/pipx/issues">pipx</a>, <a href="https://github.com/python-poetry/poetry/issues">Poetry</a>, and <a href="https://github.com/astral-sh/uv/issues">uv</a>. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9">
+      <p>Brett Cannon’s interview <strong>“Why Python Packaging is Hard”</strong> explores the historical and architectural reasons behind Python packaging complexity and tool fragmentation. Read it at <a href="https://pydevtools.com/blog/why-isnt-python-packaging-part-of-core-development/">pydevtools.com</a>. <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>sangam</name></author><category term="engineering" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Framework-Agnostic Libraries are needed</title><link href="https://ericsson.github.io/cognitive-labs/2025/07/21/framework-agnostic-blogy.html" rel="alternate" type="text/html" title="Framework-Agnostic Libraries are needed" /><published>2025-07-21T00:00:00+00:00</published><updated>2025-12-16T10:22:18+00:00</updated><id>https://ericsson.github.io/cognitive-labs/2025/07/21/framework-agnostic-blogy</id><content type="html" xml:base="https://ericsson.github.io/cognitive-labs/2025/07/21/framework-agnostic-blogy.html"><![CDATA[<p>Deep learning has grown fast, <em>really fast</em>. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.</p>
 
 <p>For machine learning engineers, it’s like walking through a forest where every path leads to a different framework, and no one’s really sure which one will still exist in five years.</p>
 
@@ -219,228 +741,7 @@
       <p>One recent paper on DL testing <a href="https://dl.acm.org/doi/10.1145/3716497">Deep Learning Library Testing: Definition, Methods, and Challenges</a> Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>lucia-ferrer</name></author><category term="Engineering" /><summary type="html"><![CDATA[Deep learning has grown fast, really fast. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends1. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.]]></summary></entry><entry><title type="html">Framework-Agnostic Libraries are needed</title><link href="https://ericsson.github.io/cognitive-labs/2025/07/16/framework-agnostic-blogy.html" rel="alternate" type="text/html" title="Framework-Agnostic Libraries are needed" /><published>2025-07-16T00:00:00+00:00</published><updated>2025-09-11T08:43:44+00:00</updated><id>https://ericsson.github.io/cognitive-labs/2025/07/16/framework-agnostic-blogy</id><content type="html" xml:base="https://ericsson.github.io/cognitive-labs/2025/07/16/framework-agnostic-blogy.html"><![CDATA[<p>Deep learning has grown fast, <em>really fast</em>. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.</p>
-
-<p>For machine learning engineers, it’s like walking through a forest where every path leads to a different framework, and no one’s really sure which one will still exist in five years.</p>
-
-<h2 id="so-whats-the-issue">So, what’s the issue?</h2>
-
-<p>These days, building AI-powered products isn’t optional — it’s expected <sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>. And as demand grows, so do the tools. The result? A tangled mess of components, many of which depend heavily on the framework they’re built in. There is no fault to be found as it’s natural when a field moves fast, but it’s messy and unpractical.</p>
-
-<p>You might think, “Well, that’s just how it goes,” but here’s the thing: frameworks have a life of their own. And if you’ve ever been stuck with a deprecated tool or spent weeks porting models between frameworks, you know how painful that can get.</p>
-
-<p>(Here’s a quick reminder of how these trends have changed over time)</p>
-
-<!-- Google Trends embed remains here -->
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/4031_RC01/embed_loader.js"></script>
-<script type="text/javascript"> trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"/g/11gd3905v1","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11bwp1s2k3","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/m/0h95mh8","geo":"","time":"2014-01-01 2025-04-29"},{"keyword":"/g/11t6my1_gw","geo":"","time":"2014-01-01 2025-04-29"}],"category":0,"property":""}, {"exploreQuery":"date=2014-01-01%202025-04-29&q=%2Fg%2F11gd3905v1,%2Fg%2F11bwp1s2k3,%2Fm%2F0h95mh8,%2Fg%2F11t6my1_gw&hl=en-GB","guestPath":"https://trends.google.com:443/trends/embed/"}); </script>
-
-<h2 id="the-ever-shifting-framework-landscape">The Ever-Shifting Framework Landscape</h2>
-
-<p>Frameworks aren’t static. Some evolve (like TensorFlow 2), others fade away (remember Theano?), and new ones (like JAX) pop up with killer features. Each has its own execution style, APIs, and toolchains; and that means a steep learning curve every time you switch.</p>
-
-<p>This complexity is a real blocker. In fact, over 90% of companies plan to ramp up their AI investments, but only 1% think their AI capabilities are where they should be. One possible reason? Fragmentation at the foundation, in other words, right at the framework level.</p>
-
-<p>Different teams want different things. Researchers love PyTorch for fast prototyping. JAX shines in large-scale parallel computing. TensorFlow dominates in production and mobile deployments. And if you’re trying to blend open-source models into production systems, it gets even trickier. You end up mixing and matching frameworks, and unfortunetly sometimes within the same product.</p>
-
-<h2 id="why-this-hurts-more-than-you-think">Why This Hurts (More Than You Think)</h2>
-
-<p>When your tech stack is tied tightly to one framework, you run into problems:</p>
-
-<ul>
-  <li>
-    <p><strong>Lock-in is real.</strong> If a library loses support (like Theano) or shifts direction (like TensorFlow 1 to 2), your whole system might be at risk. Building on top of multi-backend tools gives you some insurance.</p>
-  </li>
-  <li>
-    <p><strong>Best tool for the job? Not always easy.</strong> Some frameworks do things better than others: physics simulations, distributed training, edge deployments. A rigid stack limits your options.</p>
-  </li>
-  <li>
-    <p><strong>Reproducibility gets tricky.</strong> Even porting models between major libraries (PyTorch to ONNX, TF to JAX) can be a pain. Things like random seeds, execution modes, tensor shapes, or custom gradients often break silently.</p>
-  </li>
-  <li>
-    <p><strong>Deploying models is harder than it should be.</strong>  AI models don’t live in one place. They train in the cloud, run on edge devices, serve millions in real-time. Framework-agnostic formats like ONNX or SavedModel make this easier—but only if you design for it.</p>
-  </li>
-</ul>
-
-<h2 id="whats-the-fix-framework-agnostic--multi-framework-approaches">What’s the Fix? Framework-Agnostic &amp; Multi-Framework Approaches</h2>
-
-<p>Instead of betting on a single framework, more teams are designing tools and workflows that work across multiple. That’s the move: <em>framework-agnostic development</em>. Here’s what that looks like:</p>
-
-<ul>
-  <li><strong>Use high-level libraries that support multiple backends.</strong> Think: Keras 3.0. One model definition, works on TensorFlow, JAX, or PyTorch.</li>
-  <li><strong>Model formats like ONNX.</strong> Export once, run it wherever.</li>
-  <li><strong>Testing frameworks that compare behavior across libraries.</strong> Think: differential testing to catch subtle differences.</li>
-  <li><strong>Interop-focused projects.</strong> OpenXLA is a good example : it’s a shared compiler backend supported by Google that works across TF, JAX, and now PyTorch (via Torch XLA).</li>
-</ul>
-
-<p>This shift is happening gradually. PyTorch and TensorFlow are even borrowing ideas from each other. TF2 got eager execution from PyTorch, and PyTorch 2.0 added <code class="language-plaintext highlighter-rouge">torch.compile</code> (similar to how XLA optimizes graphs in TF or JAX). These aren’t just nice features, they’re steps toward a shared ecosystem.</p>
-
-<h2 id="examples-in-the-wild">Examples in the Wild</h2>
-
-<ul>
-  <li><a href="https://keras.io/keras_3/">Keras 3.0</a>: Write code once, run on TF, JAX, or PyTorch.</li>
-  <li><strong>ONNX Runtime</strong>: Load and run models on anything from CPUs to mobile to cloud GPUs.</li>
-  <li><strong>Hugging Face Diffusers</strong>: Train or use generative models with either PyTorch or TensorFlow.</li>
-  <li><strong>Flower</strong>: A federated learning framework that abstracts backend differences.</li>
-</ul>
-
-<!-- Landscape embed view -->
-<p>But this few examples, are still lacking in comparizon with how big the deep learning ecosystem is becoming, as it can be seen on the snapshot of the open-sourced deep learning ecosystem <sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.</p>
-<iframe src="https://landscape.lfaidata.foundation/embed/embed.html?base-path=&amp;classify=category&amp;key=deep-learning&amp;headers=true&amp;category-header=true&amp;category-in-subcategory=false&amp;title-uppercase=false&amp;title-alignment=left&amp;title-font-family=sans-serif&amp;title-font-size=13&amp;style=shadowed&amp;bg-color=%2319006d&amp;fg-color=%23ffffff&amp;item-modal=false&amp;item-name=false&amp;size=md&amp;items-alignment=left" style="width:100%;height:600px;display:block;border:none;"></iframe>
-
-<p><em>The snapshot has a big representation of what it is nowadays, but there are even more missing, as example go into one of the three main Frameworks, and look at their own high-level libraries<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup></em></p>
-
-<h2 id="but-its-not-easy">But… It’s Not Easy</h2>
-
-<p>As great as framework-agnostic sounds, making it work is tough.</p>
-
-<ul>
-  <li>Different frameworks handle things like tensor ops, devices, or gradients in <em>very</em> different ways.</li>
-  <li>PyTorch is dynamic, JAX is functional and stateless, and TF… well, depends on the version.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>PyTorch</th>
-      <th>TensorFlow</th>
-      <th>JAX</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Default shape format</td>
-      <td>NCHW</td>
-      <td>NHWC</td>
-      <td>NHWC</td>
-    </tr>
-    <tr>
-      <td>Device placement</td>
-      <td>Explicit (<code class="language-plaintext highlighter-rouge">.to(device)</code>)</td>
-      <td>Implicit (Graph or <code class="language-plaintext highlighter-rouge">.device</code>)</td>
-      <td>Functional (<code class="language-plaintext highlighter-rouge">jax.device_put</code>)</td>
-    </tr>
-    <tr>
-      <td>Requires gradient?</td>
-      <td><code class="language-plaintext highlighter-rouge">requires_grad=True</code></td>
-      <td><code class="language-plaintext highlighter-rouge">tf.GradientTape()</code> context</td>
-      <td><code class="language-plaintext highlighter-rouge">jax.grad()</code> functional API</td>
-    </tr>
-    <tr>
-      <td>Mutability</td>
-      <td>Mutable tensors</td>
-      <td>Sometimes mutable</td>
-      <td>Immutable (<code class="language-plaintext highlighter-rouge">pure functions</code>)</td>
-    </tr>
-    <tr>
-      <td>Randomness</td>
-      <td>Global RNG</td>
-      <td>Graph seed / local seed</td>
-      <td>Explicit PRNGKey</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li>Writing one model that works across all three? Possible, but fragile, complex, and possible very restrictive.</li>
-</ul>
-
-<!-- Include this once in your base layout (if not already present) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-<script>hljs.highlightAll();</script>
-
-<!-- Three-column comparison layout -->
-<div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; margin-top: 2rem;">
-
-  <!-- PyTorch -->
-  <div style="flex: 0.5; min-width: 100px;">
-    <h5>PyTorch</h5>
-    <pre><code class="language-python">
-    import torch.nn as nn
-
-    class TorchModel(nn.Module):
-      def __init__(self):
-          super().__init__()
-          self.fc = nn.Linear(32, 10)
-
-      def forward(self, x):
-          return self.fc(x)
-    </code></pre>
-  </div>
-
-  <!-- Tensorflow -->
-  <div style="flex: 0.5; min-width: 100px;">
-    <h5>Tensorflow</h5>
-    <pre><code class="language-python">
-    import tensorflow as tf
-    from tf.keras.layers import Dense
-
-    class Model(tf.keras.Model):
-      def __init__(self):
-        self.fc = Dense(32, 10)
-
-      def __call__(self, x):
-        return self.fc(x)
-    </code></pre>
-  </div>
-
-  <!-- JAX -->
-  <div style="flex: 0.5; min-width: 100px;">
-    <h5>JAX (Flax)</h5>
-    <pre><code class="language-python">
-    from flax import nnx
-
-    class Model(nnx.Module):
-      def __init__(self, rngs):
-        self.fc = nnx.Linear(
-          32, 10, rngs=rngs)
-
-      def __call__(self, x):
-        return self.fc(x)
-    </code></pre>
-</div>
-
-</div>
-
-<p>Teams may decide that they are going to support a multi-framework codebase. But now you’re maintaining N versions of the same functionality; that’s simultaneous development, testing and deployment needed for N codes. That’s a recipe for bugs. Automated testing and good abstractions are a must here, and that still requires more effort.</p>
-
-<p>Luckily, tool support is growing<sup id="fnref:5"><a href="#fn:5" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>. There’s active research into model verification, bug detection, and better conversion tools. As the community embraces this direction, the ecosystem becomes more robust.</p>
-
-<h2 id="where-were-headed">Where We’re Headed</h2>
-
-<p>The ideal? A world where ML engineers can <em>write once, run anywhere</em> — whether that’s on a cloud GPU, an iPhone, or an embedded chip in a robot. We’re not fully there yet, but between open compilers (like OpenXLA), standardized formats (like ONNX), and high-level libraries (like Keras 3), we’re getting closer, and as of now hoping for smooth plug-and-play integration regardless of you initial framework selection is a coming step.</p>
-
-<p>If your team is building anything meant to last more than a couple of years, thinking about framework-agnostic design early on can save you a lot of pain later. But instead of doing it by yourself, leave this for the open-source frameworks out there (and contribute if you feel so). This way, you avoid the problems we talked about before with keeping track of N versions, while we ensure the maintainability in the future thanks to the rich open-source ecosystem.</p>
-
-<p>Let’s build for the long term — even if the frameworks keep changing under our feet.</p>
-
-<p>And if this catches your eye, stay tuned for what we’ll be releasing in the Cognitive Labs!</p>
-
-<hr />
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>The well known landscape of dependencies for a ML System, <a href="https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html">Hidden Technical Debt in Machine Learning Systems</a>, is futher expanded with other papers such as <a href="https://arxiv.org/pdf/2409.11826">A Taxonomy of Self-Admitted Technical Debt in Deep Learning Systems</a> which found that i) there is a significant number of technical debt in all the studied deep learning frameworks. ii) there is design debt, defect debt, documentation debt, test debt, requirement debt, compatibility debt, and algorithm debt in deep learning frameworks. iii) the majority of the technical debt in deep learning framework is design debt (24.07% - 65.27%), followed by requirement debt (7.09% - 31.48%) and algorithm debt (5.62% - 20.67%). In some projects, compatibility debt accounts for more than 10%. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>According to <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" title="Mckinsey: Global Survey on the State of AI, 2025">Mckinsey global survey</a> on the corporation view of AI, deep learning and artificial intelligence are integrated into at least one business function by 78% of respondents. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3">
-      <p>As noted by McKinsey’s<a href="https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/">Open Source in the Age of AI (2023)</a>, around 92% of companies reported that they use open-source software in at least one of their AI initiatives. The survey also highlights that open-source components are increasingly critical not just for research prototyping, but also for production deployments in enterprise settings. The landscap of only deep learning open sourced by Linux Foundation, <a href="https://lfai.landscape2.io/">Open-Source Ecosystem for Machine Learning by the Linux Foundation</a>, but out there exists many more if you go to other libraries layers such as in backends / data / security / ethics / model / deployment … managers. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:4">
-      <p>Examples include: i) The ecosystem built over PyTorch: PyTorch Geometric, TorchText, TorchAudio, and third-party libraries like Pyro and Stable Baselines 3 (SB3). ii) The TensorFlow ecosystem: APIs like TensorFlow Lite, TFX, TensorFlow.js, and extensions such as TensorFlow Probability, TensorFlow GNN, and TensorFlow Quantum (plus projects like Sonnet). iii) Other frameworks: Stable Baselines (SB3) is building SBX for reinforcement learning with JAX or <a href="https://deepmind.google/discover/blog/using-jax-to-accelerate-our-research/">Google DeepMind’s libraries</a> including dm-haiku (neural networks), MCTX (Monte Carlo tree search), Jraph (graph neural networks), and physics simulators like JAX MD. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:5">
-      <p>One recent paper on DL testing <a href="https://dl.acm.org/doi/10.1145/3716497">Deep Learning Library Testing: Definition, Methods, and Challenges</a> Survey with 93 papers collected from the literature, where 69 are related to DL framework testing, 12 to DL compiler testing and 13 to DL hardware library testing. There exists a recent trend with more papers on this topic. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>lucia-ferrer</name></author><category term="Engineering" /><summary type="html"><![CDATA[Deep learning has grown fast, really fast. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends1. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.]]></summary></entry><entry><title type="html">The Cognitive Labs Blog</title><link href="https://ericsson.github.io/cognitive-labs/2025/07/06/ericsson-labs-blog.html" rel="alternate" type="text/html" title="The Cognitive Labs Blog" /><published>2025-07-06T00:00:00+00:00</published><updated>2025-09-11T08:43:44+00:00</updated><id>https://ericsson.github.io/cognitive-labs/2025/07/06/ericsson-labs-blog</id><content type="html" xml:base="https://ericsson.github.io/cognitive-labs/2025/07/06/ericsson-labs-blog.html"><![CDATA[<!-- excerpt start -->
+</div>]]></content><author><name>lucia-ferrer</name></author><category term="Engineering" /><summary type="html"><![CDATA[Deep learning has grown fast, really fast. It’s now a major part of how companies make decisions and design products. With this boom, AI has become more powerful, but also way more complex. One big challenge? The explosion of tools and frameworks. We’re now living in a world full layers of complexity to build on top of backends1. Diverse frameworks are coexisting such as TensorFlow, PyTorch, JAX, MXNet, and more, each with its own quirks and tradeoffs.]]></summary></entry><entry><title type="html">The Cognitive Labs Blog</title><link href="https://ericsson.github.io/cognitive-labs/2025/07/06/ericsson-labs-blog.html" rel="alternate" type="text/html" title="The Cognitive Labs Blog" /><published>2025-07-06T00:00:00+00:00</published><updated>2025-12-16T10:22:18+00:00</updated><id>https://ericsson.github.io/cognitive-labs/2025/07/06/ericsson-labs-blog</id><content type="html" xml:base="https://ericsson.github.io/cognitive-labs/2025/07/06/ericsson-labs-blog.html"><![CDATA[<!-- excerpt start -->
 <p>To continue our effort to contribute to the open-source community we would like to present the Cognitive Labs Blog, our new channel to communicate about the research we are doing, trying to bring closer our technology to the public.
 <!-- excerpt end --></p>
 
