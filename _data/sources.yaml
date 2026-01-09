@@ -1,3 +1,25 @@
+- id: doi:10.48550/arXiv.2601.04807
+  date: '2026-01-09'
+  type: paper
+  image: images/papers/object.jpg
+  authors:
+  - Oscar Llorente
+  - Jaime Boal
+  - Eugenio F. Sánchez-Úbeda
+  - Antonio Diaz-Cano
+  - Miguel Familiar-Cabero
+  description: Graph Neural Networks (GNNs) have demonstrated remarkable performance in a wide range of tasks, such as node classification, link prediction, and graph classification, by exploiting the structural information in graph-structured data. However, in node classification, computing node-level explainability becomes extremely time-consuming as the size of the graph increases, while batching strategies often degrade explanation quality. This paper introduces a novel approach to parallelizing node-level explainability in GNNs through graph partitioning. By decomposing the graph into disjoint subgraphs, we enable parallel computation of explainability for node neighbors, significantly improving the scalability and efficiency without affecting the correctness of the results, provided sufficient memory is available. For scenarios where memory is limited, we further propose a dropout-based reconstruction mechanism that offers a controllable trade-off between memory usage and explanation fidelity. Experimental results on real-world datasets demonstrate substantial speedups, enabling scalable and transparent explainability for large-scale GNN models.
+  tags:
+  - GAI Lab
+  - ICAI
+  buttons:
+  - type: paper
+    text: Manuscript
+    link: https://arxiv.org/abs/2601.04807
+  - type: github
+    text: Source Code
+    link: EricssonResearch/parallel-xai-gnn
+
 - id: doi:10.1007/978-3-031-63787-2_20
   date: '2024-07-10'
   type: paper
