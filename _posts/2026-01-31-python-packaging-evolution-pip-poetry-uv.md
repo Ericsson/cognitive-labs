@@ -1,6 +1,6 @@
 ---
 title: "Python Packaging Needs a Speed Revolution"
-author: sangam
+author: sangam, oscar-llorente-gonzalez, lucia-ferrer
 tags:
   - engineering
 abstract: >
