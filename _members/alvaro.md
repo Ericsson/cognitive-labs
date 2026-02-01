@@ -2,7 +2,7 @@
 name: Alvaro Pereira Chagoyen
 image: images/members/gai-lab/alvaro.jpg
 role: scientist
-description: Data Scientist Intern
+description: Experienced Data Scientist
 lab: 
   - gai-lab
 links:
