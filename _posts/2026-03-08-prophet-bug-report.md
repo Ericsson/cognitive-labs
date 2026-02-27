@@ -15,7 +15,7 @@ Relying on this automation and its popularity, we chose Prophet as our main fore
 
 To investigate this, imagine you are forecasting hundreds or thousands of series with Prophet and cannot inspect them one by one. When you randomly sample a few forecasts, some of them look completely wrong. To make this situation concrete, throughout this post we will work with a well-known dataset bundled with Prophet: [the daily log page views of Peyton Manning’s Wikipedia page](https://github.com/facebook/prophet/blob/main/examples/example_wp_log_peyton_manning.csv).
 
-![Prophet example series](/images/posts/02202026/time_series_plot.png)
+![Prophet example series](/images/posts/20260308/time_series_plot.png)
 
 This series is deliberately chosen because it is highly structured and visually “forecastable”; in fact, it appears in Prophet’s own documentation as a canonical example of multiple seasonalities and trend changes. Using this dataset, we will reproduce and analyze the bug, starting by defining a helper function to fit the model and visualize its forecasts in a consistent manner.
 
@@ -59,7 +59,7 @@ fig_polars.show()
 This code loads the dataset, splits it into training and test sets, trains a default Prophet model on the training data and generates forecasts.
 From the code alone, everything follows the usual Prophet pattern: i) fit on the historical data, ii) extend the horizon with `make_future_dataframe`, and iii) evaluate using a simple MAE. Yet, as the plot below shows, the resulting forecast is completely off, even on the training period! This is our first clue that something deeper is wrong.
 
-![Prophet predictions comparison](/images/posts/02202026/polars_fit.png)
+![Prophet predictions comparison](/images/posts/20260308/polars_fit.png)
 
 Concerned, you conduct an exhaustive test across your entire dataset, only to discover that the evaluation metrics suggest the models are performing well. What's going on?
 
@@ -87,10 +87,10 @@ forecast_pandas, mae_pandas, fig_pandas = train_and_plot_model(train_pandas,
 The results are dramatically different: both past values and future forecasts are now accurate.
 Here is an overlapped predictions plot below, where you can see the stark contrast—where the Polars-processed model failed catastrophically, the pandas-processed model succeeds perfectly.
 
-<!-- ![Prophet predictions comparison](/images/posts/02202026/overlapped_predictions.png)
+<!-- ![Prophet predictions comparison](/images/posts/20260308/overlapped_predictions.png)
  -->
 
-<iframe src="/images/posts/02202026/predictions_overlap.html" 
+<iframe src="/images/posts/20260308/predictions_overlap.html" 
         width="100%" height="700px" frameborder="0" style="border: 0px solid #ddd;">
 </iframe>
 
@@ -125,7 +125,7 @@ Prophet decomposes time series forecasts into four key components:
 
 Regressors are not being used, but we can examine the other three components in the following plot:
 
-<iframe src="/images/posts/02202026/components_overlapped.html" 
+<iframe src="/images/posts/20260308/components_overlapped.html" 
         width="100%" height="700px" frameborder="0" style="border: 0px solid #ddd;">
 </iframe>
 
