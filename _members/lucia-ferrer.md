@@ -1,6 +1,6 @@
 ---
 name: Lucia Ferrer
-image: images/members/gai-lab/lucia.jpg
+image: images/members/lucia.jpg
 role: scientist
 description: Experienced Data Scientist
 lab: 

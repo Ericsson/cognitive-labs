@@ -1,6 +1,6 @@
 ---
 name: Anubhab Samal
-image: images/members/fai-lab/anubhab.png
+image: images/members/anubhab.png
 role: scientist
 description: Senior Data Scientist
 lab: 

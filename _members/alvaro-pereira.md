@@ -1,6 +1,6 @@
 ---
 name: Alvaro Pereira
-image: images/members/gai-lab/alvaro.jpg
+image: images/members/alvaro.jpg
 role: scientist
 description: Experienced Data Scientist
 lab: 

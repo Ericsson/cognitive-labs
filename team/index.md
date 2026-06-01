@@ -5,7 +5,7 @@ nav:
   tooltip: About our team
 ---
 
-# {% include icon.html icon="fa-solid fa-users" %}Team
+# {% include icon.html icon="fa-solid fa-users" %} Team
 
 On this page we list the members of our amazing research team, listing the members of each one of the labs. Click on their profile to see how lucky we are to have them!
 

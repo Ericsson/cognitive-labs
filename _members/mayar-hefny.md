@@ -1,8 +1,10 @@
 ---
 name: Mayar Hefny
-image: images/members/mlr-lab/mayar.jpeg
+image: images/members/mayar.jpeg
 role: scientist
 description: Senior Data Scientist
+lab: 
+  - member
 links:
   linkedin: mayar-hefny
   github: mayar-ahmed

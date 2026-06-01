@@ -1,6 +1,6 @@
 ---
 name: Oscar Llorente Gonzalez
-image: images/members/gai-lab/oscar.jpeg
+image: images/members/oscar.jpeg
 role: scientist
 description: Staff Data Scientist
 lab: 
