@@ -51,6 +51,11 @@ plugins:
   - jekyll-feed
   - jekyll-last-modified-at
 
+# jekyll-spaceship configuration
+jekyll-spaceship:
+  table-processor:
+    enabled: false
+
 # code block syntax highlighting
 highlighter: rouge
 
