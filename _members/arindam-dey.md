@@ -2,10 +2,7 @@
 name: Arimdam Dey
 image: images/members/fai-lab/arindam.jpg
 role: scientist
-description: Staff Data Scientist
-lab: 
-  - fai-lab
-  - board 
+description: Staff Data Scientist 
 links:
   linkedin: arindam-dey-576309158
   github: Arindam75

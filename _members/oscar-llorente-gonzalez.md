@@ -2,10 +2,9 @@
 name: Oscar Llorente Gonzalez
 image: images/members/gai-lab/oscar.jpeg
 role: scientist
-description: Senior Data Scientist
+description: Staff Data Scientist
 lab: 
-  - gai-lab
-  - board
+  - maintainer
 links:
   linkedin: osllogon
   github: osllogon

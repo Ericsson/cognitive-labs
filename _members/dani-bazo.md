@@ -4,7 +4,7 @@ image: images/members/gai-lab/dani.jpeg
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - gai-lab
+  - maintainer
 links:
   linkedin: danibcorr
   github: danibcorr

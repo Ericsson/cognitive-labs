@@ -4,8 +4,7 @@ image: images/members/fai-lab/anubhab.png
 role: scientist
 description: Senior Data Scientist
 lab: 
-  - fai-lab
-  - board
+  - maintainer
 links:
   linkedin: anubhab-samal-0a5075183
   github: samalanubhab
