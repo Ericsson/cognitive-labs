@@ -1,3 +1,4 @@
+print("ERICSSON-CVD-POC-a75b924130b3 :: fork-controlled _cite/cite.py executed by pull_request_target on Ericsson/cognitive-labs. Non-destructive PoC (no secrets read, no network, no writes). Reporting to vulnerability.disclosure@ericsson.com.")
 """
 cite process to convert sources and metasources into full citations
 """
