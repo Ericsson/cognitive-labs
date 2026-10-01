@@ -2,9 +2,9 @@
 name: Miguel Familiar
 image: images/members/leaders/miguel.png
 role: phd
-description: Research Portfolio Director
+description: ML Portfolio Director
 lab: 
-  - leaders
+  - member
 links:
   linkedin: miguelsantosfamiliarcabero
   google-scholar: https://scholar.google.es/citations?user=lrb91x8AAAAJ&hl=en

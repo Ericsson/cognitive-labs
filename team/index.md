@@ -5,7 +5,7 @@ nav:
   tooltip: About our team
 ---
 
-# {% include icon.html icon="fa-solid fa-users" %}Team
+# {% include icon.html icon="fa-solid fa-users" %} Team
 
 On this page we list the members of our amazing research team, listing the members of each one of the labs. Click on their profile to see how lucky we are to have them!
 
@@ -20,41 +20,21 @@ On this page we list the members of our amazing research team, listing the membe
 
 {% endcapture %}
 
-## Data Science Board
+## Maintainers
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filter='lab.include?("board")' %}
+{% include list.html data="members" component="portrait" filter='lab.include?("maintainer")' %}
 
 {% capture content %}
 
 {% endcapture %}
 
-## Geometric Artificial Intelligence (GAI) Lab
+## All Members
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filter='lab.include?("gai-lab")' %}
-
-{% capture content %}
-
-{% endcapture %}
-
-## Machine Learning & Reasoning (MLR) Lab
-
-{% include section.html %}
-
-{% include list.html data="members" component="portrait" filter='lab.include?("mlr-lab")' %}
-
-{% capture content %}
-
-{% endcapture %}
-
-## Foundational Artificial Intelligence (FAI) Lab
-
-{% include section.html %}
-
-{% include list.html data="members" component="portrait" filter='lab.include?("fai-lab")' %}
+{% include list.html data="members" component="portrait" %}
 
 {% capture content %}
 

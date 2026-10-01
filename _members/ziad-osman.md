@@ -1,11 +1,10 @@
 ---
 name: Ziad Osman
-image: images/members/mlr-lab/ziad.jpg
+image: images/members/ziad.jpg
 role: scientist
 description: Staff Data Scientist
 lab: 
-  - mlr-lab
-  - board
+  - member
 links:
   linkedin: ziad-osman-77920398
   email: ziad.osman@ericsson.com

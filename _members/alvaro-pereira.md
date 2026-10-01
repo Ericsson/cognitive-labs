@@ -1,10 +1,10 @@
 ---
 name: Alvaro Pereira
-image: images/members/gai-lab/alvaro.jpg
+image: images/members/alvaro.jpg
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - gai-lab
+  - maintainer
 links:
   linkedin: alvaro-pere-cha
   github: Pere-03

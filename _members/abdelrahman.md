@@ -1,10 +1,10 @@
 ---
 name: Abdelrahman El Antably
-image: images/members/gai-lab/abdelrahman.png
+image: images/members/abdelrahman.png
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - gai-lab
+  - member
 links:
   linkedin: abdelrahman-el-antably
   github: antably97
