@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Prophet: A Hidden Seasonality Bug | Ericsson Cognitive Labs</title>
+
+<link rel="icon" href="/cognitive-labs/preview/pr-12/images/logo_small.png">
+
+<meta name="title" content="Prophet: A Hidden Seasonality Bug">
+<meta name="description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+
+<meta property="og:title" content="Prophet: A Hidden Seasonality Bug">
+<meta property="og:site_title" content="Ericsson Cognitive Labs">
+<meta property="og:description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+<meta property="og:url" content="/cognitive-labs/preview/pr-12">
+<meta property="og:image" content="/cognitive-labs/preview/pr-12/images/logo_small.png">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Prophet: A Hidden Seasonality Bug">
+<meta property="twitter:description" content="Ericsson Cognitive Labs, opening our AI Research to the world">
+<meta property="twitter:url" content="/cognitive-labs/preview/pr-12">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/cognitive-labs/preview/pr-12/images/logo_small.png">
+
+
+  <meta name="author" content="alvaro-pereira, lucia-ferrer">
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2026-10-01T13:37:40+00:00">
+  <meta property="article:published_time" content="2026-03-08T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-10-01T13:37:40+00:00">
+  <meta name="revised" content="2026-10-01T13:37:40+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "Prophet: A Hidden Seasonality Bug" },
+      "datePublished": "2026-03-08T00:00:00+00:00",
+      "dateModified": "2026-10-01T13:37:40+00:00",
+    
+    "name": "Prophet: A Hidden Seasonality Bug",
+    "description": "Ericsson Cognitive Labs, opening our AI Research to the world",
+    "headline": "Prophet: A Hidden Seasonality Bug",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/cognitive-labs/preview/pr-12/images/logo_small.png" }
+    },
+    "url": "/cognitive-labs/preview/pr-12"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="/cognitive-labs/preview/pr-12/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=ericsson:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/cognitive-labs/preview/pr-12/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/anchors.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/code-copy.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/dark-mode.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/dark-toggle-img.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/fetch-tags.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/search.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/site-search.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/table-wrap.js"></script>
+
+  <script src="/cognitive-labs/preview/pr-12/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/cognitive-labs/preview/pr-12/images/ericsson_background.jpg')" data-dark="true">
+  <a href="/cognitive-labs/preview/pr-12/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FAFAFA;}
+</style>
+<g>
+	<path class="st0" d="M692,53.1c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,143c-35.6,11.9-51.6,26.5-60.6,44.6
+		c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7l404.3-134.8c35.6-11.8,51.6-26.5,60.6-44.6
+		C696.8,95.3,698.9,73.8,692,53.1z"></path>
+	<path class="st0" d="M692,302.6c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,392.5
+		c-35.6,11.9-51.6,26.5-60.6,44.6c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7l404.3-134.7
+		c35.6-11.9,51.6-26.5,60.6-44.7C696.8,344.8,698.9,323.3,692,302.6z"></path>
+	<path class="st0" d="M692,552.2c-6.9-20.6-21.5-36.6-39.6-45.6c-18-9-39.6-11.2-75.2,0.7L172.9,642.1
+		c-35.6,11.9-51.6,26.5-60.6,44.6c-9.1,18-11.2,39.5-4.3,60.2c6.9,20.6,21.5,36.6,39.6,45.6c18,9,39.6,11.2,75.2-0.7L627.1,657
+		c35.6-11.8,51.6-26.5,60.6-44.6C696.8,594.4,698.9,572.9,692,552.2z"></path>
+</g>
+</svg>
+
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">Ericsson Cognitive Labs</span>
+        
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/cognitive-labs/preview/pr-12/publications/" data-tooltip="Published works">
+          Publications
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-12/labs/" data-tooltip="Our research organization">
+          Labs
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-12/team/" data-tooltip="About our team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-12/blog/" data-tooltip="Our insights">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/cognitive-labs/preview/pr-12/contact/" data-tooltip="Email, address, and location">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - wrap each table in div to allow for scrolling
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size>1</size>
+-->
+
+
+<h1 class="center">Prophet: A Hidden Seasonality Bug</h1>
+
+<div class="post-info">
+  
+    
+    
+      
+      
+        
+
+
+
+<div class="portrait-wrapper">
+  <a href="/cognitive-labs/preview/pr-12/members/alvaro-pereira.html" class="portrait" data-style="tiny" aria-label="Alvaro Pereira">
+    
+      <i class="icon fa-solid fa-dna"></i>
+    
+
+    <img src="/cognitive-labs/preview/pr-12/images/members/alvaro.jpg" class="portrait-image" alt="member portrait" loading="lazy" onerror="this.src = '/cognitive-labs/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+
+    
+      <span class="portrait-name">
+        Alvaro Pereira
+      </span>
+    
+
+    
+      <span class="portrait-description">
+        Experienced Data Scientist
+      </span>
+    
+
+    
+  </a>
+</div>
+
+      
+    
+      
+      
+        
+
+
+
+<div class="portrait-wrapper">
+  <a href="/cognitive-labs/preview/pr-12/members/lucia-ferrer.html" class="portrait" data-style="tiny" aria-label="Lucia Ferrer">
+    
+      <i class="icon fa-solid fa-dna"></i>
+    
+
+    <img src="/cognitive-labs/preview/pr-12/images/members/lucia.jpg" class="portrait-image" alt="member portrait" loading="lazy" onerror="this.src = '/cognitive-labs/preview/pr-12/images/fallback.svg'; this.onerror = null;">
+
+    
+      <span class="portrait-name">
+        Lucia Ferrer
+      </span>
+    
+
+    
+      <span class="portrait-description">
+        Experienced Data Scientist
+      </span>
+    
+
+    
+  </a>
+</div>
+
+      
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>March 08, 2026</span>
+    </span>
+  
+
+  
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>October 01, 2026</span>
+    </span>
+  
+</div>
+
+
+  
+
+
+  <div class="tags">
+    
+      <a href='/cognitive-labs/preview/pr-12/blog?search="tag:%20bug-report"' class="tag" data-tooltip='Show items with the tag "bug-report"'>
+        bug-report
+      </a>
+    
+      <a href='/cognitive-labs/preview/pr-12/blog?search="tag:%20engineering"' class="tag" data-tooltip='Show items with the tag "engineering"'>
+        engineering
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<p>Prophet is widely recognized for its automatic parameter fitting, which makes time series forecasting accessible without extensive manual tuning. This is especially attractive when working with many time series at once, where carefully supervising each individual model is simply not feasible.</p>
+
+<p>Relying on this automation and its popularity, we chose Prophet as our main forecasting tool for a large-scale prediction task. Yet we quickly ran into a puzzling issue: some models trained on similar data behaved very differently, with certain runs producing sensible forecasts and others failing dramatically. These inconsistent outcomes raised a key question: what exactly was driving such unstable behavior?</p>
+
+<h2 id="a-puzzling-case-prophet-misfits">A puzzling case: Prophet Misfits.</h2>
+
+<p>To investigate this, imagine you are forecasting hundreds or thousands of series with Prophet and cannot inspect them one by one. When you randomly sample a few forecasts, some of them look completely wrong. To make this situation concrete, throughout this post we will work with a well-known dataset bundled with Prophet: <a href="https://github.com/facebook/prophet/blob/main/examples/example_wp_log_peyton_manning.csv">the daily log page views of Peyton Manning’s Wikipedia page</a>.</p>
+
+<p><img src="/cognitive-labs/preview/pr-12/images/posts/20260308/time_series_plot.png" alt="Prophet example series"></p>
+
+<p>This series is deliberately chosen because it is highly structured and visually “forecastable”; in fact, it appears in Prophet’s own documentation as a canonical example of multiple seasonalities and trend changes. Using this dataset, we will reproduce and analyze the bug, starting by defining a helper function to fit the model and visualize its forecasts in a consistent manner.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Auxiliary to plot and fit
+</span><span class="k">def</span> <span class="nf">train_and_plot_model</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>    
+    <span class="n">model</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>  <span class="c1"># train
+</span>                
+    <span class="n">future</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">make_future_dataframe</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="nf">len</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="sh">'</span><span class="s">D</span><span class="sh">'</span><span class="p">)</span>        
+    <span class="n">forecast</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="nf">predict</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>  <span class="c1"># predict
+</span>                
+    <span class="n">test_forecast</span> <span class="o">=</span> <span class="n">forecast</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="nf">len</span><span class="p">(</span><span class="n">test</span><span class="p">):]</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">mean</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">abs</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="sh">'</span><span class="s">y</span><span class="sh">'</span><span class="p">].</span><span class="n">values</span> <span class="o">-</span> <span class="n">test_forecast</span><span class="p">[</span><span class="sh">'</span><span class="s">yhat</span><span class="sh">'</span><span class="p">].</span><span class="n">values</span><span class="p">))</span>
+            
+    <span class="n">fig</span> <span class="o">=</span> <span class="nf">plot_plotly</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">forecast</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">test_forecast</span><span class="p">,</span> <span class="n">mae</span><span class="p">,</span> <span class="n">fig</span>
+</code></pre></div></div>
+
+<p>This helper takes a training set, a test set, and a Prophet model, fits the model, produces a forecast over the whole horizon, computes a simple MAE on the test window, and returns both the forecast and a Plotly figure. Now that we have a small utility to train, forecast, and visualize, we can plug in the Peyton Manning dataset.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Example data read 
+</span><span class="n">link_dataset</span> <span class="o">=</span> <span class="sh">'</span><span class="s">https://raw.githubusercontent.com/facebook/prophet/main/examples/example_wp_log_peyton_manning.csv</span><span class="sh">'</span>
+<span class="n">polars_df</span> <span class="o">=</span> <span class="n">pl</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">link_dataset</span><span class="p">).</span><span class="nf">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="p">.</span><span class="nf">col</span><span class="p">(</span><span class="sh">'</span><span class="s">ds</span><span class="sh">'</span><span class="p">).</span><span class="nb">str</span><span class="p">.</span><span class="nf">to_date</span><span class="p">())</span>
+
+<span class="c1"># split into train and test
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">polars_df</span><span class="p">.</span><span class="nf">to_pandas</span><span class="p">()</span>
+<span class="n">train_polars</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">300</span><span class="p">].</span><span class="nf">copy</span><span class="p">()</span>
+<span class="n">test_polars</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:].</span><span class="nf">copy</span><span class="p">()</span>
+
+<span class="c1"># fit model 
+</span><span class="n">model_polars</span> <span class="o">=</span> <span class="nc">Prophet</span><span class="p">()</span>
+<span class="n">forecast_polars</span><span class="p">,</span> <span class="n">mae_polars</span><span class="p">,</span> <span class="n">fig_polars</span> <span class="o">=</span> <span class="nf">train_and_plot_model</span><span class="p">(</span><span class="n">train_polars</span><span class="p">,</span>
+                     <span class="n">test_polars</span><span class="p">,</span>
+                     <span class="n">model_polars</span>
+<span class="p">)</span>
+<span class="n">fig_polars</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>This code loads the dataset, splits it into training and test sets, trains a default Prophet model on the training data and generates forecasts.
+From the code alone, everything follows the usual Prophet pattern: i) fit on the historical data, ii) extend the horizon with <code class="language-plaintext highlighter-rouge">make_future_dataframe</code>, and iii) evaluate using a simple MAE. Yet, as the plot below shows, the resulting forecast is completely off, even on the training period! This is our first clue that something deeper is wrong.</p>
+
+<p><img src="/cognitive-labs/preview/pr-12/images/posts/20260308/polars_fit.png" alt="Prophet predictions comparison"></p>
+
+<p>Concerned, you conduct an exhaustive test across your entire dataset, only to discover that the evaluation metrics suggest the models are performing well. What’s going on?</p>
+
+<p>Lets go back to the simplest approach: replicate exactly what the <a href="'https://facebook.github.io/prophet/docs/quick_start.html'"><code class="language-plaintext highlighter-rouge">Prophet Quick start</code></a> guide uses.
+This is the standard, documented way to use Prophet, and if the bug exists even here, it reveals a fundamental flaw in the library itself.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Read
+</span><span class="n">pandas_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="n">link_dataset</span><span class="p">)</span>
+<span class="c1"># by default this dataset read the time column as Object.
+</span><span class="n">pandas_df</span><span class="p">[</span><span class="sh">'</span><span class="s">ds</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">to_datetime</span><span class="p">(</span><span class="n">pandas_df</span><span class="p">[</span><span class="sh">'</span><span class="s">ds</span><span class="sh">'</span><span class="p">])</span>
+
+<span class="c1"># Split
+</span><span class="n">train_pandas</span> <span class="o">=</span> <span class="n">pandas_df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">300</span><span class="p">].</span><span class="nf">copy</span><span class="p">()</span>
+<span class="n">test_pandas</span> <span class="o">=</span> <span class="n">pandas_df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:].</span><span class="nf">copy</span><span class="p">()</span>
+
+<span class="c1"># Train
+</span><span class="n">model_pandas</span> <span class="o">=</span> <span class="nc">Prophet</span><span class="p">()</span>
+<span class="n">forecast_pandas</span><span class="p">,</span> <span class="n">mae_pandas</span><span class="p">,</span> <span class="n">fig_pandas</span> <span class="o">=</span> <span class="nf">train_and_plot_model</span><span class="p">(</span><span class="n">train_pandas</span><span class="p">,</span> 
+                                                           <span class="n">test_pandas</span><span class="p">,</span>
+                                                           <span class="n">model_pandas</span>
+                                                           <span class="p">)</span>
+</code></pre></div></div>
+
+<p>The results are dramatically different: both past values and future forecasts are now accurate.
+Here is an overlapped predictions plot below, where you can see the stark contrast—where the Polars-processed model failed catastrophically, the pandas-processed model succeeds perfectly.</p>
+
+<iframe src="/cognitive-labs/preview/pr-12/images/posts/20260308/predictions_overlap.html" width="100%" height="700px" frameborder="0" style="border: 0px solid #ddd;">
+</iframe>
+
+<p>The only difference between the two approaches is how the data is loaded—yet this single change produces dramatically different predictions. How is this even possible?
+The Polars-processed data and pandas-processed data generate completely opposite results, despite the data values appearing identical when compared:</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+  <div>
+    <strong>Code:</strong>
+    <pre style="background-color: #f6f8fa; padding: 15px; border-radius: 5px; overflow-x: auto;"><code class="language-python">assert (train_pandas == train_polars).all().all()
+assert (test_pandas == test_polars).all().all()</code></pre>
+  </div>
+  <div>
+    <strong>Output:</strong>
+    <div style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 15px; font-family: monospace;">
+      <strong>Success:</strong> No assertion error - data values match perfectly!
+    </div>
+  </div>
+</div>
+
+<p>To understand what went wrong, we need to examine Prophet’s internal implementation. The bug must be in how Prophet processes the data, not in the data itself.</p>
+
+<h2 id="prophets-components-a-quick-refresher">Prophet’s Components: A Quick Refresher</h2>
+
+<p>Prophet decomposes time series forecasts into four key components:</p>
+
+<ul>
+  <li>
+<strong>Trend</strong>: The long-term direction of the data</li>
+  <li>
+<strong>Seasonality</strong>: Recurring patterns that repeat at fixed intervals (daily, weekly, yearly)</li>
+  <li>
+<strong>Regressors</strong>: Additional external variables that influence the forecast</li>
+  <li>
+<strong>Confidence Interval</strong>: Uncertainty bounds around predictions</li>
+</ul>
+
+<p>Regressors are not being used, but we can examine the other three components in the following plot:</p>
+
+<iframe src="/cognitive-labs/preview/pr-12/images/posts/20260308/components_overlapped.html" width="100%" height="700px" frameborder="0" style="border: 0px solid #ddd;">
+</iframe>
+
+<p>The trend and confidence intervals look reasonable: similar for both examples, with only a small shift.
+However, the seasonality component tells a completely different story—it looks dramatically different between the two approaches. This may be the key to understanding what went wrong.</p>
+
+<h2 id="finding-the-seasonality">Finding the Seasonality</h2>
+
+<p>We have to dig deeper into Prophet’s internals to understand where the seasonality detection was failing. The bug had to be somewhere in how Prophet computes its seasonality features.</p>
+
+<p>Let’s examine Prophet’s seasonality functions, found in the file <a href="https://github.com/facebook/prophet/blob/v1.2.2/python/prophet/forecaster.py"><code class="language-plaintext highlighter-rouge">prophet/python/prophet/forecaster.py</code></a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">make_seasonality_features</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">series_order</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Data frame with seasonality features.
+
+    Parameters
+    ----------
+    cls: Prophet class.
+    dates: pd.Series containing timestamps.
+    period: Number of days of the period.
+    series_order: Number of components.
+    prefix: Column name prefix.
+
+    Returns
+    -------
+    pd.DataFrame with seasonality features.
+    </span><span class="sh">"""</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">cls</span><span class="p">.</span><span class="nf">fourier_series</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">period</span><span class="p">,</span> <span class="n">series_order</span><span class="p">)</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sh">'</span><span class="s">{}_delim_{}</span><span class="sh">'</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">features</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Everything looks fine in here, lets take a look on how the fourier series are computed in the method <code class="language-plaintext highlighter-rouge">fourier_series</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Prophet's seasonality detection code
+</span><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">fourier_series</span><span class="p">(</span>
+    <span class="n">dates</span><span class="p">:</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">,</span>
+    <span class="n">period</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+    <span class="n">series_order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">float64</span><span class="p">]:</span>
+    <span class="sh">"""</span><span class="s">Provides Fourier series components with the specified frequency
+    and order.
+
+    Parameters
+    ----------
+    dates: pd.Series containing timestamps.
+    period: Number of days of the period.
+    series_order: Number of components.
+
+    Returns
+    -------
+    Matrix with seasonality features.
+    </span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">series_order</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">series_order must be &gt;= 1</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># convert to days since epoch
+</span>    <span class="n">t</span> <span class="o">=</span> <span class="n">dates</span><span class="p">.</span><span class="nf">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">int64</span><span class="p">)</span> <span class="o">//</span> <span class="n">NANOSECONDS_TO_SECONDS</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3600</span> <span class="o">*</span> <span class="mf">24.</span><span class="p">)</span>
+
+    <span class="n">x_T</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="n">fourier_components</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">((</span><span class="n">dates</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">series_order</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">series_order</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">x_T</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">period</span>
+        <span class="n">fourier_components</span><span class="p">[:,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">fourier_components</span><span class="p">[:,</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fourier_components</span>
+</code></pre></div></div>
+
+<p>This function transforms timestamps into sine and cosine features that capture seasonal patterns. Here’s how it works:</p>
+
+<ol>
+  <li>
+<strong>Convert timestamps (since epoch) to integer values:</strong>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="n">t</span> <span class="o">=</span> <span class="n">dates</span><span class="p">.</span><span class="nf">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">int64</span><span class="p">)</span> <span class="o">//</span> <span class="n">NANOSECONDS_TO_SECONDS</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3600</span> <span class="o">*</span> <span class="mf">24.</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+<strong>Scale time to radians:</strong>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="n">x_T</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+<strong>Generate sine and cosine pairs:</strong>
+    <div class="language-python highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">series_order</span><span class="p">):</span>
+     <span class="n">c</span> <span class="o">=</span> <span class="n">x_T</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">period</span>
+     <span class="n">fourier_components</span><span class="p">[:,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+     <span class="n">fourier_components</span><span class="p">[:,</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>At first glance, this looks solid. But then we noticed something: What is <em><strong>NANOSECONDS_TO_SECONDS</strong></em> constant doing there?</p>
+
+<h2 id="the-root-cause">The Root Cause</h2>
+
+<p>We found it. In Prophet’s initialization code, there’s a constant that reveals the root cause:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Show the hardcoded time unit dependency
+</span><span class="bp">...</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="sh">'</span><span class="s">prophet</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">NANOSECONDS_TO_SECONDS</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span>
+
+<span class="k">class</span> <span class="nc">Prophet</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">stan_backend</span><span class="p">:</span> <span class="n">IStanBackend</span>
+    
+    <span class="sh">"""</span><span class="s">Prophet forecaster.
+</span><span class="gp">...</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p><em><strong>NANOSECONDS_TO_SECONDS</strong></em> is defined as <code class="language-plaintext highlighter-rouge">1000 * 1000 * 1000</code> (10⁹), a conversion factor from nanoseconds to seconds.</p>
+
+<p>When you call <code class="language-plaintext highlighter-rouge">dates.to_numpy(dtype=np.int64)</code>, pandas converts the date Series into an array of integers representing time since the Unix epoch. The actual magnitude of these integers <strong>depends on the datetime resolution of your data</strong>. If your timestamps are stored as <code class="language-plaintext highlighter-rouge">datetime64[ns]</code> (nanoseconds), integers represent nanoseconds, but if they are <code class="language-plaintext highlighter-rouge">datetime64[us]</code>, they represent microseconds.</p>
+
+<p>Prophet doesn’t consider this. It blindly divides by <code class="language-plaintext highlighter-rouge">NANOSECONDS_TO_SECONDS</code> regardless of your timestamp resolution. When the data is in microseconds (or in a different unit: milliseconds, seconds…), dividing by 10⁹ produces values 1000 times smaller (or even to lower scales). This scaled float series implies that the Fourier features become corrupted, and seasonality detection silently fails with no errors, no warnings, just wrong results.</p>
+
+<p><strong>This nanosecond dependency is not documented anywhere in Prophet’s official documentation or API reference</strong>. Users are expected to know this implementation detail, yet there’s no warning or mention of it in the guides or docstrings. This represents a critical vulnerability in Prophet’s design: when the assumption about datetime precision is violated, the model completes training without raising any errors or warnings, while silently producing inaccurate predictions.</p>
+
+<h2 id="the-bug-revealed">The Bug Revealed</h2>
+
+<p>When we checked our data sources, did they have different data resolution? <strong>Yes</strong></p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+  <div>
+    <strong>Code:</strong>
+    <pre style="background-color: #f6f8fa; padding: 15px; border-radius: 5px; overflow-x: auto;"><code class="language-python">print(f"Pandas dtype: {pandas_df['ds'].dtype}")
+print(f"Polars dtype: {df['ds'].dtype}")</code></pre>
+  </div>
+  <div>
+    <strong>Output:</strong>
+    <pre style="background-color: #f6f8fa; padding: 15px; border-radius: 5px; font-family: monospace;">Pandas dtype: datetime64[ns]
+Polars dtype: datetime64[us]</pre>
+  </div>
+</div>
+
+<p>Polars’ default microsecond precision is preserved when converting to pandas with <code class="language-plaintext highlighter-rouge">.to_pandas()</code>, while pandas’ native <code class="language-plaintext highlighter-rouge">pd.to_datetime()</code> uses nanoseconds. This difference invisible to fast equality checks breaks Prophet’s seasonality detection (as Prophet assumes nanoseconds, causing 1000x compression in Fourier features).</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+  <div>
+    <strong>Code:</strong>
+    <pre style="background-color: #f6f8fa; padding: 15px; border-radius: 5px; overflow-x: auto;"><code class="language-python">assert pandas_df['ds'].dtype == df['ds'].dtype, 'wrong dtype'</code></pre>
+  </div>
+  <div>
+    <strong>Output:</strong>
+    <div style="background-color: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; font-family: monospace;">
+      <strong>AssertionError:</strong> wrong dtype<br>
+      Pandas: datetime64[ns]<br>
+      Polars: datetime64[us]<br>
+    </div>
+  </div>
+</div>
+
+<p><strong>Reminder:</strong> Python’s equality operator for dataframes does not check dtypes. To properly validate use <code class="language-plaintext highlighter-rouge">.equals()</code> to catch dtype mismatches that can break Prophet.</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+  <div>
+    <strong>Code:</strong>
+    <pre style="background-color: #f6f8fa; padding: 15px; border-radius: 5px; overflow-x: auto;"><code class="language-python">pandas_df.equals(df)</code></pre>
+  </div>
+  <div>
+    <strong>Output:</strong>
+    <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; font-family: monospace;">
+      <strong>Warning:</strong> Python equality (==) only checks values, not dtypes!<br>
+      Result: False
+    </div>
+  </div>
+</div>
+
+<p><strong>Quick solutions:</strong> Either ensure that you match the resolution of nanoseconds so that Prophet will correctly compute Fourier features for seasonality detection…</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+  <div>
+    <strong>Code:</strong>
+    <pre style="background-color: #f6f8fa; padding: 15px; border-radius: 5px; overflow-x: auto;"><code class="language-python"># Fix: Ensure datetime64[ns] resolution
+df['ds'] = df['ds'].astype('datetime64[ns]')</code></pre>
+  </div>
+  <div>
+    <strong>Output:</strong>
+    <div style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 15px; font-family: monospace;">
+      <strong>Fixed:</strong> Both dataframes now use nanosecond precision!<br>
+      Fixed dtype: datetime64[ns]
+    </div>
+  </div>
+</div>
+
+<p>… Or upgrade to the latest version of Prophet.</p>
+
+<h2 id="pandas-30-and-prophet-130">Pandas 3.0 and Prophet 1.3.0</h2>
+
+<p>By the time this post was published, Pandas 3.0 was released. <a href="https://pandas.pydata.org/community/blog/pandas-3.0.html">Pandas 3.0</a> removed the default <code class="language-plaintext highlighter-rouge">datetime64[ns]</code> resolution.</p>
+
+<p>Prophet 1.3.0 adapted to this by updating the epoch conversion logic, following pandas documentation recommendations:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># New approach in Prophet 1.3.0
+</span><span class="n">epoch</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">Timestamp</span><span class="p">(</span><span class="sh">"</span><span class="s">1970-01-01</span><span class="sh">"</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">dates</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">tz</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">dates</span> <span class="o">-</span> <span class="n">epoch</span><span class="p">).</span><span class="n">dt</span><span class="p">.</span><span class="nf">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This new approach automatically handles any datetime resolution without making assumptions, a fix that should have been in place from the beginning. However, Prophet’s response reveals a critical flaw in its design philosophy: the library was built with implicit assumptions about its input data that were never validated or documented. The <code class="language-plaintext highlighter-rouge">NANOSECONDS_TO_SECONDS</code> constant remains defined in the codebase, though it’s no longer used. Some related GitHub issues remain open, suggesting this fix may not be widely known yet.</p>
+
+<hr>
+<h2 id="replicability-environment-details">Replicability Environment Details</h2>
+<ul>
+  <li>Prophet version: [&lt;=1.2.2]</li>
+  <li>Pandas version: [&lt;3.0]</li>
+</ul>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  <background></background>
+  <dark></dark>
+  <size></size>
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/cognitive-labs/preview/pr-12/2026/02/10/python-packaging-evolution-pip-poetry-uv.html">
+        Python Packaging Revolution: uv
+      </a>
+    
+  </span>
+  <span>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/cognitive-labs/preview/pr-12/images/ericsson_background.jpg')" data-dark="true" data-size="wide">
+  <!--
+    <div>
+      Extra details like contact info or address
+    </div>
+  -->
+
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:oscar.llorente.gonzalez@ericsson.com" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://github.com/EricssonResearch" data-tooltip="GitHub" data-style="bare" aria-label="GitHub">
+      <i class="icon fa-brands fa-github"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://www.linkedin.com/company/ericsson" data-tooltip="LinkedIn" data-style="bare" aria-label="LinkedIn">
+      <i class="icon fa-brands fa-linkedin"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://youtube.com/user/ericsson" data-tooltip="YouTube" data-style="bare" aria-label="YouTube">
+      <i class="icon fa-brands fa-youtube"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://twitter.com/ericsson" data-tooltip="Twitter" data-style="bare" aria-label="Twitter">
+      <i class="icon fa-brands fa-x-twitter"></i>
+      
+    </a>
+  </div>
+
+
+    
+  </div>
+
+  <div>
+    © Telefonaktiebolaget LM Ericsson 1994-2026 | 
+    Ericsson Cognitive Labs
+    <!-- &nbsp; | &nbsp; Built with
+    <a href="https://github.com/greenelab/lab-website-template">
+      Lab Website Template
+    </a> -->
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
