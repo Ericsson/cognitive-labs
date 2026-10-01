@@ -1,6 +1,6 @@
 ---
 name: Juan Ramiro
-image: images/members/leaders/juan.jpg
+image: images/members/juan.jpg
 role: phd
 description: AI Research Lead
 lab: 

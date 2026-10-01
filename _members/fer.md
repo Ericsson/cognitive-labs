@@ -1,6 +1,6 @@
 ---
 name: Fernanda Rodrigues
-image: images/members/leaders/fer.jpg
+image: images/members/fer.jpg
 role: phd
 description: AI Research & Prototyping Manager
 lab: 
