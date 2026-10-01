@@ -1,8 +1,8 @@
 ---
 name: Yak Ng Molina
-image: images/members/leaders/yak.jpg
+image: images/members/yak.jpg
 role: phd
-description: AI Research & Prototyping Manager
+description: Head of Prototype & Research
 lab: 
   - leaders
 links:
