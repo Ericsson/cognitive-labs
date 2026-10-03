@@ -1,6 +1,6 @@
 ---
 title: "Python Packaging Revolution: uv"
-author: oscar-llorente-gonzalez, lucia-ferrer, sangam
+author: oscar-llorente-gonzalez, lucia-ferrer
 tags:
   - engineering
 abstract: Python packaging is a hot topic
