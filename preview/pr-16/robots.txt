@@ -1,1 +1,1 @@
-Sitemap: /cognitive-labs/preview/pr-16/sitemap.xml
+Sitemap: /cognitive-labs/preview/run-26/sitemap.xml
