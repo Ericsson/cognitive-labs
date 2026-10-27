@@ -4,7 +4,7 @@ image: images/members/abdelrahman.png
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - member
+  - ml
 links:
   linkedin: abdelrahman-el-antably
   github: antably97

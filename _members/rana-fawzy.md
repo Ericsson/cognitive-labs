@@ -4,7 +4,7 @@ image: images/members/rana.png
 role: scientist
 description: Senior Data Scientist
 lab: 
-  - member
+  - ml
 links:
   linkedin: ranafawzy
   github: rana-fawzy

@@ -4,7 +4,7 @@ image: images/members/mayar.jpeg
 role: scientist
 description: Senior Data Scientist
 lab: 
-  - member
+  - ml
 links:
   linkedin: mayar-hefny
   github: mayar-ahmed

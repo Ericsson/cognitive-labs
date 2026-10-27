@@ -4,7 +4,8 @@ image: images/members/lucia.jpg
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - maintainer
+  - core
+  - ml
 links:
   linkedin: lucía-ferrer-282a54234
   github: lucia-ferrer

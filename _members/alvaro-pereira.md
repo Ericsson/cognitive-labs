@@ -4,7 +4,8 @@ image: images/members/alvaro.jpg
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - maintainer
+  - core
+  - ml
 links:
   linkedin: alvaro-pere-cha
   github: Pere-03
