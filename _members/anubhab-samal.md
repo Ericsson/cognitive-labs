@@ -4,7 +4,7 @@ image: images/members/anubhab.png
 role: scientist
 description: Senior Data Scientist
 lab: 
-  - maintainer
+  - ml
 links:
   linkedin: anubhab-samal-0a5075183
   github: samalanubhab

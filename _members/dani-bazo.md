@@ -4,7 +4,8 @@ image: images/members/dani.jpeg
 role: scientist
 description: Experienced Data Scientist
 lab: 
-  - maintainer
+  - core
+  - ml
 links:
   linkedin: danibcorr
   github: danibcorr

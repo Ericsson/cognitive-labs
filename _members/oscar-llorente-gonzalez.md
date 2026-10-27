@@ -4,7 +4,8 @@ image: images/members/oscar.jpeg
 role: scientist
 description: Staff Data Scientist
 lab: 
-  - maintainer
+  - core
+  - ml
 links:
   linkedin: osllogon
   github: osllogon

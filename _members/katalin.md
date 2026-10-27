@@ -4,7 +4,7 @@ image: images/members/katalin.jpg
 role: scientist
 description: Senior Data Scientist
 lab: 
-  - member
+  - ml
 links:
   linkedin: katalin-hajdu-szucs
   github: HSzKatalin

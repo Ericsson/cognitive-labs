@@ -4,7 +4,7 @@ image: images/members/arindam.jpg
 role: scientist
 description: Staff Data Scientist
 lab: 
-  - member
+  - ml
 links:
   linkedin: arindam-dey-576309158
   github: Arindam75

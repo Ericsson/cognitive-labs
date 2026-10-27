@@ -4,7 +4,7 @@ image: images/members/ziad.jpg
 role: scientist
 description: Staff Data Scientist
 lab: 
-  - member
+  - ml
 links:
   linkedin: ziad-osman-77920398
   email: ziad.osman@ericsson.com

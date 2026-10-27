@@ -26,6 +26,10 @@ scientist:
   icon: fa-solid fa-dna
   description: Data Scientist
 
+ran_lead:
+  icon: fa-solid fa-tower-broadcast
+  description: AI Ran Technical Lead
+
 software:
   icon: fa-solid fa-code
   description: Software Engineer
